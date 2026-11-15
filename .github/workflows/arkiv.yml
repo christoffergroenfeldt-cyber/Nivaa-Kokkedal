@@ -1,0 +1,36 @@
+name: NKB arkiv (tidligere sæsoner)
+# Kør i hånden én gang: henter afsluttede sæsoner fra badmintonplayer.dk til data/arkiv/ (holdets "Historik" i appen).
+on:
+  workflow_dispatch:
+    inputs:
+      fra:
+        description: "Første sæson (startår)"
+        default: "2010"
+      til:
+        description: "Sidste sæson (startår)"
+        default: "2025"
+permissions:
+  contents: write
+concurrency:
+  group: holdkampe-data
+  cancel-in-progress: false
+jobs:
+  arkiv:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Hent sæsoner
+        run: python tools/fetch_arkiv.py "${{ github.event.inputs.fra }}" "${{ github.event.inputs.til }}"
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/arkiv
+          if git diff --cached --quiet; then echo "Intet nyt."; else
+            git commit -m "Arkiv ${{ github.event.inputs.fra }}–${{ github.event.inputs.til }}"
+            for i in 1 2 3 4 5; do git pull --rebase -q origin main && git push && break; sleep $((i*5)); done
+          fi

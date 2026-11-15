@@ -1,0 +1,207 @@
+{
+ "_info": "Fra nkbadminton.dk → Træningstider (ungdom, senior, veteran/motionist), skrevet af 15/11-2026. RET sæsondatoer og ferier ('skip') — de er sat ud fra skoleferierne i Fredensborg Kommune og er ikke bekræftet af klubben. weekday: 1=mandag … 7=søndag. 'group' = gruppe i appen (Ungdom/Senior/Veteran/Motionist), 'hold' = det konkrete hold, 'venue' = hallen.",
+ "source": "https://www.nkbadminton.dk/cms/?cmsid=856&pageid=26985",
+ "venue": "NKK-hallen, Niverødvej 40, Nivå",
+ "season": {
+  "from": "2026-08-10",
+  "to": "2027-05-28"
+ },
+ "skip": [
+  {
+   "from": "2026-10-10",
+   "to": "2026-10-18",
+   "reason": "Efterårsferie — ingen træning"
+  },
+  {
+   "from": "2026-12-19",
+   "to": "2027-01-03",
+   "reason": "Juleferie — ingen træning"
+  },
+  {
+   "from": "2027-02-13",
+   "to": "2027-02-21",
+   "reason": "Vinterferie — ingen træning"
+  },
+  {
+   "from": "2027-03-20",
+   "to": "2027-03-29",
+   "reason": "Påskeferie — ingen træning"
+  },
+  {
+   "from": "2027-05-06",
+   "to": "2027-05-07",
+   "reason": "Kr. Himmelfart — ingen træning"
+  },
+  {
+   "from": "2027-05-17",
+   "to": "2027-05-17",
+   "reason": "2. pinsedag — ingen træning"
+  }
+ ],
+ "sessions": [
+  {
+   "group": "Ungdom",
+   "weekday": 1,
+   "start": "16:00",
+   "end": "17:00",
+   "hold": "EM1",
+   "ages": "U9-U13",
+   "venue": "Egedalshallen, Kokkedal"
+  },
+  {
+   "group": "Ungdom",
+   "weekday": 1,
+   "start": "16:45",
+   "end": "18:00",
+   "hold": "EM2",
+   "ages": "U13-U15",
+   "venue": "Egedalshallen, Kokkedal"
+  },
+  {
+   "group": "Ungdom",
+   "weekday": 3,
+   "start": "16:00",
+   "end": "17:00",
+   "hold": "EO1",
+   "ages": "U9-U13",
+   "venue": "Egedalshallen, Kokkedal"
+  },
+  {
+   "group": "Ungdom",
+   "weekday": 3,
+   "start": "16:45",
+   "end": "18:00",
+   "hold": "EO2",
+   "ages": "U11-U15",
+   "venue": "Egedalshallen, Kokkedal"
+  },
+  {
+   "group": "Ungdom",
+   "weekday": 3,
+   "start": "18:00",
+   "end": "19:30",
+   "hold": "EO3",
+   "ages": "Elite",
+   "venue": "Egedalshallen, Kokkedal"
+  },
+  {
+   "group": "Ungdom",
+   "weekday": 5,
+   "start": "16:15",
+   "end": "17:15",
+   "hold": "ET1",
+   "ages": "Forældre-barn miniton",
+   "venue": "Egedalshallen, Kokkedal"
+  },
+  {
+   "group": "Ungdom",
+   "weekday": 1,
+   "start": "16:00",
+   "end": "17:15",
+   "hold": "NM1",
+   "ages": "U9-U13",
+   "venue": "NKK-hallen, Niverødvej 40, Nivå"
+  },
+  {
+   "group": "Ungdom",
+   "weekday": 1,
+   "start": "17:00",
+   "end": "18:30",
+   "hold": "NM2",
+   "ages": "U15-U19",
+   "venue": "NKK-hallen, Niverødvej 40, Nivå"
+  },
+  {
+   "group": "Ungdom",
+   "weekday": 3,
+   "start": "16:00",
+   "end": "17:00",
+   "hold": "NO1",
+   "ages": "U9-U11",
+   "venue": "NKK-hallen, Niverødvej 40, Nivå"
+  },
+  {
+   "group": "Ungdom",
+   "weekday": 3,
+   "start": "16:45",
+   "end": "18:00",
+   "hold": "NO2",
+   "ages": "U13-U15",
+   "venue": "NKK-hallen, Niverødvej 40, Nivå"
+  },
+  {
+   "group": "Ungdom",
+   "weekday": 5,
+   "start": "16:00",
+   "end": "17:30",
+   "hold": "NF1",
+   "ages": "Udtagelseshold",
+   "venue": "NKK-hallen, Niverødvej 40, Nivå"
+  },
+  {
+   "group": "Ungdom",
+   "weekday": 5,
+   "start": "17:15",
+   "end": "19:00",
+   "hold": "NF2",
+   "ages": "Elite",
+   "venue": "NKK-hallen, Niverødvej 40, Nivå"
+  },
+  {
+   "group": "Senior",
+   "weekday": 1,
+   "start": "18:00",
+   "end": "20:00",
+   "hold": "Gruppe 1",
+   "venue": "Egedalshallen, Kokkedal"
+  },
+  {
+   "group": "Senior",
+   "weekday": 1,
+   "start": "19:45",
+   "end": "21:45",
+   "hold": "Gruppe 2",
+   "venue": "Egedalshallen, Kokkedal"
+  },
+  {
+   "group": "Senior",
+   "weekday": 3,
+   "start": "18:00",
+   "end": "20:00",
+   "hold": "Gruppe 1",
+   "venue": "NKK-hallen, Niverødvej 40, Nivå"
+  },
+  {
+   "group": "Senior",
+   "weekday": 3,
+   "start": "19:45",
+   "end": "21:45",
+   "hold": "Gruppe 2",
+   "venue": "NKK-hallen, Niverødvej 40, Nivå"
+  },
+  {
+   "group": "Veteran",
+   "weekday": 1,
+   "start": "18:30",
+   "end": "20:15",
+   "venue": "NKK-hallen, Niverødvej 40, Nivå"
+  },
+  {
+   "group": "Motionist",
+   "weekday": 1,
+   "start": "20:15",
+   "end": "21:30",
+   "hold": "Mindre øvede",
+   "venue": "NKK-hallen, Niverødvej 40, Nivå"
+  },
+  {
+   "group": "Motionist",
+   "weekday": 3,
+   "start": "19:30",
+   "end": "21:00",
+   "hold": "Øvede",
+   "venue": "Egedalshallen, Kokkedal"
+  }
+ ],
+ "events": []
+}

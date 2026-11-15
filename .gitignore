@@ -1,0 +1,5 @@
+debug_html/
+__pycache__/
+.env
+supabase/functions/.env
+supabase/.temp/
