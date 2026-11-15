@@ -1,6 +1,6 @@
 {
   "_info": "registrationUrl = adressen på Supabase-funktionen (https://<projekt-id>.supabase.co/functions/v1/api). Tom = login slået fra. appUrl = appens adresse med / til sidst (bruges i push-links). vapidPublicKey = den offentlige VAPID-nøgle til push.",
   "registrationUrl": "",
-  "appUrl": "",
+  "appUrl": "https://christoffergroenfeldt-cyber.github.io/Nivaa-Kokkedal/",
   "vapidPublicKey": "BGvf_s0NnrjkK4WSDZl3yei2r6RazV0eQNExqBwcYIgwUtWLVrhfQVLWiUCy1AjgBXIwJlc9kcCZZmuTOSUHxbM"
 }
