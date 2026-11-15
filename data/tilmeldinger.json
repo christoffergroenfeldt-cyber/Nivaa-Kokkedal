@@ -1,6 +1,14 @@
 {
- "updated": "2026-11-15T15:30:13+00:00",
- "status": [],
+ "updated": "2026-11-15T15:45:12+00:00",
+ "status": [
+  {
+   "e": "m:513060",
+   "p": "11010",
+   "n": "Christoffer Grønfeldt",
+   "s": "ja",
+   "ts": "2026-11-15T15:38:09.783Z"
+  }
+ ],
  "lineups": [],
  "scriptHasLineups": true
 }
