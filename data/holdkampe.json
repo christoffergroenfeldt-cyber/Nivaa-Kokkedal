@@ -1,9 +1,1076 @@
 {
-  "updated": "2026-11-15T11:02:26+00:00",
+  "updated": "2026-11-15T12:21:03+00:00",
   "season": "2026",
   "clubID": "1153",
   "source": "badmintonplayer.dk",
   "teams": [
+    {
+      "name": "Nivå-Kokkedal 4",
+      "pulje": "U15 D, 4500 (4 piger) Pulje 1",
+      "label": "U15 D",
+      "position": "2",
+      "standing": [
+        {
+          "pos": "1",
+          "team": "Hillerød 4",
+          "teamID": "124488",
+          "isUs": false,
+          "played": "4",
+          "won": "3",
+          "score": "26-6",
+          "sets": "46-15",
+          "points": "14"
+        },
+        {
+          "pos": "2",
+          "team": "Nivå-Kokkedal 4",
+          "teamID": "124492",
+          "isUs": true,
+          "played": "3",
+          "won": "3",
+          "score": "23-1",
+          "sets": "47-4",
+          "points": "12"
+        },
+        {
+          "pos": "3",
+          "team": "Slangerup 2",
+          "teamID": "124494",
+          "isUs": false,
+          "played": "2",
+          "won": "2",
+          "score": "14-2",
+          "sets": "29-7",
+          "points": "8"
+        },
+        {
+          "pos": "4",
+          "team": "Lundtofte 3",
+          "teamID": "124496",
+          "isUs": false,
+          "played": "2",
+          "won": "2",
+          "score": "11-5",
+          "sets": "22-12",
+          "points": "7"
+        },
+        {
+          "pos": "5",
+          "team": "Gentofte 3",
+          "teamID": "124490",
+          "isUs": false,
+          "played": "2",
+          "won": "1",
+          "score": "12-4",
+          "sets": "24-2",
+          "points": "6"
+        },
+        {
+          "pos": "6",
+          "team": "Vallensbæk 2",
+          "teamID": "124493",
+          "isUs": false,
+          "played": "2",
+          "won": "1",
+          "score": "8-8",
+          "sets": "17-19",
+          "points": "4"
+        },
+        {
+          "pos": "7",
+          "team": "Brøndby BK 2",
+          "teamID": "124495",
+          "isUs": false,
+          "played": "3",
+          "won": "1",
+          "score": "11-13",
+          "sets": "9-27",
+          "points": "4"
+        },
+        {
+          "pos": "8",
+          "team": "Badminton Roskilde 7",
+          "teamID": "124497",
+          "isUs": false,
+          "played": "4",
+          "won": "1",
+          "score": "10-22",
+          "sets": "24-44",
+          "points": "4"
+        },
+        {
+          "pos": "9",
+          "team": "Birkerød BK13 4",
+          "teamID": "124491",
+          "isUs": false,
+          "played": "4",
+          "won": "0",
+          "score": "5-27",
+          "sets": "14-54",
+          "points": "1"
+        },
+        {
+          "pos": "10",
+          "team": "Charlottenlund 2",
+          "teamID": "124489",
+          "isUs": false,
+          "played": "4",
+          "won": "0",
+          "score": "0-32",
+          "sets": "0-48",
+          "points": "0"
+        }
+      ],
+      "leagueGroupID": "19093",
+      "ageGroupID": "5",
+      "leagueGroupTeamID": "124492",
+      "bpArgs": {
+        "seasonID": "2026",
+        "leagueGroupID": "19093",
+        "ageGroupID": "5",
+        "regionID": "8",
+        "leagueGroupTeamID": "124492",
+        "clubID": "1153",
+        "playerID": ""
+      },
+      "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#3,2026,19093,5,8,124492,,1153,",
+      "standingUrl": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#2,2026,19093,5,8,,,1153,",
+      "matches": [
+        {
+          "date": "2026-10-25",
+          "time": "10:30",
+          "home": "Nivå-Kokkedal 4",
+          "away": "Birkerød BK13 4",
+          "isHome": true,
+          "opponent": "Birkerød BK13 4",
+          "organiser": "Nivå-Kokkedal",
+          "venue": "NKK-Hallen",
+          "result": "8-0",
+          "points": "4-0",
+          "outcome": "V",
+          "walkover": "",
+          "played": true,
+          "matchID": "514014",
+          "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19093,5,8,,514014,1153,",
+          "games": [
+            {
+              "discipline": "1. DD",
+              "home": [
+                {
+                  "id": "325724",
+                  "name": "Ingrid Skov Nielsen"
+                },
+                {
+                  "id": "360099",
+                  "name": "Selma Wind Kegel"
+                }
+              ],
+              "away": [
+                {
+                  "id": "360134",
+                  "name": "Emily Walbech"
+                },
+                {
+                  "id": "356056",
+                  "name": "Ida Margrethe Overkær Albrechtsen"
+                }
+              ],
+              "sets": [
+                [
+                  15,
+                  8
+                ],
+                [
+                  15,
+                  7
+                ]
+              ],
+              "winner": "home",
+              "walkover": ""
+            },
+            {
+              "discipline": "4. DD",
+              "home": [
+                {
+                  "id": "357082",
+                  "name": "Sophia Thorborg Mørk"
+                },
+                {
+                  "id": "358872",
+                  "name": "Celine Z. Byrn"
+                }
+              ],
+              "away": [
+                {
+                  "id": "343205",
+                  "name": "Filippa Scott Amineh"
+                },
+                {
+                  "id": "356058",
+                  "name": "Sofie Thaulow"
+                }
+              ],
+              "sets": [
+                [
+                  15,
+                  8
+                ],
+                [
+                  15,
+                  8
+                ]
+              ],
+              "winner": "home",
+              "walkover": ""
+            },
+            {
+              "discipline": "2. DD",
+              "home": [
+                {
+                  "id": "325724",
+                  "name": "Ingrid Skov Nielsen"
+                },
+                {
+                  "id": "358875",
+                  "name": "Sofie Visby Sandbæk"
+                }
+              ],
+              "away": [
+                {
+                  "id": "360134",
+                  "name": "Emily Walbech"
+                },
+                {
+                  "id": "343205",
+                  "name": "Filippa Scott Amineh"
+                }
+              ],
+              "sets": [
+                [
+                  15,
+                  5
+                ],
+                [
+                  15,
+                  5
+                ]
+              ],
+              "winner": "home",
+              "walkover": ""
+            },
+            {
+              "discipline": "3. DD",
+              "home": [
+                {
+                  "id": "360099",
+                  "name": "Selma Wind Kegel"
+                },
+                {
+                  "id": "358872",
+                  "name": "Celine Z. Byrn"
+                }
+              ],
+              "away": [
+                {
+                  "id": "356056",
+                  "name": "Ida Margrethe Overkær Albrechtsen"
+                },
+                {
+                  "id": "356058",
+                  "name": "Sofie Thaulow"
+                }
+              ],
+              "sets": [
+                [
+                  15,
+                  13
+                ],
+                [
+                  15,
+                  4
+                ]
+              ],
+              "winner": "home",
+              "walkover": ""
+            },
+            {
+              "discipline": "1. DS",
+              "home": [
+                {
+                  "id": "325724",
+                  "name": "Ingrid Skov Nielsen"
+                }
+              ],
+              "away": [
+                {
+                  "id": "360134",
+                  "name": "Emily Walbech"
+                }
+              ],
+              "sets": [
+                [
+                  15,
+                  4
+                ],
+                [
+                  15,
+                  3
+                ]
+              ],
+              "winner": "home",
+              "walkover": ""
+            },
+            {
+              "discipline": "2. DS",
+              "home": [
+                {
+                  "id": "358875",
+                  "name": "Sofie Visby Sandbæk"
+                }
+              ],
+              "away": [
+                {
+                  "id": "356056",
+                  "name": "Ida Margrethe Overkær Albrechtsen"
+                }
+              ],
+              "sets": [
+                [
+                  15,
+                  4
+                ],
+                [
+                  15,
+                  3
+                ]
+              ],
+              "winner": "home",
+              "walkover": ""
+            },
+            {
+              "discipline": "3. DS",
+              "home": [
+                {
+                  "id": "358872",
+                  "name": "Celine Z. Byrn"
+                }
+              ],
+              "away": [
+                {
+                  "id": "343205",
+                  "name": "Filippa Scott Amineh"
+                }
+              ],
+              "sets": [
+                [
+                  15,
+                  7
+                ],
+                [
+                  12,
+                  15
+                ],
+                [
+                  15,
+                  9
+                ]
+              ],
+              "winner": "home",
+              "walkover": ""
+            },
+            {
+              "discipline": "4. DS",
+              "home": [
+                {
+                  "id": "357082",
+                  "name": "Sophia Thorborg Mørk"
+                }
+              ],
+              "away": [
+                {
+                  "id": "356058",
+                  "name": "Sofie Thaulow"
+                }
+              ],
+              "sets": [
+                [
+                  15,
+                  4
+                ],
+                [
+                  15,
+                  3
+                ]
+              ],
+              "winner": "home",
+              "walkover": ""
+            }
+          ],
+          "travel": {
+            "min": 0,
+            "km": 0,
+            "precision": "hal",
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
+          }
+        },
+        {
+          "date": "2026-10-25",
+          "time": "13:00",
+          "home": "Nivå-Kokkedal 4",
+          "away": "Vallensbæk 2",
+          "isHome": true,
+          "opponent": "Vallensbæk 2",
+          "organiser": "Nivå-Kokkedal",
+          "venue": "NKK-Hallen",
+          "result": "7-1",
+          "points": "4-0",
+          "outcome": "V",
+          "walkover": "",
+          "played": true,
+          "matchID": "514016",
+          "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19093,5,8,,514016,1153,",
+          "games": [
+            {
+              "discipline": "1. DD",
+              "home": [
+                {
+                  "id": "358875",
+                  "name": "Sofie Visby Sandbæk"
+                },
+                {
+                  "id": "360099",
+                  "name": "Selma Wind Kegel"
+                }
+              ],
+              "away": [
+                {
+                  "id": "343708",
+                  "name": "Ashita Chaudhary"
+                },
+                {
+                  "id": "343887",
+                  "name": "Simra Fatima Ahmed"
+                }
+              ],
+              "sets": [
+                [
+                  13,
+                  15
+                ],
+                [
+                  15,
+                  8
+                ],
+                [
+                  15,
+                  13
+                ]
+              ],
+              "winner": "home",
+              "walkover": ""
+            },
+            {
+              "discipline": "4. DD",
+              "home": [
+                {
+                  "id": "318087",
+                  "name": "Ellen Merland"
+                },
+                {
+                  "id": "357082",
+                  "name": "Sophia Thorborg Mørk"
+                }
+              ],
+              "away": [
+                {
+                  "id": "343792",
+                  "name": "Yuchen Zheng"
+                },
+                {
+                  "id": "343759",
+                  "name": "Sofia Alam"
+                }
+              ],
+              "sets": [
+                [
+                  15,
+                  13
+                ],
+                [
+                  15,
+                  7
+                ]
+              ],
+              "winner": "home",
+              "walkover": ""
+            },
+            {
+              "discipline": "2. DD",
+              "home": [
+                {
+                  "id": "358875",
+                  "name": "Sofie Visby Sandbæk"
+                },
+                {
+                  "id": "318087",
+                  "name": "Ellen Merland"
+                }
+              ],
+              "away": [
+                {
+                  "id": "368226",
+                  "name": "Lucca Grøndahl"
+                },
+                {
+                  "id": "343792",
+                  "name": "Yuchen Zheng"
+                }
+              ],
+              "sets": [
+                [
+                  15,
+                  10
+                ],
+                [
+                  15,
+                  9
+                ]
+              ],
+              "winner": "home",
+              "walkover": ""
+            },
+            {
+              "discipline": "3. DD",
+              "home": [
+                {
+                  "id": "357082",
+                  "name": "Sophia Thorborg Mørk"
+                },
+                {
+                  "id": "358872",
+                  "name": "Celine Z. Byrn"
+                }
+              ],
+              "away": [
+                {
+                  "id": "343887",
+                  "name": "Simra Fatima Ahmed"
+                },
+                {
+                  "id": "343759",
+                  "name": "Sofia Alam"
+                }
+              ],
+              "sets": [
+                [
+                  15,
+                  8
+                ],
+                [
+                  15,
+                  11
+                ]
+              ],
+              "winner": "home",
+              "walkover": ""
+            },
+            {
+              "discipline": "1. DS",
+              "home": [
+                {
+                  "id": "360099",
+                  "name": "Selma Wind Kegel"
+                }
+              ],
+              "away": [
+                {
+                  "id": "343887",
+                  "name": "Simra Fatima Ahmed"
+                }
+              ],
+              "sets": [
+                [
+                  15,
+                  12
+                ],
+                [
+                  15,
+                  17
+                ],
+                [
+                  14,
+                  16
+                ]
+              ],
+              "winner": "away",
+              "walkover": ""
+            },
+            {
+              "discipline": "2. DS",
+              "home": [
+                {
+                  "id": "358875",
+                  "name": "Sofie Visby Sandbæk"
+                }
+              ],
+              "away": [
+                {
+                  "id": "343708",
+                  "name": "Ashita Chaudhary"
+                }
+              ],
+              "sets": [
+                [
+                  15,
+                  7
+                ],
+                [
+                  15,
+                  10
+                ]
+              ],
+              "winner": "home",
+              "walkover": ""
+            },
+            {
+              "discipline": "3. DS",
+              "home": [
+                {
+                  "id": "318087",
+                  "name": "Ellen Merland"
+                }
+              ],
+              "away": [
+                {
+                  "id": "343759",
+                  "name": "Sofia Alam"
+                }
+              ],
+              "sets": [
+                [
+                  15,
+                  7
+                ],
+                [
+                  15,
+                  8
+                ]
+              ],
+              "winner": "home",
+              "walkover": ""
+            },
+            {
+              "discipline": "4. DS",
+              "home": [
+                {
+                  "id": "357082",
+                  "name": "Sophia Thorborg Mørk"
+                }
+              ],
+              "away": [
+                {
+                  "id": "368226",
+                  "name": "Lucca Grøndahl"
+                }
+              ],
+              "sets": [
+                [
+                  15,
+                  11
+                ],
+                [
+                  15,
+                  7
+                ]
+              ],
+              "winner": "home",
+              "walkover": ""
+            }
+          ],
+          "travel": {
+            "min": 0,
+            "km": 0,
+            "precision": "hal",
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
+          }
+        },
+        {
+          "date": "2026-11-15",
+          "time": "11:30",
+          "home": "Charlottenlund 2",
+          "away": "Nivå-Kokkedal 4",
+          "isHome": false,
+          "opponent": "Charlottenlund 2",
+          "organiser": "Charlottenlund",
+          "venue": "CBK-Hallen",
+          "result": "0-8",
+          "points": "0-4",
+          "outcome": "V",
+          "walkover": "Afb.",
+          "played": true,
+          "matchID": "514024",
+          "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19093,5,8,,514024,1153,",
+          "games": [
+            {
+              "discipline": "1. DD",
+              "home": [],
+              "away": [
+                {
+                  "id": "358875",
+                  "name": "Sofie Visby Sandbæk"
+                },
+                {
+                  "id": "360099",
+                  "name": "Selma Wind Kegel"
+                }
+              ],
+              "sets": [],
+              "winner": "away",
+              "walkover": ""
+            },
+            {
+              "discipline": "4. DD",
+              "home": [],
+              "away": [
+                {
+                  "id": "358872",
+                  "name": "Celine Z. Byrn"
+                },
+                {
+                  "id": "357082",
+                  "name": "Sophia Thorborg Mørk"
+                }
+              ],
+              "sets": [],
+              "winner": "away",
+              "walkover": ""
+            },
+            {
+              "discipline": "2. DD",
+              "home": [],
+              "away": [
+                {
+                  "id": "360099",
+                  "name": "Selma Wind Kegel"
+                },
+                {
+                  "id": "357082",
+                  "name": "Sophia Thorborg Mørk"
+                }
+              ],
+              "sets": [],
+              "winner": "away",
+              "walkover": ""
+            },
+            {
+              "discipline": "3. DD",
+              "home": [],
+              "away": [
+                {
+                  "id": "358875",
+                  "name": "Sofie Visby Sandbæk"
+                },
+                {
+                  "id": "358872",
+                  "name": "Celine Z. Byrn"
+                }
+              ],
+              "sets": [],
+              "winner": "away",
+              "walkover": ""
+            },
+            {
+              "discipline": "1. DS",
+              "home": [],
+              "away": [
+                {
+                  "id": "358875",
+                  "name": "Sofie Visby Sandbæk"
+                }
+              ],
+              "sets": [],
+              "winner": "away",
+              "walkover": ""
+            },
+            {
+              "discipline": "2. DS",
+              "home": [],
+              "away": [
+                {
+                  "id": "358872",
+                  "name": "Celine Z. Byrn"
+                }
+              ],
+              "sets": [],
+              "winner": "away",
+              "walkover": ""
+            },
+            {
+              "discipline": "3. DS",
+              "home": [],
+              "away": [
+                {
+                  "id": "357082",
+                  "name": "Sophia Thorborg Mørk"
+                }
+              ],
+              "sets": [],
+              "winner": "away",
+              "walkover": ""
+            },
+            {
+              "discipline": "4. DS",
+              "home": [],
+              "away": [
+                {
+                  "id": "360099",
+                  "name": "Selma Wind Kegel"
+                }
+              ],
+              "sets": [],
+              "winner": "away",
+              "walkover": ""
+            }
+          ],
+          "travel": {
+            "min": 23,
+            "km": 25,
+            "precision": "by",
+            "lat": 55.7553,
+            "lon": 12.5671,
+            "query": "CBK-Hallen, Charlottenlund"
+          }
+        },
+        {
+          "date": "2026-11-15",
+          "time": "12:30",
+          "home": "Brøndby BK 2",
+          "away": "Nivå-Kokkedal 4",
+          "isHome": false,
+          "opponent": "Brøndby BK 2",
+          "organiser": "Charlottenlund",
+          "venue": "CBK-Hallen",
+          "result": null,
+          "points": null,
+          "outcome": null,
+          "walkover": "",
+          "played": false,
+          "matchID": "514025",
+          "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19093,5,8,,514025,1153,",
+          "games": [],
+          "travel": {
+            "min": 23,
+            "km": 25,
+            "precision": "by",
+            "lat": 55.7553,
+            "lon": 12.5671,
+            "query": "CBK-Hallen, Charlottenlund"
+          }
+        },
+        {
+          "date": "2027-01-16",
+          "time": "14:00",
+          "home": "Slangerup 2",
+          "away": "Nivå-Kokkedal 4",
+          "isHome": false,
+          "opponent": "Slangerup 2",
+          "organiser": "Lundtofte",
+          "venue": "Lundtoftehallen",
+          "result": null,
+          "points": null,
+          "outcome": null,
+          "walkover": "",
+          "played": false,
+          "matchID": "516356",
+          "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19093,5,8,,516356,1153,",
+          "games": [],
+          "travel": {
+            "min": 17,
+            "km": 20,
+            "precision": "by",
+            "lat": 55.7922,
+            "lon": 12.5192,
+            "query": "Lundtoftehallen, Lundtofte"
+          }
+        },
+        {
+          "date": "2027-01-16",
+          "time": "16:00",
+          "home": "Nivå-Kokkedal 4",
+          "away": "Lundtofte 3",
+          "isHome": true,
+          "opponent": "Lundtofte 3",
+          "organiser": "Lundtofte",
+          "venue": "Lundtoftehallen",
+          "result": null,
+          "points": null,
+          "outcome": null,
+          "walkover": "",
+          "played": false,
+          "matchID": "516358",
+          "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19093,5,8,,516358,1153,",
+          "games": [],
+          "travel": {
+            "min": 17,
+            "km": 20,
+            "precision": "by",
+            "lat": 55.7922,
+            "lon": 12.5192,
+            "query": "Lundtoftehallen, Lundtofte"
+          }
+        },
+        {
+          "date": "2027-02-07",
+          "time": "11:30",
+          "home": "Nivå-Kokkedal 4",
+          "away": "Hillerød 4",
+          "isHome": true,
+          "opponent": "Hillerød 4",
+          "organiser": "Nivå-Kokkedal",
+          "venue": "NKK-Hallen",
+          "result": null,
+          "points": null,
+          "outcome": null,
+          "walkover": "",
+          "played": false,
+          "matchID": "514043",
+          "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19093,5,8,,514043,1153,",
+          "games": [],
+          "travel": {
+            "min": 0,
+            "km": 0,
+            "precision": "hal",
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
+          }
+        },
+        {
+          "date": "2027-03-06",
+          "time": "09:00",
+          "home": "Badminton Roskilde 7",
+          "away": "Nivå-Kokkedal 4",
+          "isHome": false,
+          "opponent": "Badminton Roskilde 7",
+          "organiser": "Badminton Roskilde",
+          "venue": "HBH Hallen 4-6",
+          "result": null,
+          "points": null,
+          "outcome": null,
+          "walkover": "",
+          "played": false,
+          "matchID": "514049",
+          "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19093,5,8,,514049,1153,",
+          "games": [],
+          "travel": {
+            "min": null,
+            "km": 52,
+            "precision": "by",
+            "lat": 55.6433,
+            "lon": 12.0819,
+            "query": "HBH Hallen, Roskilde"
+          }
+        },
+        {
+          "date": "2027-03-06",
+          "time": "11:00",
+          "home": "Nivå-Kokkedal 4",
+          "away": "Gentofte 3",
+          "isHome": true,
+          "opponent": "Gentofte 3",
+          "organiser": "Badminton Roskilde",
+          "venue": "HBH Hallen 4-6",
+          "result": null,
+          "points": null,
+          "outcome": null,
+          "walkover": "",
+          "played": false,
+          "matchID": "514050",
+          "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19093,5,8,,514050,1153,",
+          "games": [],
+          "travel": {
+            "min": null,
+            "km": 52,
+            "precision": "by",
+            "lat": 55.6433,
+            "lon": 12.0819,
+            "query": "HBH Hallen, Roskilde"
+          }
+        }
+      ],
+      "players": [
+        {
+          "id": "358875",
+          "name": "Sofie Visby Sandbæk",
+          "games": 8,
+          "won": 8,
+          "disciplines": [
+            "DD",
+            "DS"
+          ],
+          "url": "https://badmintonplayer.dk/DBF/Spiller/VisSpiller/#358875"
+        },
+        {
+          "id": "357082",
+          "name": "Sophia Thorborg Mørk",
+          "games": 8,
+          "won": 8,
+          "disciplines": [
+            "DD",
+            "DS"
+          ],
+          "url": "https://badmintonplayer.dk/DBF/Spiller/VisSpiller/#357082"
+        },
+        {
+          "id": "358872",
+          "name": "Celine Z. Byrn",
+          "games": 7,
+          "won": 7,
+          "disciplines": [
+            "DD",
+            "DS"
+          ],
+          "url": "https://badmintonplayer.dk/DBF/Spiller/VisSpiller/#358872"
+        },
+        {
+          "id": "360099",
+          "name": "Selma Wind Kegel",
+          "games": 7,
+          "won": 6,
+          "disciplines": [
+            "DD",
+            "DS"
+          ],
+          "url": "https://badmintonplayer.dk/DBF/Spiller/VisSpiller/#360099"
+        },
+        {
+          "id": "318087",
+          "name": "Ellen Merland",
+          "games": 3,
+          "won": 3,
+          "disciplines": [
+            "DD",
+            "DS"
+          ],
+          "url": "https://badmintonplayer.dk/DBF/Spiller/VisSpiller/#318087"
+        },
+        {
+          "id": "325724",
+          "name": "Ingrid Skov Nielsen",
+          "games": 3,
+          "won": 3,
+          "disciplines": [
+            "DD",
+            "DS"
+          ],
+          "url": "https://badmintonplayer.dk/DBF/Spiller/VisSpiller/#325724"
+        }
+      ]
+    },
     {
       "name": "Nivå-Kokkedal 3",
       "pulje": "Serie 1 Pulje 1",
@@ -548,12 +1615,12 @@
             }
           ],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         },
         {
@@ -944,8 +2011,8 @@
             }
           ],
           "travel": {
-            "min": 64,
-            "km": 84,
+            "min": 66,
+            "km": 91,
             "precision": "hal",
             "lat": 55.6635,
             "lon": 11.6282,
@@ -1386,12 +2453,12 @@
             }
           ],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         },
         {
@@ -1774,8 +2841,8 @@
             }
           ],
           "travel": {
-            "min": 62,
-            "km": 84,
+            "min": 64,
+            "km": 91,
             "precision": "hal",
             "lat": 55.4478,
             "lon": 11.8006,
@@ -1800,12 +2867,12 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,18928,1,10,,509612,1153,",
           "games": [],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         },
         {
@@ -1826,12 +2893,12 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,18928,1,10,,509616,1153,",
           "games": [],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         }
       ],
@@ -2634,12 +3701,12 @@
             }
           ],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         },
         {
@@ -3080,7 +4147,7 @@
             }
           ],
           "travel": {
-            "min": 0,
+            "min": null,
             "km": 0,
             "precision": "hal",
             "lat": 55.8783,
@@ -3534,12 +4601,12 @@
             }
           ],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         },
         {
@@ -3988,8 +5055,8 @@
             }
           ],
           "travel": {
-            "min": 18,
-            "km": 18,
+            "min": 11,
+            "km": 8,
             "precision": "by",
             "lat": 55.9922,
             "lon": 12.5014,
@@ -4442,8 +5509,8 @@
             }
           ],
           "travel": {
-            "min": 30,
-            "km": 29,
+            "min": 33,
+            "km": 35,
             "precision": "by",
             "lat": 55.6872,
             "lon": 12.4915,
@@ -4468,12 +5535,12 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,18858,1,1,,507829,1153,",
           "games": [],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         },
         {
@@ -4494,12 +5561,12 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,18858,1,1,,507833,1153,",
           "games": [],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         }
       ],
@@ -5211,12 +6278,12 @@
             }
           ],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         },
         {
@@ -5653,8 +6720,8 @@
             }
           ],
           "travel": {
-            "min": 43,
-            "km": 38,
+            "min": 36,
+            "km": 31,
             "precision": "hal",
             "lat": 56.1242,
             "lon": 12.3006,
@@ -6107,12 +7174,12 @@
             }
           ],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         },
         {
@@ -6561,8 +7628,8 @@
             }
           ],
           "travel": {
-            "min": 23,
-            "km": 19,
+            "min": 25,
+            "km": 18,
             "precision": "hal",
             "lat": 55.9204,
             "lon": 12.2997,
@@ -7011,8 +8078,8 @@
             }
           ],
           "travel": {
-            "min": 31,
-            "km": 32,
+            "min": 34,
+            "km": 39,
             "precision": "by",
             "lat": 55.7474,
             "lon": 12.3181,
@@ -7037,12 +8104,12 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,18929,1,10,,509640,1153,",
           "games": [],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         },
         {
@@ -7063,12 +8130,12 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,18929,1,10,,509644,1153,",
           "games": [],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         }
       ],
@@ -7412,7 +8479,7 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19105,4,10,,514862,1153,",
           "games": [],
           "travel": {
-            "min": 14,
+            "min": null,
             "km": 12,
             "precision": "hal",
             "lat": 55.9344,
@@ -7694,7 +8761,7 @@
             }
           ],
           "travel": {
-            "min": 14,
+            "min": null,
             "km": 12,
             "precision": "hal",
             "lat": 55.9344,
@@ -7720,7 +8787,7 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19105,4,10,,514460,1153,",
           "games": [],
           "travel": {
-            "min": 42,
+            "min": null,
             "km": 38,
             "precision": "hal",
             "lat": 55.8305,
@@ -7746,7 +8813,7 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19105,4,10,,514462,1153,",
           "games": [],
           "travel": {
-            "min": 42,
+            "min": null,
             "km": 38,
             "precision": "hal",
             "lat": 55.8305,
@@ -7772,8 +8839,8 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19105,4,10,,514900,1153,",
           "games": [],
           "travel": {
-            "min": 13,
-            "km": 9,
+            "min": 16,
+            "km": 16,
             "precision": "hal",
             "lat": 55.8253,
             "lon": 12.5418,
@@ -7798,8 +8865,8 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19105,4,10,,514901,1153,",
           "games": [],
           "travel": {
-            "min": 13,
-            "km": 9,
+            "min": 16,
+            "km": 16,
             "precision": "hal",
             "lat": 55.8253,
             "lon": 12.5418,
@@ -7824,7 +8891,7 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19105,4,10,,514907,1153,",
           "games": [],
           "travel": {
-            "min": 32,
+            "min": null,
             "km": 27,
             "precision": "by",
             "lat": 55.8456,
@@ -7850,7 +8917,7 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19105,4,10,,514908,1153,",
           "games": [],
           "travel": {
-            "min": 32,
+            "min": null,
             "km": 27,
             "precision": "by",
             "lat": 55.8456,
@@ -7876,7 +8943,7 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19105,4,10,,514913,1153,",
           "games": [],
           "travel": {
-            "min": 42,
+            "min": null,
             "km": 38,
             "precision": "hal",
             "lat": 55.8305,
@@ -7902,7 +8969,7 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19105,4,10,,514914,1153,",
           "games": [],
           "travel": {
-            "min": 42,
+            "min": null,
             "km": 38,
             "precision": "hal",
             "lat": 55.8305,
@@ -7928,12 +8995,12 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19105,4,10,,514920,1153,",
           "games": [],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         },
         {
@@ -7954,12 +9021,12 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19105,4,10,,514922,1153,",
           "games": [],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         }
       ],
@@ -7996,952 +9063,6 @@
             "S"
           ],
           "url": "https://badmintonplayer.dk/DBF/Spiller/VisSpiller/#352851"
-        }
-      ]
-    },
-    {
-      "name": "Nivå-Kokkedal 4",
-      "pulje": "U15 D, 4500 (4 piger) Pulje 1",
-      "label": "U15 D",
-      "position": "2",
-      "standing": [
-        {
-          "pos": "1",
-          "team": "Hillerød 4",
-          "teamID": "124488",
-          "isUs": false,
-          "played": "4",
-          "won": "3",
-          "score": "26-6",
-          "sets": "46-15",
-          "points": "14"
-        },
-        {
-          "pos": "2",
-          "team": "Nivå-Kokkedal 4",
-          "teamID": "124492",
-          "isUs": true,
-          "played": "2",
-          "won": "2",
-          "score": "15-1",
-          "sets": "31-4",
-          "points": "8"
-        },
-        {
-          "pos": "3",
-          "team": "Slangerup 2",
-          "teamID": "124494",
-          "isUs": false,
-          "played": "2",
-          "won": "2",
-          "score": "14-2",
-          "sets": "29-7",
-          "points": "8"
-        },
-        {
-          "pos": "4",
-          "team": "Lundtofte 3",
-          "teamID": "124496",
-          "isUs": false,
-          "played": "2",
-          "won": "2",
-          "score": "11-5",
-          "sets": "22-12",
-          "points": "7"
-        },
-        {
-          "pos": "5",
-          "team": "Gentofte 3",
-          "teamID": "124490",
-          "isUs": false,
-          "played": "2",
-          "won": "1",
-          "score": "12-4",
-          "sets": "24-2",
-          "points": "6"
-        },
-        {
-          "pos": "6",
-          "team": "Vallensbæk 2",
-          "teamID": "124493",
-          "isUs": false,
-          "played": "2",
-          "won": "1",
-          "score": "8-8",
-          "sets": "17-19",
-          "points": "4"
-        },
-        {
-          "pos": "7",
-          "team": "Badminton Roskilde 7",
-          "teamID": "124497",
-          "isUs": false,
-          "played": "4",
-          "won": "1",
-          "score": "10-22",
-          "sets": "24-44",
-          "points": "4"
-        },
-        {
-          "pos": "8",
-          "team": "Birkerød BK13 4",
-          "teamID": "124491",
-          "isUs": false,
-          "played": "4",
-          "won": "0",
-          "score": "5-27",
-          "sets": "14-54",
-          "points": "1"
-        },
-        {
-          "pos": "9",
-          "team": "Brøndby BK 2",
-          "teamID": "124495",
-          "isUs": false,
-          "played": "2",
-          "won": "0",
-          "score": "3-13",
-          "sets": "9-27",
-          "points": "0"
-        },
-        {
-          "pos": "10",
-          "team": "Charlottenlund 2",
-          "teamID": "124489",
-          "isUs": false,
-          "played": "2",
-          "won": "0",
-          "score": "0-16",
-          "sets": "0-32",
-          "points": "0"
-        }
-      ],
-      "leagueGroupID": "19093",
-      "ageGroupID": "5",
-      "leagueGroupTeamID": "124492",
-      "bpArgs": {
-        "seasonID": "2026",
-        "leagueGroupID": "19093",
-        "ageGroupID": "5",
-        "regionID": "8",
-        "leagueGroupTeamID": "124492",
-        "clubID": "1153",
-        "playerID": ""
-      },
-      "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#3,2026,19093,5,8,124492,,1153,",
-      "standingUrl": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#2,2026,19093,5,8,,,1153,",
-      "matches": [
-        {
-          "date": "2026-10-25",
-          "time": "10:30",
-          "home": "Nivå-Kokkedal 4",
-          "away": "Birkerød BK13 4",
-          "isHome": true,
-          "opponent": "Birkerød BK13 4",
-          "organiser": "Nivå-Kokkedal",
-          "venue": "NKK-Hallen",
-          "result": "8-0",
-          "points": "4-0",
-          "outcome": "V",
-          "walkover": "",
-          "played": true,
-          "matchID": "514014",
-          "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19093,5,8,,514014,1153,",
-          "games": [
-            {
-              "discipline": "1. DD",
-              "home": [
-                {
-                  "id": "325724",
-                  "name": "Ingrid Skov Nielsen"
-                },
-                {
-                  "id": "360099",
-                  "name": "Selma Wind Kegel"
-                }
-              ],
-              "away": [
-                {
-                  "id": "360134",
-                  "name": "Emily Walbech"
-                },
-                {
-                  "id": "356056",
-                  "name": "Ida Margrethe Overkær Albrechtsen"
-                }
-              ],
-              "sets": [
-                [
-                  15,
-                  8
-                ],
-                [
-                  15,
-                  7
-                ]
-              ],
-              "winner": "home",
-              "walkover": ""
-            },
-            {
-              "discipline": "4. DD",
-              "home": [
-                {
-                  "id": "357082",
-                  "name": "Sophia Thorborg Mørk"
-                },
-                {
-                  "id": "358872",
-                  "name": "Celine Z. Byrn"
-                }
-              ],
-              "away": [
-                {
-                  "id": "343205",
-                  "name": "Filippa Scott Amineh"
-                },
-                {
-                  "id": "356058",
-                  "name": "Sofie Thaulow"
-                }
-              ],
-              "sets": [
-                [
-                  15,
-                  8
-                ],
-                [
-                  15,
-                  8
-                ]
-              ],
-              "winner": "home",
-              "walkover": ""
-            },
-            {
-              "discipline": "2. DD",
-              "home": [
-                {
-                  "id": "325724",
-                  "name": "Ingrid Skov Nielsen"
-                },
-                {
-                  "id": "358875",
-                  "name": "Sofie Visby Sandbæk"
-                }
-              ],
-              "away": [
-                {
-                  "id": "360134",
-                  "name": "Emily Walbech"
-                },
-                {
-                  "id": "343205",
-                  "name": "Filippa Scott Amineh"
-                }
-              ],
-              "sets": [
-                [
-                  15,
-                  5
-                ],
-                [
-                  15,
-                  5
-                ]
-              ],
-              "winner": "home",
-              "walkover": ""
-            },
-            {
-              "discipline": "3. DD",
-              "home": [
-                {
-                  "id": "360099",
-                  "name": "Selma Wind Kegel"
-                },
-                {
-                  "id": "358872",
-                  "name": "Celine Z. Byrn"
-                }
-              ],
-              "away": [
-                {
-                  "id": "356056",
-                  "name": "Ida Margrethe Overkær Albrechtsen"
-                },
-                {
-                  "id": "356058",
-                  "name": "Sofie Thaulow"
-                }
-              ],
-              "sets": [
-                [
-                  15,
-                  13
-                ],
-                [
-                  15,
-                  4
-                ]
-              ],
-              "winner": "home",
-              "walkover": ""
-            },
-            {
-              "discipline": "1. DS",
-              "home": [
-                {
-                  "id": "325724",
-                  "name": "Ingrid Skov Nielsen"
-                }
-              ],
-              "away": [
-                {
-                  "id": "360134",
-                  "name": "Emily Walbech"
-                }
-              ],
-              "sets": [
-                [
-                  15,
-                  4
-                ],
-                [
-                  15,
-                  3
-                ]
-              ],
-              "winner": "home",
-              "walkover": ""
-            },
-            {
-              "discipline": "2. DS",
-              "home": [
-                {
-                  "id": "358875",
-                  "name": "Sofie Visby Sandbæk"
-                }
-              ],
-              "away": [
-                {
-                  "id": "356056",
-                  "name": "Ida Margrethe Overkær Albrechtsen"
-                }
-              ],
-              "sets": [
-                [
-                  15,
-                  4
-                ],
-                [
-                  15,
-                  3
-                ]
-              ],
-              "winner": "home",
-              "walkover": ""
-            },
-            {
-              "discipline": "3. DS",
-              "home": [
-                {
-                  "id": "358872",
-                  "name": "Celine Z. Byrn"
-                }
-              ],
-              "away": [
-                {
-                  "id": "343205",
-                  "name": "Filippa Scott Amineh"
-                }
-              ],
-              "sets": [
-                [
-                  15,
-                  7
-                ],
-                [
-                  12,
-                  15
-                ],
-                [
-                  15,
-                  9
-                ]
-              ],
-              "winner": "home",
-              "walkover": ""
-            },
-            {
-              "discipline": "4. DS",
-              "home": [
-                {
-                  "id": "357082",
-                  "name": "Sophia Thorborg Mørk"
-                }
-              ],
-              "away": [
-                {
-                  "id": "356058",
-                  "name": "Sofie Thaulow"
-                }
-              ],
-              "sets": [
-                [
-                  15,
-                  4
-                ],
-                [
-                  15,
-                  3
-                ]
-              ],
-              "winner": "home",
-              "walkover": ""
-            }
-          ],
-          "travel": {
-            "min": 14,
-            "km": 12,
-            "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
-          }
-        },
-        {
-          "date": "2026-10-25",
-          "time": "13:00",
-          "home": "Nivå-Kokkedal 4",
-          "away": "Vallensbæk 2",
-          "isHome": true,
-          "opponent": "Vallensbæk 2",
-          "organiser": "Nivå-Kokkedal",
-          "venue": "NKK-Hallen",
-          "result": "7-1",
-          "points": "4-0",
-          "outcome": "V",
-          "walkover": "",
-          "played": true,
-          "matchID": "514016",
-          "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19093,5,8,,514016,1153,",
-          "games": [
-            {
-              "discipline": "1. DD",
-              "home": [
-                {
-                  "id": "358875",
-                  "name": "Sofie Visby Sandbæk"
-                },
-                {
-                  "id": "360099",
-                  "name": "Selma Wind Kegel"
-                }
-              ],
-              "away": [
-                {
-                  "id": "343708",
-                  "name": "Ashita Chaudhary"
-                },
-                {
-                  "id": "343887",
-                  "name": "Simra Fatima Ahmed"
-                }
-              ],
-              "sets": [
-                [
-                  13,
-                  15
-                ],
-                [
-                  15,
-                  8
-                ],
-                [
-                  15,
-                  13
-                ]
-              ],
-              "winner": "home",
-              "walkover": ""
-            },
-            {
-              "discipline": "4. DD",
-              "home": [
-                {
-                  "id": "318087",
-                  "name": "Ellen Merland"
-                },
-                {
-                  "id": "357082",
-                  "name": "Sophia Thorborg Mørk"
-                }
-              ],
-              "away": [
-                {
-                  "id": "343792",
-                  "name": "Yuchen Zheng"
-                },
-                {
-                  "id": "343759",
-                  "name": "Sofia Alam"
-                }
-              ],
-              "sets": [
-                [
-                  15,
-                  13
-                ],
-                [
-                  15,
-                  7
-                ]
-              ],
-              "winner": "home",
-              "walkover": ""
-            },
-            {
-              "discipline": "2. DD",
-              "home": [
-                {
-                  "id": "358875",
-                  "name": "Sofie Visby Sandbæk"
-                },
-                {
-                  "id": "318087",
-                  "name": "Ellen Merland"
-                }
-              ],
-              "away": [
-                {
-                  "id": "368226",
-                  "name": "Lucca Grøndahl"
-                },
-                {
-                  "id": "343792",
-                  "name": "Yuchen Zheng"
-                }
-              ],
-              "sets": [
-                [
-                  15,
-                  10
-                ],
-                [
-                  15,
-                  9
-                ]
-              ],
-              "winner": "home",
-              "walkover": ""
-            },
-            {
-              "discipline": "3. DD",
-              "home": [
-                {
-                  "id": "357082",
-                  "name": "Sophia Thorborg Mørk"
-                },
-                {
-                  "id": "358872",
-                  "name": "Celine Z. Byrn"
-                }
-              ],
-              "away": [
-                {
-                  "id": "343887",
-                  "name": "Simra Fatima Ahmed"
-                },
-                {
-                  "id": "343759",
-                  "name": "Sofia Alam"
-                }
-              ],
-              "sets": [
-                [
-                  15,
-                  8
-                ],
-                [
-                  15,
-                  11
-                ]
-              ],
-              "winner": "home",
-              "walkover": ""
-            },
-            {
-              "discipline": "1. DS",
-              "home": [
-                {
-                  "id": "360099",
-                  "name": "Selma Wind Kegel"
-                }
-              ],
-              "away": [
-                {
-                  "id": "343887",
-                  "name": "Simra Fatima Ahmed"
-                }
-              ],
-              "sets": [
-                [
-                  15,
-                  12
-                ],
-                [
-                  15,
-                  17
-                ],
-                [
-                  14,
-                  16
-                ]
-              ],
-              "winner": "away",
-              "walkover": ""
-            },
-            {
-              "discipline": "2. DS",
-              "home": [
-                {
-                  "id": "358875",
-                  "name": "Sofie Visby Sandbæk"
-                }
-              ],
-              "away": [
-                {
-                  "id": "343708",
-                  "name": "Ashita Chaudhary"
-                }
-              ],
-              "sets": [
-                [
-                  15,
-                  7
-                ],
-                [
-                  15,
-                  10
-                ]
-              ],
-              "winner": "home",
-              "walkover": ""
-            },
-            {
-              "discipline": "3. DS",
-              "home": [
-                {
-                  "id": "318087",
-                  "name": "Ellen Merland"
-                }
-              ],
-              "away": [
-                {
-                  "id": "343759",
-                  "name": "Sofia Alam"
-                }
-              ],
-              "sets": [
-                [
-                  15,
-                  7
-                ],
-                [
-                  15,
-                  8
-                ]
-              ],
-              "winner": "home",
-              "walkover": ""
-            },
-            {
-              "discipline": "4. DS",
-              "home": [
-                {
-                  "id": "357082",
-                  "name": "Sophia Thorborg Mørk"
-                }
-              ],
-              "away": [
-                {
-                  "id": "368226",
-                  "name": "Lucca Grøndahl"
-                }
-              ],
-              "sets": [
-                [
-                  15,
-                  11
-                ],
-                [
-                  15,
-                  7
-                ]
-              ],
-              "winner": "home",
-              "walkover": ""
-            }
-          ],
-          "travel": {
-            "min": 14,
-            "km": 12,
-            "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
-          }
-        },
-        {
-          "date": "2026-11-15",
-          "time": "11:30",
-          "home": "Charlottenlund 2",
-          "away": "Nivå-Kokkedal 4",
-          "isHome": false,
-          "opponent": "Charlottenlund 2",
-          "organiser": "Charlottenlund",
-          "venue": "CBK-Hallen",
-          "result": null,
-          "points": null,
-          "outcome": null,
-          "walkover": "",
-          "played": false,
-          "matchID": "514024",
-          "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19093,5,8,,514024,1153,",
-          "games": [],
-          "travel": {
-            "min": 20,
-            "km": 19,
-            "precision": "by",
-            "lat": 55.7553,
-            "lon": 12.5671,
-            "query": "CBK-Hallen, Charlottenlund"
-          }
-        },
-        {
-          "date": "2026-11-15",
-          "time": "12:30",
-          "home": "Brøndby BK 2",
-          "away": "Nivå-Kokkedal 4",
-          "isHome": false,
-          "opponent": "Brøndby BK 2",
-          "organiser": "Charlottenlund",
-          "venue": "CBK-Hallen",
-          "result": null,
-          "points": null,
-          "outcome": null,
-          "walkover": "",
-          "played": false,
-          "matchID": "514025",
-          "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19093,5,8,,514025,1153,",
-          "games": [],
-          "travel": {
-            "min": 20,
-            "km": 19,
-            "precision": "by",
-            "lat": 55.7553,
-            "lon": 12.5671,
-            "query": "CBK-Hallen, Charlottenlund"
-          }
-        },
-        {
-          "date": "2027-01-16",
-          "time": "14:00",
-          "home": "Slangerup 2",
-          "away": "Nivå-Kokkedal 4",
-          "isHome": false,
-          "opponent": "Slangerup 2",
-          "organiser": "Lundtofte",
-          "venue": "Lundtoftehallen",
-          "result": null,
-          "points": null,
-          "outcome": null,
-          "walkover": "",
-          "played": false,
-          "matchID": "516356",
-          "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19093,5,8,,516356,1153,",
-          "games": [],
-          "travel": {
-            "min": 15,
-            "km": 13,
-            "precision": "by",
-            "lat": 55.7922,
-            "lon": 12.5192,
-            "query": "Lundtoftehallen, Lundtofte"
-          }
-        },
-        {
-          "date": "2027-01-16",
-          "time": "16:00",
-          "home": "Nivå-Kokkedal 4",
-          "away": "Lundtofte 3",
-          "isHome": true,
-          "opponent": "Lundtofte 3",
-          "organiser": "Lundtofte",
-          "venue": "Lundtoftehallen",
-          "result": null,
-          "points": null,
-          "outcome": null,
-          "walkover": "",
-          "played": false,
-          "matchID": "516358",
-          "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19093,5,8,,516358,1153,",
-          "games": [],
-          "travel": {
-            "min": 15,
-            "km": 13,
-            "precision": "by",
-            "lat": 55.7922,
-            "lon": 12.5192,
-            "query": "Lundtoftehallen, Lundtofte"
-          }
-        },
-        {
-          "date": "2027-02-07",
-          "time": "11:30",
-          "home": "Nivå-Kokkedal 4",
-          "away": "Hillerød 4",
-          "isHome": true,
-          "opponent": "Hillerød 4",
-          "organiser": "Nivå-Kokkedal",
-          "venue": "NKK-Hallen",
-          "result": null,
-          "points": null,
-          "outcome": null,
-          "walkover": "",
-          "played": false,
-          "matchID": "514043",
-          "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19093,5,8,,514043,1153,",
-          "games": [],
-          "travel": {
-            "min": 14,
-            "km": 12,
-            "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
-          }
-        },
-        {
-          "date": "2027-03-06",
-          "time": "09:00",
-          "home": "Badminton Roskilde 7",
-          "away": "Nivå-Kokkedal 4",
-          "isHome": false,
-          "opponent": "Badminton Roskilde 7",
-          "organiser": "Badminton Roskilde",
-          "venue": "HBH Hallen 4-6",
-          "result": null,
-          "points": null,
-          "outcome": null,
-          "walkover": "",
-          "played": false,
-          "matchID": "514049",
-          "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19093,5,8,,514049,1153,",
-          "games": [],
-          "travel": {
-            "min": 44,
-            "km": 52,
-            "precision": "by",
-            "lat": 55.6433,
-            "lon": 12.0819,
-            "query": "HBH Hallen, Roskilde"
-          }
-        },
-        {
-          "date": "2027-03-06",
-          "time": "11:00",
-          "home": "Nivå-Kokkedal 4",
-          "away": "Gentofte 3",
-          "isHome": true,
-          "opponent": "Gentofte 3",
-          "organiser": "Badminton Roskilde",
-          "venue": "HBH Hallen 4-6",
-          "result": null,
-          "points": null,
-          "outcome": null,
-          "walkover": "",
-          "played": false,
-          "matchID": "514050",
-          "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19093,5,8,,514050,1153,",
-          "games": [],
-          "travel": {
-            "min": 44,
-            "km": 52,
-            "precision": "by",
-            "lat": 55.6433,
-            "lon": 12.0819,
-            "query": "HBH Hallen, Roskilde"
-          }
-        }
-      ],
-      "players": [
-        {
-          "id": "358875",
-          "name": "Sofie Visby Sandbæk",
-          "games": 5,
-          "won": 5,
-          "disciplines": [
-            "DD",
-            "DS"
-          ],
-          "url": "https://badmintonplayer.dk/DBF/Spiller/VisSpiller/#358875"
-        },
-        {
-          "id": "357082",
-          "name": "Sophia Thorborg Mørk",
-          "games": 5,
-          "won": 5,
-          "disciplines": [
-            "DD",
-            "DS"
-          ],
-          "url": "https://badmintonplayer.dk/DBF/Spiller/VisSpiller/#357082"
-        },
-        {
-          "id": "358872",
-          "name": "Celine Z. Byrn",
-          "games": 4,
-          "won": 4,
-          "disciplines": [
-            "DD",
-            "DS"
-          ],
-          "url": "https://badmintonplayer.dk/DBF/Spiller/VisSpiller/#358872"
-        },
-        {
-          "id": "360099",
-          "name": "Selma Wind Kegel",
-          "games": 4,
-          "won": 3,
-          "disciplines": [
-            "DD",
-            "DS"
-          ],
-          "url": "https://badmintonplayer.dk/DBF/Spiller/VisSpiller/#360099"
-        },
-        {
-          "id": "318087",
-          "name": "Ellen Merland",
-          "games": 3,
-          "won": 3,
-          "disciplines": [
-            "DD",
-            "DS"
-          ],
-          "url": "https://badmintonplayer.dk/DBF/Spiller/VisSpiller/#318087"
-        },
-        {
-          "id": "325724",
-          "name": "Ingrid Skov Nielsen",
-          "games": 3,
-          "won": 3,
-          "disciplines": [
-            "DD",
-            "DS"
-          ],
-          "url": "https://badmintonplayer.dk/DBF/Spiller/VisSpiller/#325724"
         }
       ]
     },
@@ -9330,7 +9451,7 @@
             }
           ],
           "travel": {
-            "min": 14,
+            "min": null,
             "km": 12,
             "precision": "hal",
             "lat": 55.9344,
@@ -9617,7 +9738,7 @@
             }
           ],
           "travel": {
-            "min": 14,
+            "min": null,
             "km": 12,
             "precision": "hal",
             "lat": 55.9344,
@@ -9643,8 +9764,8 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19095,5,9,,514093,1153,",
           "games": [],
           "travel": {
-            "min": 23,
-            "km": 19,
+            "min": 25,
+            "km": 18,
             "precision": "hal",
             "lat": 55.9204,
             "lon": 12.2997,
@@ -9669,8 +9790,8 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19095,5,9,,514094,1153,",
           "games": [],
           "travel": {
-            "min": 23,
-            "km": 19,
+            "min": 25,
+            "km": 18,
             "precision": "hal",
             "lat": 55.9204,
             "lon": 12.2997,
@@ -9695,12 +9816,12 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19095,5,9,,514102,1153,",
           "games": [],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         },
         {
@@ -9721,8 +9842,8 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19095,5,9,,514109,1153,",
           "games": [],
           "travel": {
-            "min": 27,
-            "km": 26,
+            "min": 30,
+            "km": 33,
             "precision": "hal",
             "lat": 55.716,
             "lon": 12.402,
@@ -9747,8 +9868,8 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19095,5,9,,514111,1153,",
           "games": [],
           "travel": {
-            "min": 27,
-            "km": 26,
+            "min": 30,
+            "km": 33,
             "precision": "hal",
             "lat": 55.716,
             "lon": 12.402,
@@ -10210,8 +10331,8 @@
             }
           ],
           "travel": {
-            "min": 27,
-            "km": 26,
+            "min": 29,
+            "km": 33,
             "precision": "hal",
             "lat": 55.7218,
             "lon": 12.4118,
@@ -10497,8 +10618,8 @@
             }
           ],
           "travel": {
-            "min": 27,
-            "km": 26,
+            "min": 29,
+            "km": 33,
             "precision": "hal",
             "lat": 55.7218,
             "lon": 12.4118,
@@ -10523,12 +10644,12 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19089,5,10,,513831,1153,",
           "games": [],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         },
         {
@@ -10549,12 +10670,12 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19089,5,10,,513833,1153,",
           "games": [],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         },
         {
@@ -10575,8 +10696,8 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19089,5,10,,513847,1153,",
           "games": [],
           "travel": {
-            "min": 15,
-            "km": 13,
+            "min": 17,
+            "km": 20,
             "precision": "by",
             "lat": 55.7922,
             "lon": 12.5192,
@@ -10601,8 +10722,8 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19089,5,10,,513848,1153,",
           "games": [],
           "travel": {
-            "min": 15,
-            "km": 13,
+            "min": 17,
+            "km": 20,
             "precision": "by",
             "lat": 55.7922,
             "lon": 12.5192,
@@ -10627,8 +10748,8 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19089,5,10,,513852,1153,",
           "games": [],
           "travel": {
-            "min": 39,
-            "km": 30,
+            "min": 42,
+            "km": 36,
             "precision": "by",
             "lat": 55.7669,
             "lon": 12.1901,
@@ -10653,8 +10774,8 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19089,5,10,,513853,1153,",
           "games": [],
           "travel": {
-            "min": 39,
-            "km": 30,
+            "min": 42,
+            "km": 36,
             "precision": "by",
             "lat": 55.7669,
             "lon": 12.1901,
@@ -11090,7 +11211,7 @@
             }
           ],
           "travel": {
-            "min": 24,
+            "min": null,
             "km": 24,
             "precision": "hal",
             "lat": 55.746,
@@ -11377,7 +11498,7 @@
             }
           ],
           "travel": {
-            "min": 24,
+            "min": null,
             "km": 24,
             "precision": "hal",
             "lat": 55.746,
@@ -11403,8 +11524,8 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19102,5,10,,514334,1153,",
           "games": [],
           "travel": {
-            "min": 23,
-            "km": 19,
+            "min": 25,
+            "km": 18,
             "precision": "hal",
             "lat": 55.9204,
             "lon": 12.2997,
@@ -11429,8 +11550,8 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19102,5,10,,514336,1153,",
           "games": [],
           "travel": {
-            "min": 23,
-            "km": 19,
+            "min": 25,
+            "km": 18,
             "precision": "hal",
             "lat": 55.9204,
             "lon": 12.2997,
@@ -11455,12 +11576,12 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19102,5,10,,514339,1153,",
           "games": [],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         },
         {
@@ -11481,12 +11602,12 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19102,5,10,,514337,1153,",
           "games": [],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         },
         {
@@ -11507,8 +11628,8 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19102,5,10,,514347,1153,",
           "games": [],
           "travel": {
-            "min": 18,
-            "km": 13,
+            "min": 20,
+            "km": 18,
             "precision": "hal",
             "lat": 55.8801,
             "lon": 12.3508,
@@ -11533,7 +11654,7 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19102,5,10,,514349,1153,",
           "games": [],
           "travel": {
-            "min": 18,
+            "min": null,
             "km": 13,
             "precision": "hal",
             "lat": 55.8801,
@@ -11559,8 +11680,8 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19102,5,10,,514352,1153,",
           "games": [],
           "travel": {
-            "min": 23,
-            "km": 19,
+            "min": 25,
+            "km": 18,
             "precision": "hal",
             "lat": 55.9204,
             "lon": 12.2997,
@@ -11585,8 +11706,8 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19102,5,10,,514353,1153,",
           "games": [],
           "travel": {
-            "min": 23,
-            "km": 19,
+            "min": 25,
+            "km": 18,
             "precision": "hal",
             "lat": 55.9204,
             "lon": 12.2997,
@@ -11611,7 +11732,7 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19102,5,10,,514361,1153,",
           "games": [],
           "travel": {
-            "min": 14,
+            "min": null,
             "km": 12,
             "precision": "hal",
             "lat": 55.9344,
@@ -11637,7 +11758,7 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19102,5,10,,514364,1153,",
           "games": [],
           "travel": {
-            "min": 14,
+            "min": null,
             "km": 12,
             "precision": "hal",
             "lat": 55.9344,
@@ -12073,8 +12194,8 @@
             }
           ],
           "travel": {
-            "min": 27,
-            "km": 26,
+            "min": 29,
+            "km": 33,
             "precision": "hal",
             "lat": 55.7218,
             "lon": 12.4118,
@@ -12318,8 +12439,8 @@
             }
           ],
           "travel": {
-            "min": 32,
-            "km": 27,
+            "min": 35,
+            "km": 30,
             "precision": "by",
             "lat": 55.8456,
             "lon": 12.1744,
@@ -12563,12 +12684,12 @@
             }
           ],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         },
         {
@@ -12590,7 +12711,7 @@
           "games": [],
           "travel": {
             "min": 13,
-            "km": 10,
+            "km": 8,
             "precision": "by",
             "lat": 55.9178,
             "lon": 12.4048,
@@ -12615,12 +12736,12 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,18966,16,19,,510282,1153,",
           "games": [],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         },
         {
@@ -12641,12 +12762,12 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,18966,16,19,,510286,1153,",
           "games": [],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         },
         {
@@ -12667,12 +12788,12 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,18966,16,19,,510481,1153,",
           "games": [],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         },
         {
@@ -12693,7 +12814,7 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,18966,16,19,,510487,1153,",
           "games": [],
           "travel": {
-            "min": 18,
+            "min": null,
             "km": 12,
             "precision": "hal",
             "lat": 55.9579,
@@ -12719,12 +12840,12 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,18966,16,19,,510492,1153,",
           "games": [],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         },
         {
@@ -12745,8 +12866,8 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,18966,16,19,,510494,1153,",
           "games": [],
           "travel": {
-            "min": 30,
-            "km": 30,
+            "min": 32,
+            "km": 29,
             "precision": "by",
             "lat": 55.9356,
             "lon": 12.1206,
@@ -13073,8 +13194,8 @@
             }
           ],
           "travel": {
-            "min": 17,
-            "km": 12,
+            "min": 20,
+            "km": 19,
             "precision": "hal",
             "lat": 55.7939,
             "lon": 12.4748,
@@ -13099,8 +13220,8 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,18958,1,10,,509868,1153,",
           "games": [],
           "travel": {
-            "min": 51,
-            "km": 62,
+            "min": 54,
+            "km": 69,
             "precision": "hal",
             "lat": 55.6018,
             "lon": 11.9631,
@@ -13125,12 +13246,12 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,18958,1,10,,509870,1153,",
           "games": [],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         }
       ],
@@ -13553,8 +13674,8 @@
             }
           ],
           "travel": {
-            "min": 38,
-            "km": 45,
+            "min": 40,
+            "km": 51,
             "precision": "by",
             "lat": 55.5834,
             "lon": 12.2999,
@@ -13579,8 +13700,8 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19064,9,10,,513057,1153,",
           "games": [],
           "travel": {
-            "min": 82,
-            "km": 104,
+            "min": 85,
+            "km": 111,
             "precision": "by",
             "lat": 55.2454,
             "lon": 11.7465,
@@ -13605,12 +13726,12 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19064,9,10,,513060,1153,",
           "games": [],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         },
         {
@@ -13631,12 +13752,12 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19064,9,10,,513061,1153,",
           "games": [],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         },
         {
@@ -13657,8 +13778,8 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19064,9,10,,513064,1153,",
           "games": [],
           "travel": {
-            "min": 44,
-            "km": 38,
+            "min": 47,
+            "km": 44,
             "precision": "hal",
             "lat": 55.7541,
             "lon": 12.1057,
@@ -13683,12 +13804,12 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19064,9,10,,513066,1153,",
           "games": [],
           "travel": {
-            "min": 14,
-            "km": 12,
+            "min": 0,
+            "km": 0,
             "precision": "hal",
-            "lat": 55.9344,
-            "lon": 12.5013,
-            "query": "NKK-Hallen, Nivå"
+            "lat": 55.9342,
+            "lon": 12.5014,
+            "query": "NKK-Hallen, Nivå-Kokkedal"
           }
         }
       ],
@@ -13900,8 +14021,8 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19110,4,10,,514610,1153,",
           "games": [],
           "travel": {
-            "min": 23,
-            "km": 15,
+            "min": 27,
+            "km": 22,
             "precision": "by",
             "lat": 55.8101,
             "lon": 12.3703,
@@ -13926,7 +14047,7 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19110,4,10,,514622,1153,",
           "games": [],
           "travel": {
-            "min": 14,
+            "min": null,
             "km": 12,
             "precision": "hal",
             "lat": 55.9344,
@@ -13952,7 +14073,7 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19110,4,10,,514625,1153,",
           "games": [],
           "travel": {
-            "min": 14,
+            "min": null,
             "km": 12,
             "precision": "hal",
             "lat": 55.9344,
@@ -13978,7 +14099,7 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19110,4,10,,514627,1153,",
           "games": [],
           "travel": {
-            "min": 0,
+            "min": null,
             "km": 0,
             "precision": "hal",
             "lat": 55.8783,
@@ -14004,7 +14125,7 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19110,4,10,,514634,1153,",
           "games": [],
           "travel": {
-            "min": 28,
+            "min": null,
             "km": 26,
             "precision": "by",
             "lat": 56.0349,
@@ -14030,7 +14151,7 @@
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19110,4,10,,514637,1153,",
           "games": [],
           "travel": {
-            "min": 28,
+            "min": null,
             "km": 26,
             "precision": "by",
             "lat": 56.0349,
