@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T16:15:10+00:00",
+ "updated": "2026-11-15T16:30:14+00:00",
  "scriptVersion": "2026-11-15.1",
  "latest": {
   "players": 3,
@@ -7,8 +7,8 @@
   "loggedIn": 3,
   "active7": 3,
   "active30": 3,
-  "followers": 1,
-  "teamFollows": 1,
+  "followers": 2,
+  "teamFollows": 3,
   "tourFollows": 0,
   "pushDevices": 1,
   "pushUsers": 1,
@@ -24,8 +24,8 @@
    "loggedIn": 3,
    "active7": 3,
    "active30": 3,
-   "followers": 1,
-   "teamFollows": 1,
+   "followers": 2,
+   "teamFollows": 3,
    "tourFollows": 0,
    "pushDevices": 1,
    "pushUsers": 1,
