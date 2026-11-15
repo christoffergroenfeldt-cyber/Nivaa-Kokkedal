@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-15T16:30:39+00:00",
+  "updated": "2026-11-15T17:00:38+00:00",
   "season": "2026",
   "clubID": "1153",
   "source": "badmintonplayer.dk",
@@ -15077,10 +15077,21 @@
       "name": "Nivå-Kokkedal 2",
       "pulje": "U13 D, 4600 (4 spillere) Pulje 3",
       "label": "U13 D",
-      "position": "1",
+      "position": "7",
       "standing": [
         {
           "pos": "1",
+          "team": "Farum 4",
+          "teamID": "124624",
+          "isUs": false,
+          "played": "2",
+          "won": "2",
+          "score": "14-2",
+          "sets": "29-11",
+          "points": "8"
+        },
+        {
+          "pos": "2",
           "team": "Espergærde 1",
           "teamID": "124630",
           "isUs": false,
@@ -15091,18 +15102,7 @@
           "points": "0"
         },
         {
-          "pos": "1",
-          "team": "Farum 4",
-          "teamID": "124624",
-          "isUs": false,
-          "played": "0",
-          "won": "0",
-          "score": "0-0",
-          "sets": "0-0",
-          "points": "0"
-        },
-        {
-          "pos": "1",
+          "pos": "2",
           "team": "Frem - Hellebæk 1",
           "teamID": "124628",
           "isUs": false,
@@ -15113,7 +15113,7 @@
           "points": "0"
         },
         {
-          "pos": "1",
+          "pos": "2",
           "team": "Græsted 1",
           "teamID": "124631",
           "isUs": false,
@@ -15124,7 +15124,7 @@
           "points": "0"
         },
         {
-          "pos": "1",
+          "pos": "2",
           "team": "Helsingør 1",
           "teamID": "124629",
           "isUs": false,
@@ -15135,25 +15135,25 @@
           "points": "0"
         },
         {
-          "pos": "1",
+          "pos": "6",
           "team": "Hørsholm 4",
           "teamID": "124626",
           "isUs": false,
-          "played": "0",
+          "played": "1",
           "won": "0",
-          "score": "0-0",
-          "sets": "0-0",
+          "score": "1-7",
+          "sets": "7-15",
           "points": "0"
         },
         {
-          "pos": "1",
+          "pos": "7",
           "team": "Nivå-Kokkedal 2",
           "teamID": "124627",
           "isUs": true,
-          "played": "0",
+          "played": "1",
           "won": "0",
-          "score": "0-0",
-          "sets": "0-0",
+          "score": "1-7",
+          "sets": "4-14",
           "points": "0"
         },
         {
@@ -15192,14 +15192,271 @@
           "opponent": "Farum 4",
           "organiser": "Farum",
           "venue": "Stenvadhallen 4-7",
-          "result": null,
-          "points": null,
-          "outcome": null,
+          "result": "7-1",
+          "points": "4-0",
+          "outcome": "T",
           "walkover": "",
-          "played": false,
+          "played": true,
           "matchID": "514610",
           "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19110,4,10,,514610,1153,",
-          "games": [],
+          "games": [
+            {
+              "discipline": "1. D",
+              "home": [
+                {
+                  "id": "360015",
+                  "name": "Christian Brøndum"
+                },
+                {
+                  "id": "365811",
+                  "name": "Theodor Rousing Kay"
+                }
+              ],
+              "away": [
+                {
+                  "id": "363067",
+                  "name": "Adam Vindal Grønbech"
+                },
+                {
+                  "id": "352850",
+                  "name": "Valdemar Skotte Mikkelsen"
+                }
+              ],
+              "sets": [
+                [
+                  15,
+                  11
+                ],
+                [
+                  15,
+                  7
+                ]
+              ],
+              "winner": "home",
+              "walkover": ""
+            },
+            {
+              "discipline": "4. D",
+              "home": [
+                {
+                  "id": "365160",
+                  "name": "Christoffer Lysdal"
+                },
+                {
+                  "id": "360016",
+                  "name": "Eskild Tolborg"
+                }
+              ],
+              "away": [
+                {
+                  "id": "352764",
+                  "name": "Asbjørn Kay"
+                },
+                {
+                  "id": "366215",
+                  "name": "Julie Westergaard"
+                }
+              ],
+              "sets": [
+                [
+                  15,
+                  9
+                ],
+                [
+                  15,
+                  8
+                ]
+              ],
+              "winner": "home",
+              "walkover": ""
+            },
+            {
+              "discipline": "2. D",
+              "home": [
+                {
+                  "id": "360015",
+                  "name": "Christian Brøndum"
+                },
+                {
+                  "id": "365160",
+                  "name": "Christoffer Lysdal"
+                }
+              ],
+              "away": [
+                {
+                  "id": "352764",
+                  "name": "Asbjørn Kay"
+                },
+                {
+                  "id": "363067",
+                  "name": "Adam Vindal Grønbech"
+                }
+              ],
+              "sets": [
+                [
+                  15,
+                  8
+                ],
+                [
+                  15,
+                  4
+                ]
+              ],
+              "winner": "home",
+              "walkover": ""
+            },
+            {
+              "discipline": "3. D",
+              "home": [
+                {
+                  "id": "360016",
+                  "name": "Eskild Tolborg"
+                },
+                {
+                  "id": "365811",
+                  "name": "Theodor Rousing Kay"
+                }
+              ],
+              "away": [
+                {
+                  "id": "352850",
+                  "name": "Valdemar Skotte Mikkelsen"
+                },
+                {
+                  "id": "366215",
+                  "name": "Julie Westergaard"
+                }
+              ],
+              "sets": [
+                [
+                  15,
+                  7
+                ],
+                [
+                  12,
+                  15
+                ],
+                [
+                  15,
+                  11
+                ]
+              ],
+              "winner": "home",
+              "walkover": ""
+            },
+            {
+              "discipline": "1. S",
+              "home": [
+                {
+                  "id": "365811",
+                  "name": "Theodor Rousing Kay"
+                }
+              ],
+              "away": [
+                {
+                  "id": "352850",
+                  "name": "Valdemar Skotte Mikkelsen"
+                }
+              ],
+              "sets": [
+                [
+                  16,
+                  14
+                ],
+                [
+                  15,
+                  8
+                ]
+              ],
+              "winner": "home",
+              "walkover": ""
+            },
+            {
+              "discipline": "2. S",
+              "home": [
+                {
+                  "id": "360015",
+                  "name": "Christian Brøndum"
+                }
+              ],
+              "away": [
+                {
+                  "id": "352764",
+                  "name": "Asbjørn Kay"
+                }
+              ],
+              "sets": [
+                [
+                  15,
+                  7
+                ],
+                [
+                  15,
+                  9
+                ]
+              ],
+              "winner": "home",
+              "walkover": ""
+            },
+            {
+              "discipline": "3. S",
+              "home": [
+                {
+                  "id": "360016",
+                  "name": "Eskild Tolborg"
+                }
+              ],
+              "away": [
+                {
+                  "id": "363067",
+                  "name": "Adam Vindal Grønbech"
+                }
+              ],
+              "sets": [
+                [
+                  13,
+                  15
+                ],
+                [
+                  8,
+                  15
+                ]
+              ],
+              "winner": "away",
+              "walkover": ""
+            },
+            {
+              "discipline": "4. S",
+              "home": [
+                {
+                  "id": "365160",
+                  "name": "Christoffer Lysdal"
+                }
+              ],
+              "away": [
+                {
+                  "id": "366215",
+                  "name": "Julie Westergaard"
+                }
+              ],
+              "sets": [
+                [
+                  9,
+                  15
+                ],
+                [
+                  15,
+                  5
+                ],
+                [
+                  15,
+                  8
+                ]
+              ],
+              "winner": "home",
+              "walkover": ""
+            }
+          ],
           "travel": {
             "min": 27,
             "km": 22,
@@ -15340,7 +15597,52 @@
           }
         }
       ],
-      "players": []
+      "players": [
+        {
+          "id": "363067",
+          "name": "Adam Vindal Grønbech",
+          "games": 3,
+          "won": 1,
+          "disciplines": [
+            "D",
+            "S"
+          ],
+          "url": "https://badmintonplayer.dk/DBF/Spiller/VisSpiller/#363067"
+        },
+        {
+          "id": "352764",
+          "name": "Asbjørn Kay",
+          "games": 3,
+          "won": 0,
+          "disciplines": [
+            "D",
+            "S"
+          ],
+          "url": "https://badmintonplayer.dk/DBF/Spiller/VisSpiller/#352764"
+        },
+        {
+          "id": "366215",
+          "name": "Julie Westergaard",
+          "games": 3,
+          "won": 0,
+          "disciplines": [
+            "D",
+            "S"
+          ],
+          "url": "https://badmintonplayer.dk/DBF/Spiller/VisSpiller/#366215"
+        },
+        {
+          "id": "352850",
+          "name": "Valdemar Skotte Mikkelsen",
+          "games": 3,
+          "won": 0,
+          "disciplines": [
+            "D",
+            "S"
+          ],
+          "url": "https://badmintonplayer.dk/DBF/Spiller/VisSpiller/#352850"
+        }
+      ]
     }
   ]
 }

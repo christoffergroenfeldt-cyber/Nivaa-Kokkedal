@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T16:30:39+00:00",
+ "updated": "2026-11-15T17:00:38+00:00",
  "season": "2026",
  "clubRanking": [
   {
@@ -836,6 +836,20 @@
   },
   {
    "rank": 60,
+   "id": "363067",
+   "name": "Adam Vindal Grønbech",
+   "teams": [
+    "U13 D"
+   ],
+   "played": 3,
+   "won": 1,
+   "winPct": 33,
+   "pointsFor": 60,
+   "avgPoints": 20.0,
+   "avgDiff": -7.0
+  },
+  {
+   "rank": 61,
    "id": "94218",
    "name": "Christina Sloth",
    "teams": [
@@ -849,7 +863,7 @@
    "avgDiff": -7.5
   },
   {
-   "rank": 61,
+   "rank": 62,
    "id": "276371",
    "name": "Isabel Sander-Thomsen",
    "teams": [
@@ -864,7 +878,7 @@
    "avgDiff": -7.4
   },
   {
-   "rank": 62,
+   "rank": 63,
    "id": "366220",
    "name": "Ishita Yadav",
    "teams": [
@@ -878,7 +892,7 @@
    "avgDiff": -7.3
   },
   {
-   "rank": 63,
+   "rank": 64,
    "id": "197296",
    "name": "Mille Fynboe",
    "teams": [
@@ -892,7 +906,7 @@
    "avgDiff": -3.9
   },
   {
-   "rank": 64,
+   "rank": 65,
    "id": "250289",
    "name": "Natascha Lindborg",
    "teams": [
@@ -906,7 +920,7 @@
    "avgDiff": -7.2
   },
   {
-   "rank": 65,
+   "rank": 66,
    "id": "76688",
    "name": "Stine Brehmer",
    "teams": [
@@ -920,7 +934,7 @@
    "avgDiff": -6.5
   },
   {
-   "rank": 66,
+   "rank": 67,
    "id": "336218",
    "name": "Alma Forchhammer Ali",
    "teams": [
@@ -934,7 +948,7 @@
    "avgDiff": -7.8
   },
   {
-   "rank": 67,
+   "rank": 68,
    "id": "335677",
    "name": "Frederik Visby Sandbæk",
    "teams": [
@@ -948,7 +962,7 @@
    "avgDiff": -8.2
   },
   {
-   "rank": 68,
+   "rank": 69,
    "id": "329201",
    "name": "Emma Gaudesen",
    "teams": [
@@ -962,7 +976,7 @@
    "avgDiff": -9.2
   },
   {
-   "rank": 69,
+   "rank": 70,
    "id": "303521",
    "name": "Louise Byrn",
    "teams": [
@@ -976,7 +990,7 @@
    "avgDiff": -8.7
   },
   {
-   "rank": 70,
+   "rank": 71,
    "id": "336219",
    "name": "Arthur Asser Kaldahl",
    "teams": [
@@ -990,7 +1004,21 @@
    "avgDiff": -12.8
   },
   {
-   "rank": 71,
+   "rank": 72,
+   "id": "366215",
+   "name": "Julie Westergaard",
+   "teams": [
+    "U13 D"
+   ],
+   "played": 3,
+   "won": 0,
+   "winPct": 0,
+   "pointsFor": 78,
+   "avgPoints": 26.0,
+   "avgDiff": -11.0
+  },
+  {
+   "rank": 73,
    "id": "366218",
    "name": "Inez Hardy",
    "teams": [
@@ -1004,7 +1032,21 @@
    "avgDiff": -10.0
   },
   {
-   "rank": 72,
+   "rank": 74,
+   "id": "352850",
+   "name": "Valdemar Skotte Mikkelsen",
+   "teams": [
+    "U13 D"
+   ],
+   "played": 3,
+   "won": 0,
+   "winPct": 0,
+   "pointsFor": 73,
+   "avgPoints": 24.3,
+   "avgDiff": -10.0
+  },
+  {
+   "rank": 75,
    "id": "323622",
    "name": "Advika Nair",
    "teams": [
@@ -1018,7 +1060,7 @@
    "avgDiff": -11.3
   },
   {
-   "rank": 73,
+   "rank": 76,
    "id": "305182",
    "name": "Oscar Bom Werge",
    "teams": [
@@ -1032,7 +1074,7 @@
    "avgDiff": -6.0
   },
   {
-   "rank": 74,
+   "rank": 77,
    "id": "25428",
    "name": "Jesper Kryger Petersen",
    "teams": [
@@ -1046,7 +1088,7 @@
    "avgDiff": -7.5
   },
   {
-   "rank": 75,
+   "rank": 78,
    "id": "245501",
    "name": "Colin Brun Lillholm",
    "teams": [
@@ -1060,7 +1102,7 @@
    "avgDiff": -7.8
   },
   {
-   "rank": 76,
+   "rank": 79,
    "id": "317575",
    "name": "Filip Skånstrøm Stjerneby",
    "teams": [
@@ -1074,7 +1116,7 @@
    "avgDiff": -8.0
   },
   {
-   "rank": 77,
+   "rank": 80,
    "id": "10136",
    "name": "Vibeke Lindborg",
    "teams": [
@@ -1088,7 +1130,7 @@
    "avgDiff": -9.5
   },
   {
-   "rank": 78,
+   "rank": 81,
    "id": "209695",
    "name": "Kasper Udholm",
    "teams": [
@@ -1102,7 +1144,7 @@
    "avgDiff": -10.0
   },
   {
-   "rank": 79,
+   "rank": 82,
    "id": "94429",
    "name": "Lone Dueholm",
    "teams": [
@@ -1116,7 +1158,7 @@
    "avgDiff": -11.0
   },
   {
-   "rank": 80,
+   "rank": 83,
    "id": "305031",
    "name": "August Conrad",
    "teams": [
@@ -1130,7 +1172,21 @@
    "avgDiff": -12.5
   },
   {
-   "rank": 81,
+   "rank": 84,
+   "id": "352764",
+   "name": "Asbjørn Kay",
+   "teams": [
+    "U13 D"
+   ],
+   "played": 3,
+   "won": 0,
+   "winPct": 0,
+   "pointsFor": 45,
+   "avgPoints": 15.0,
+   "avgDiff": -15.0
+  },
+  {
+   "rank": 85,
    "id": "72765",
    "name": "Andrea Emilie Rasmussen",
    "teams": [
@@ -1173,20 +1229,110 @@
   {
    "id": "363067",
    "name": "Adam Vindal Grønbech",
-   "teams": [],
+   "teams": [
+    "U13 D"
+   ],
    "adult": false,
-   "games": [],
-   "played": 0,
-   "won": 0,
-   "lost": 0,
-   "winPct": 0,
-   "pointsFor": 0,
-   "pointsAgainst": 0,
-   "avgPoints": 0,
-   "avgDiff": 0,
-   "setsWon": 0,
-   "setsLost": 0,
-   "byDiscipline": {},
+   "games": [
+    {
+     "date": "2026-11-15",
+     "team": "U13 D",
+     "teamName": "Nivå-Kokkedal 2",
+     "opponentTeam": "Farum 4",
+     "matchID": "514610",
+     "discipline": "1. D",
+     "partner": [
+      "Valdemar Skotte Mikkelsen"
+     ],
+     "opponents": [
+      "Christian Brøndum",
+      "Theodor Rousing Kay"
+     ],
+     "sets": [
+      [
+       11,
+       15
+      ],
+      [
+       7,
+       15
+      ]
+     ],
+     "won": false,
+     "walkover": ""
+    },
+    {
+     "date": "2026-11-15",
+     "team": "U13 D",
+     "teamName": "Nivå-Kokkedal 2",
+     "opponentTeam": "Farum 4",
+     "matchID": "514610",
+     "discipline": "2. D",
+     "partner": [
+      "Asbjørn Kay"
+     ],
+     "opponents": [
+      "Christian Brøndum",
+      "Christoffer Lysdal"
+     ],
+     "sets": [
+      [
+       8,
+       15
+      ],
+      [
+       4,
+       15
+      ]
+     ],
+     "won": false,
+     "walkover": ""
+    },
+    {
+     "date": "2026-11-15",
+     "team": "U13 D",
+     "teamName": "Nivå-Kokkedal 2",
+     "opponentTeam": "Farum 4",
+     "matchID": "514610",
+     "discipline": "3. S",
+     "partner": [],
+     "opponents": [
+      "Eskild Tolborg"
+     ],
+     "sets": [
+      [
+       15,
+       13
+      ],
+      [
+       15,
+       8
+      ]
+     ],
+     "won": true,
+     "walkover": ""
+    }
+   ],
+   "played": 3,
+   "won": 1,
+   "lost": 2,
+   "winPct": 33,
+   "pointsFor": 60,
+   "pointsAgainst": 81,
+   "avgPoints": 20.0,
+   "avgDiff": -7.0,
+   "setsWon": 2,
+   "setsLost": 4,
+   "byDiscipline": {
+    "D": {
+     "played": 2,
+     "won": 0
+    },
+    "S": {
+     "played": 1,
+     "won": 1
+    }
+   },
    "clubMember": true,
    "gender": "M",
    "profile": {
@@ -4193,20 +4339,110 @@
   {
    "id": "352764",
    "name": "Asbjørn Kay",
-   "teams": [],
+   "teams": [
+    "U13 D"
+   ],
    "adult": false,
-   "games": [],
-   "played": 0,
+   "games": [
+    {
+     "date": "2026-11-15",
+     "team": "U13 D",
+     "teamName": "Nivå-Kokkedal 2",
+     "opponentTeam": "Farum 4",
+     "matchID": "514610",
+     "discipline": "4. D",
+     "partner": [
+      "Julie Westergaard"
+     ],
+     "opponents": [
+      "Christoffer Lysdal",
+      "Eskild Tolborg"
+     ],
+     "sets": [
+      [
+       9,
+       15
+      ],
+      [
+       8,
+       15
+      ]
+     ],
+     "won": false,
+     "walkover": ""
+    },
+    {
+     "date": "2026-11-15",
+     "team": "U13 D",
+     "teamName": "Nivå-Kokkedal 2",
+     "opponentTeam": "Farum 4",
+     "matchID": "514610",
+     "discipline": "2. D",
+     "partner": [
+      "Adam Vindal Grønbech"
+     ],
+     "opponents": [
+      "Christian Brøndum",
+      "Christoffer Lysdal"
+     ],
+     "sets": [
+      [
+       8,
+       15
+      ],
+      [
+       4,
+       15
+      ]
+     ],
+     "won": false,
+     "walkover": ""
+    },
+    {
+     "date": "2026-11-15",
+     "team": "U13 D",
+     "teamName": "Nivå-Kokkedal 2",
+     "opponentTeam": "Farum 4",
+     "matchID": "514610",
+     "discipline": "2. S",
+     "partner": [],
+     "opponents": [
+      "Christian Brøndum"
+     ],
+     "sets": [
+      [
+       7,
+       15
+      ],
+      [
+       9,
+       15
+      ]
+     ],
+     "won": false,
+     "walkover": ""
+    }
+   ],
+   "played": 3,
    "won": 0,
-   "lost": 0,
+   "lost": 3,
    "winPct": 0,
-   "pointsFor": 0,
-   "pointsAgainst": 0,
-   "avgPoints": 0,
-   "avgDiff": 0,
+   "pointsFor": 45,
+   "pointsAgainst": 90,
+   "avgPoints": 15.0,
+   "avgDiff": -15.0,
    "setsWon": 0,
-   "setsLost": 0,
-   "byDiscipline": {},
+   "setsLost": 6,
+   "byDiscipline": {
+    "D": {
+     "played": 2,
+     "won": 0
+    },
+    "S": {
+     "played": 1,
+     "won": 0
+    }
+   },
    "clubMember": true,
    "gender": "M",
    "profile": {
@@ -14483,20 +14719,118 @@
   {
    "id": "366215",
    "name": "Julie Westergaard",
-   "teams": [],
+   "teams": [
+    "U13 D"
+   ],
    "adult": false,
-   "games": [],
-   "played": 0,
+   "games": [
+    {
+     "date": "2026-11-15",
+     "team": "U13 D",
+     "teamName": "Nivå-Kokkedal 2",
+     "opponentTeam": "Farum 4",
+     "matchID": "514610",
+     "discipline": "4. D",
+     "partner": [
+      "Asbjørn Kay"
+     ],
+     "opponents": [
+      "Christoffer Lysdal",
+      "Eskild Tolborg"
+     ],
+     "sets": [
+      [
+       9,
+       15
+      ],
+      [
+       8,
+       15
+      ]
+     ],
+     "won": false,
+     "walkover": ""
+    },
+    {
+     "date": "2026-11-15",
+     "team": "U13 D",
+     "teamName": "Nivå-Kokkedal 2",
+     "opponentTeam": "Farum 4",
+     "matchID": "514610",
+     "discipline": "3. D",
+     "partner": [
+      "Valdemar Skotte Mikkelsen"
+     ],
+     "opponents": [
+      "Eskild Tolborg",
+      "Theodor Rousing Kay"
+     ],
+     "sets": [
+      [
+       7,
+       15
+      ],
+      [
+       15,
+       12
+      ],
+      [
+       11,
+       15
+      ]
+     ],
+     "won": false,
+     "walkover": ""
+    },
+    {
+     "date": "2026-11-15",
+     "team": "U13 D",
+     "teamName": "Nivå-Kokkedal 2",
+     "opponentTeam": "Farum 4",
+     "matchID": "514610",
+     "discipline": "4. S",
+     "partner": [],
+     "opponents": [
+      "Christoffer Lysdal"
+     ],
+     "sets": [
+      [
+       15,
+       9
+      ],
+      [
+       5,
+       15
+      ],
+      [
+       8,
+       15
+      ]
+     ],
+     "won": false,
+     "walkover": ""
+    }
+   ],
+   "played": 3,
    "won": 0,
-   "lost": 0,
+   "lost": 3,
    "winPct": 0,
-   "pointsFor": 0,
-   "pointsAgainst": 0,
-   "avgPoints": 0,
-   "avgDiff": 0,
-   "setsWon": 0,
-   "setsLost": 0,
-   "byDiscipline": {},
+   "pointsFor": 78,
+   "pointsAgainst": 111,
+   "avgPoints": 26.0,
+   "avgDiff": -11.0,
+   "setsWon": 2,
+   "setsLost": 6,
+   "byDiscipline": {
+    "D": {
+     "played": 2,
+     "won": 0
+    },
+    "S": {
+     "played": 1,
+     "won": 0
+    }
+   },
    "clubMember": true,
    "gender": "K",
    "profile": {
@@ -27802,20 +28136,114 @@
   {
    "id": "352850",
    "name": "Valdemar Skotte Mikkelsen",
-   "teams": [],
+   "teams": [
+    "U13 D"
+   ],
    "adult": false,
-   "games": [],
-   "played": 0,
+   "games": [
+    {
+     "date": "2026-11-15",
+     "team": "U13 D",
+     "teamName": "Nivå-Kokkedal 2",
+     "opponentTeam": "Farum 4",
+     "matchID": "514610",
+     "discipline": "1. D",
+     "partner": [
+      "Adam Vindal Grønbech"
+     ],
+     "opponents": [
+      "Christian Brøndum",
+      "Theodor Rousing Kay"
+     ],
+     "sets": [
+      [
+       11,
+       15
+      ],
+      [
+       7,
+       15
+      ]
+     ],
+     "won": false,
+     "walkover": ""
+    },
+    {
+     "date": "2026-11-15",
+     "team": "U13 D",
+     "teamName": "Nivå-Kokkedal 2",
+     "opponentTeam": "Farum 4",
+     "matchID": "514610",
+     "discipline": "3. D",
+     "partner": [
+      "Julie Westergaard"
+     ],
+     "opponents": [
+      "Eskild Tolborg",
+      "Theodor Rousing Kay"
+     ],
+     "sets": [
+      [
+       7,
+       15
+      ],
+      [
+       15,
+       12
+      ],
+      [
+       11,
+       15
+      ]
+     ],
+     "won": false,
+     "walkover": ""
+    },
+    {
+     "date": "2026-11-15",
+     "team": "U13 D",
+     "teamName": "Nivå-Kokkedal 2",
+     "opponentTeam": "Farum 4",
+     "matchID": "514610",
+     "discipline": "1. S",
+     "partner": [],
+     "opponents": [
+      "Theodor Rousing Kay"
+     ],
+     "sets": [
+      [
+       14,
+       16
+      ],
+      [
+       8,
+       15
+      ]
+     ],
+     "won": false,
+     "walkover": ""
+    }
+   ],
+   "played": 3,
    "won": 0,
-   "lost": 0,
+   "lost": 3,
    "winPct": 0,
-   "pointsFor": 0,
-   "pointsAgainst": 0,
-   "avgPoints": 0,
-   "avgDiff": 0,
-   "setsWon": 0,
-   "setsLost": 0,
-   "byDiscipline": {},
+   "pointsFor": 73,
+   "pointsAgainst": 103,
+   "avgPoints": 24.3,
+   "avgDiff": -10.0,
+   "setsWon": 1,
+   "setsLost": 6,
+   "byDiscipline": {
+    "D": {
+     "played": 2,
+     "won": 0
+    },
+    "S": {
+     "played": 1,
+     "won": 0
+    }
+   },
    "clubMember": true,
    "gender": "M",
    "profile": {
