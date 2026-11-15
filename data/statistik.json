@@ -1,6 +1,39 @@
 {
- "updated": "",
- "scriptVersion": "",
- "latest": {},
- "history": []
+ "updated": "2026-11-15T15:17:31+00:00",
+ "scriptVersion": "2026-11-15.1",
+ "latest": {
+  "players": 0,
+  "emails": 0,
+  "loggedIn": 0,
+  "active7": 0,
+  "active30": 0,
+  "followers": 0,
+  "teamFollows": 0,
+  "tourFollows": 0,
+  "pushDevices": 0,
+  "pushUsers": 0,
+  "mailOff": 0,
+  "leaders": 0,
+  "admins": 0,
+  "parents": 0
+ },
+ "history": [
+  {
+   "players": 0,
+   "emails": 0,
+   "loggedIn": 0,
+   "active7": 0,
+   "active30": 0,
+   "followers": 0,
+   "teamFollows": 0,
+   "tourFollows": 0,
+   "pushDevices": 0,
+   "pushUsers": 0,
+   "mailOff": 0,
+   "leaders": 0,
+   "admins": 0,
+   "parents": 0,
+   "date": "2026-11-15"
+  }
+ ]
 }
