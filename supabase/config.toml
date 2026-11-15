@@ -1,4 +1,5 @@
 # Kun det funktionen kræver, når den udgives med Supabase CLI:  supabase functions deploy api
 # Appen kalder funktionen uden Supabase-login (den har sit eget login med e-mail-kode), så JWT-tjek skal være slået fra.
 [functions.api]
+entrypoint = "./functions/api/main.ts"
 verify_jwt = false
