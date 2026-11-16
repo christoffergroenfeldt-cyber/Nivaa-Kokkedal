@@ -11,13 +11,20 @@ const RESEND = env('RESEND_API_KEY');
 // C) Relæ: klubbens eget Google Apps Script sender mailen fra klubbens Gmail (MailApp) — MAIL_RELAY_URL = scriptets /exec-adresse,
 //    nøglen er REG_KEY (samme som scriptets KEY). Bruges af HØBK, så mails stadig kommer fra klubbens adresse.
 const RELAY = env('MAIL_RELAY_URL');
-const LIMIT = Number(env('MAIL_DAILY_LIMIT', RESEND || RELAY ? '100' : '400')) || 100;
+// Gmail med app-adgangskode går forud for relæet, når SMTP_USER + SMTP_PASS er sat (HØBK: secrets HOEBK_SMTP_USER / HOEBK_SMTP_PASS).
+// Fejler SMTP (fx forkert adgangskode), sendes mailen gennem relæet i stedet. Grænse med SMTP: SMTP_DAILY_LIMIT (standard 400),
+// ellers MAIL_DAILY_LIMIT som før — så HØBK's MAIL_DAILY_LIMIT=95 (relæet) ikke begrænser SMTP.
+const SMTP = !!(env('SMTP_USER') && env('SMTP_PASS'));
+export function smtpOn() { return SMTP; }
+const LIMIT = SMTP
+  ? Number(env('SMTP_DAILY_LIMIT', env('MAIL_DAILY_LIMIT', '400'))) || 400
+  : Number(env('MAIL_DAILY_LIMIT', RESEND || RELAY ? '100' : '400')) || 100;
 let transport = null;
 
 function dayKey() { return 'mail:' + new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Copenhagen' }); }
 
 const DRYRUN = env('MAIL_DRYRUN') === '1';   // kun til test: mails skrives i loggen i stedet for at blive sendt
-export function mailConfigured() { return DRYRUN || !!(RELAY || RESEND || (env('SMTP_USER') && env('SMTP_PASS'))); }
+export function mailConfigured() { return DRYRUN || !!(RELAY || RESEND || SMTP); }
 export async function mailLeft() {
   if (!mailConfigured()) return 0;
   return Math.max(0, LIMIT - await statGet([dayKey()]));
@@ -27,6 +34,20 @@ export async function sendMail(m: { to: string; subject: string; body: string; n
   if (!mailConfigured()) throw new Error('Mail er ikke sat op (SMTP_USER/SMTP_PASS eller RESEND_API_KEY mangler)');
   if (await mailLeft() < 1) throw new Error('kvote');
   const name = m.name || env('CLUB_NAME', 'Nivå Kokkedal Badmintonklub');
+  if (!DRYRUN && SMTP) {
+    try {
+      if (!transport) transport = nodemailer.createTransport({
+        host: env('SMTP_HOST', 'smtp.gmail.com'), port: Number(env('SMTP_PORT', '465')), secure: true,
+        auth: { user: env('SMTP_USER'), pass: env('SMTP_PASS') },
+      });
+      await transport.sendMail({ from: { name, address: env('MAIL_FROM') || env('SMTP_USER') }, to: m.to, subject: m.subject, text: m.body });
+      await bump(dayKey(), m.to.split(',').length);
+      return;
+    } catch (e) {
+      console.error('smtp', String(e && e.message || e));
+      if (!RELAY && !RESEND) throw e;   // ingen reserve — fejlen går videre
+    }
+  }
   if (DRYRUN) {
     console.log('MAIL(dryrun) til ' + m.to + ': ' + m.subject + '\n' + m.body);
   } else if (RELAY) {

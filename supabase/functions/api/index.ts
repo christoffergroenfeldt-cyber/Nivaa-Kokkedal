@@ -9,9 +9,9 @@
 import {
   append, appendMany, bump, CLUB_ID, reloadCfg, count, data, del, env, load, prop, runRequest, SCHEMA, set, setProp, sql, statCleanup, statGet, tail, TABS, withLock,
 } from "./db.ts";
-import { mailLeft, sendMail } from "./mail.ts";
+import { mailLeft, sendMail, smtpOn } from "./mail.ts";
 
-const SCRIPT_VERSION = '2026-11-17.2';   // vises af ?action=version
+const SCRIPT_VERSION = '2026-11-17.3';   // vises af ?action=version
 const CLUB = env('CLUB_NAME', 'Nivå Kokkedal Badmintonklub');
 const SHORT = env('CLUB_SHORT', 'NKB');
 const APP_URL = env('APP_URL').replace(/\/?$/, '/');
@@ -1702,7 +1702,7 @@ async function members_(b) {   // medlemslisten til appen — kun for indloggede
 // Administratoren vælger hold; serveren lægger én række pr. e-mailadresse i "Invitationer" (status 'kø') for medlemmer, appen ikke kan nå.
 // tick_ sender dem i dagtimerne, højst INVITE_PER_DAY pr. dag og kun så længe der er INVITE_RESERVE mails tilbage af dagens kvote
 // (login-koderne bruger samme Gmail-kvote — og dem, der bliver inviteret, skal selv have en kode).
-const INV_PER_DAY = () => Number(env('INVITE_PER_DAY', '30')) || 30;
+const INV_PER_DAY = () => Number(env('INVITE_PER_DAY', smtpOn() ? '100' : '30')) || 30;   // med Gmail-app-adgangskode (ca. 400/døgn) kan der sendes flere
 const INV_RESERVE = () => Number(env('INVITE_RESERVE', '45')) || 45;
 async function invitedSet_() {   // {email: status} for alle, der står i køen eller er inviteret
   const out = {}; if (!convOn_()) return out;

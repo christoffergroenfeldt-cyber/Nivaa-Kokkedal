@@ -85,6 +85,7 @@ The free plan allows two active projects, so HØBK (Hørsholm Badminton Klub) ru
 - Its tables live in schema **`hoebk`** (not exposed through the REST API). NKB keeps `public`.
 - Settings: secrets with the prefix `HOEBK_` (e.g. `HOEBK_APP_URL`), or rows `cfg:<NAME>` in `hoebk.kv` (used today: `APP_URL`, `CLUB_NAME`, `CLUB_SHORT`, `ADMIN_PLAYER_IDS`, `TR_GROUPS`, `GH_REPO`, `MAIL_RELAY_URL`, `CONVENTUS_RELAY_URL`, plus `REG_KEY`, `IDEAS_KEY`, `GH_TOKEN` that came with the import). `SUPABASE_*` secrets are shared.
 - Mail and Conventus go through HØBK's Google Apps Script (`relayMail`, `relayConventus`, key = REG_KEY), so mails still come from the club's Gmail.
+- **Gmail app password for HØBK (optional, ≈400 mails/day instead of ≈95):** set the Supabase secrets `HOEBK_SMTP_USER` (the club Gmail address) and `HOEBK_SMTP_PASS` (an app password from that account). SMTP is then used first and the relay only as a fallback if SMTP fails. Daily limit with SMTP: `SMTP_DAILY_LIMIT` (default 400; `cfg:MAIL_DAILY_LIMIT`=95 only applies to the relay). Invitations then default to 100/day (`INVITE_PER_DAY`). Takes effect within a few minutes (next cold start); check `?action=health` → `mailLeft`.
 - Schedule: pg_cron job `hoebk-tick` calls `…/functions/v1/hoebk?action=tick&key=` with the key read from `hoebk.kv`.
 - The deploy workflow deploys both `api` and `hoebk`.
 New columns/tables: add a new file in `supabase/migrations/` and run it in the SQL Editor; add the column to `TABS` in `db.ts` (same order as in the table).
