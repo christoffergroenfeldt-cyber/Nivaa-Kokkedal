@@ -11,7 +11,7 @@ import {
 } from "./db.ts";
 import { mailLeft, sendMail } from "./mail.ts";
 
-const SCRIPT_VERSION = '2026-11-16.4';   // vises af ?action=version
+const SCRIPT_VERSION = '2026-11-17.1';   // vises af ?action=version
 const CLUB = env('CLUB_NAME', 'Nivå Kokkedal Badmintonklub');
 const SHORT = env('CLUB_SHORT', 'NKB');
 const APP_URL = env('APP_URL').replace(/\/?$/, '/');
@@ -782,9 +782,11 @@ async function newsRows_() {
     to: String(r[4]).split(',').map((x) => x.trim()).filter(String), by: String(r[5]), img: String(r[7] || ''),
   })).sort((a, b) => b.t - a.t);
 }
-async function newsFor_(rooms, all) {
+async function newsFor_(rooms, all, cv?) {
   const since = Date.now() - 120 * 86400000;
-  return (await newsRows_()).filter((n) => n.t >= since && (all || n.to.indexOf('*') >= 0 || n.to.some((x) => !!rooms[x]))).slice(0, 30);
+  const out = (await newsRows_()).filter((n) => n.t >= since && (all || n.to.indexOf('*') >= 0 || n.to.some((x) => !!rooms[x]))).slice(0, 30);
+  if (cv) out.forEach((n) => n.to.forEach((x) => { const g = /^c:/.test(x) && cv.groups[x.slice(2)]; if (g) (n.lbl = n.lbl || {})[x] = g.title; }));   // navne på Conventus-hold
+  return out;
 }
 async function rooms_(b) {
   const ses = await session_(b.token);
@@ -805,7 +807,8 @@ async function rooms_(b) {
     return { id, title: mr[id], last: s.last, n: s.n, by: s.by, x: s.x, recent: s.recent.slice(-30), muted: !!mute[id], extra: !own[id] };
   });
   const admin = (await roleIn_(cx, ses.email, ses.playerId)).admin;
-  return { ok: true, rooms, news: await newsFor_(mr, admin), canNews: admin };
+  const cr = await convRooms_(cx, ses.email, ses.playerId);   // Conventus-hold man (eller ens barn) er på — kun til nyheder, ikke chatrum
+  return { ok: true, rooms, news: await newsFor_(Object.assign({}, mr, cr), admin, cx.conv), canNews: admin };
 }
 async function messages_(b) {
   const ses = await session_(b.token);
@@ -913,7 +916,8 @@ async function newsImgDel_(url) {
 }
 function toList_(b, cx) {
   let to = (b.to || []).map((x) => clean_(x, 60)).filter((x) =>
-    x === '*' || (/^h:\d+$/.test(x) && cx.teams[x.slice(2)]) || (/^g:/.test(x) && TR_GROUPS.indexOf(x.slice(2)) >= 0));
+    x === '*' || (/^h:\d+$/.test(x) && cx.teams[x.slice(2)]) || (/^g:/.test(x) && TR_GROUPS.indexOf(x.slice(2)) >= 0) ||
+    (/^c:\d+$/.test(x) && !!cx.conv && !!cx.conv.groups[x.slice(2)]));   // c: = træningshold i Conventus (kun nyheder — cx.conv indlæses af newsSave_)
   if (to.indexOf('*') >= 0) to = ['*'];
   return to;
 }
@@ -923,7 +927,8 @@ async function newsSave_(b) {
   const title = clean_(b.title, 100), txt = text_(b.text, NEWS_MAX);
   if (!title) return { ok: false, error: 'Skriv en overskrift' };
   if (!txt) return { ok: false, error: 'Skriv en tekst' };
-  const cx = await ctx_(), to = toList_(b, cx);
+  const cx = await ctx_(); await convIdx_(cx);
+  const to = toList_(b, cx);
   if (!to.length) return { ok: false, error: 'Vælg hvem nyheden er til' };
   let img = '';
   if (b.img) { const saved = await newsImg_(b.img); if (!saved.ok) return saved; img = saved.id; }
@@ -933,7 +938,7 @@ async function newsSave_(b) {
   if (b.push) {
     const targets = await pushTargets_(async (e, pid) => {
       if (to[0] === '*') return true;
-      const mr = await memberRooms_(cx, e, pid, true);
+      const mr = Object.assign({}, await memberRooms_(cx, e, pid, true), to.some((x) => /^c:/.test(x)) ? await convRooms_(cx, e, pid) : {});
       return to.some((x) => !!mr[x]);
     });
     const jobs = targets.map((r) => [new Date(), r.endpoint, r.p256dh, r.auth, clean_(SHORT + ' · ' + title, 80), clean_(txt, 140), APP_URL + '#/nyhed/' + id, 'n:' + id]);
@@ -1601,6 +1606,50 @@ async function conventusSync_() {
   await setProp('CONV_SYNC', String(now.getTime()));
   return rows.length;
 }
+// ---------- Conventus-hold som modtagere af nyheder ----------
+// Conventus-kopien har kun navne (ingen e-mails), så appens brugere kobles på via navnet — samme regel som Spillere-listen i appen:
+// hele navnet, ellers fornavn + efternavn hvis det kun passer på ét medlem. En forælder hører til sine børns hold.
+function nameKeys_(n) {
+  const w = String(n || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9æøå]+/g, ' ').trim().split(' ').filter(String);
+  return [w.join(' '), w.length > 1 ? w[0] + ' ' + w[w.length - 1] : w.join(' ')];
+}
+async function convIdx_(cx) {
+  if (cx.conv) return cx.conv;
+  const cv = { groups: {}, full: {}, fl: {} };
+  cx.conv = cv;
+  if (!convOn_()) return cv;
+  try {
+    const byTitle = {}, split = (x) => String(x || '').split(';').map((t) => t.trim()).filter(String);
+    (await data('Conventus grupper')).forEach((r) => {
+      if (!r[0] || String(r[12]) !== 'ja') return;
+      const id = String(r[0]); cv.groups[id] = { id, title: String(r[1]), n: 0 }; byTitle[String(r[1])] = id;
+    });
+    (await data('Conventus')).forEach((r) => {
+      if (!r[0] || !r[1]) return;
+      const gids = split(r[2]).concat(split(r[3])).map((t) => byTitle[t]).filter((g, i, a) => g && a.indexOf(g) === i);
+      if (!gids.length) return;
+      gids.forEach((g) => { cv.groups[g].n++; });
+      const m = { cid: String(r[0]), gids }, k = nameKeys_(r[1]);
+      (cv.full[k[0]] = cv.full[k[0]] || []).push(m); (cv.fl[k[1]] = cv.fl[k[1]] || []).push(m);
+    });
+  } catch (e) { console.error('conv', e); }
+  return cv;
+}
+function convFind_(cv, name) {
+  const k = nameKeys_(name); if (!k[0]) return [];
+  const a = cv.full[k[0]]; if (a && a.length) return a;
+  const b = cv.fl[k[1]]; return b && b.length === 1 ? b : [];
+}
+async function convRooms_(cx, email, pid) {   // {'c:<gruppeId>': titel} for brugeren og brugerens børn
+  const cv = await convIdx_(cx), out = {}, em = em_(email);
+  if (!em || !Object.keys(cv.groups).length) return out;
+  if (!cx.spl) { cx.spl = {}; (await data('Spillere')).forEach((r) => { const e = em_(r[2]); if (e && r[1]) (cx.spl[e] = cx.spl[e] || []).push(String(r[1])); }); }
+  if (!cx.par) cx.par = await data('Forældre');
+  const names = (cx.spl[em] || []).slice();
+  cx.par.forEach((r) => { if (em_(r[0]) === em && r[4]) names.push(String(r[4])); });
+  names.forEach((n) => convFind_(cv, n).forEach((m) => m.gids.forEach((g) => { out['c:' + g] = cv.groups[g].title; })));
+  return out;
+}
 async function members_(b) {   // medlemslisten til appen — kun for indloggede. Administratorer får også appens brugere.
   const ses = await session_(b.token);
   if (!ses) return { ok: false, error: 'login' };
@@ -1611,8 +1660,16 @@ async function members_(b) {   // medlemslisten til appen — kun for indloggede
   const out = { ok: true, updated: Number(await prop('CONV_SYNC') || 0),
     members: rows.filter((r) => r[0] && r[1]).map((r) => ({ cid: String(r[0]), name: String(r[1]), groups: split(r[2]), leads: split(r[3]) })) };
   if (await isAdmin_(ses.email, ses.playerId)) {
-    const seen = {}; out.users = [];
-    (await data('Spillere')).forEach((r) => { const id = String(r[0]); if (!id || /^p:/.test(id) || seen[id]) return; seen[id] = 1; out.users.push({ id, name: String(r[1]) }); });
+    const seen = {}, spl = await data('Spillere'); out.users = [];
+    spl.forEach((r) => { const id = String(r[0]); if (!id || /^p:/.test(id) || seen[id]) return; seen[id] = 1; out.users.push({ id, name: String(r[1]) }); });
+    // Conventus-hold til nyhedsformularen: antal medlemmer og hvor mange af dem appen kan nå (selv bruger eller har en forælder i appen)
+    const cx = {}, cv = await convIdx_(cx), reach = {};
+    const mark = (n) => convFind_(cv, n).forEach((m) => { reach[m.cid] = m.gids; });
+    spl.forEach((r) => { if (r[2] && r[1]) mark(String(r[1])); });
+    (await data('Forældre')).forEach((r) => { if (r[4]) mark(String(r[4])); });
+    const app = {}; Object.keys(reach).forEach((cid) => reach[cid].forEach((g) => { app[g] = (app[g] || 0) + 1; }));
+    out.cgroups = Object.keys(cv.groups).map((g) => ({ id: g, title: cv.groups[g].title, n: cv.groups[g].n, app: app[g] || 0 }))
+      .filter((g) => g.n > 0).sort((x, y) => x.title.localeCompare(y.title, 'da', { numeric: true }));
   }
   return out;
 }
