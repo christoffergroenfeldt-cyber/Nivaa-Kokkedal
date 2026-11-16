@@ -30,6 +30,8 @@ export const TABS: Record<string, { t: string; cols: Col[] }> = {
   Aktiviteter: { t: 'aktiviteter', cols: c('id,oprettet:ts,navn,beskrivelse,start,slut,kalender:bool,til,af,slettet:bool,opgaver,soeger_hjaelp:bool,link') },
   Opgavetilmeldinger: { t: 'opgavetilmeldinger', cols: c('tidspunkt:ts,aktivitet_id,opgave_id,email,player_id,navn,status') },
   Administratorer: { t: 'administratorer', cols: c('email,navn,udnaevnt_af,tidspunkt:ts') },
+  'Trænere': { t: 'traenere', cols: c('email,navn,grupper,udnaevnt_af,tidspunkt:ts') },
+  'Øvelser': { t: 'oevelser', cols: c('id,oprettet:ts,titel,niveauer,fokus,spillere,varighed,opstilling,beskrivelse,variationer,link,af,email,slettet:bool,opdateret:ts') },
   Medlemmer: { t: 'medlemmer', cols: c('email,navn,medlemsnr,importeret:ts') },
   Godkendelser: { t: 'godkendelser', cols: c('tidspunkt:ts,email,player_id,navn,rolle,status,note,behandlet_af,behandlet:ts') },
   Holdmedlemmer: { t: 'holdmedlemmer', cols: c('player_id,navn,gruppe,tilfoejet_af,tidspunkt:ts') },

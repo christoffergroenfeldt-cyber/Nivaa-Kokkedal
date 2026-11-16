@@ -75,6 +75,8 @@ Dashboard: **Edge Functions → Deploy a new function → Via editor**, name it 
 
 ## Updating the server
 Edit the files in `supabase/functions/api/` and deploy again (dashboard editor or `supabase functions deploy api`). Bump `SCRIPT_VERSION` in `index.ts`.
+
+Migrations so far (run each once, in order): `20261115000000_init.sql`, `20261116000000_traenere.sql` (trainers and exercise bank, server 2026-11-16.1).
 New columns/tables: add a new file in `supabase/migrations/` and run it in the SQL Editor; add the column to `TABS` in `db.ts` (same order as in the table).
 
 ## Viewing data

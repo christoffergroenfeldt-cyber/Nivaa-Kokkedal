@@ -12,7 +12,7 @@ import {
 import { mailLeft, sendMail } from "./mail.ts";
 
 const env = (k: string, d = '') => (Deno.env.get(k) || d).trim();
-const SCRIPT_VERSION = '2026-11-15.1';   // vises af ?action=version
+const SCRIPT_VERSION = '2026-11-16.1';   // vises af ?action=version
 const CLUB = env('CLUB_NAME', 'Nivå Kokkedal Badmintonklub');
 const SHORT = env('CLUB_SHORT', 'NKB');
 const APP_URL = env('APP_URL').replace(/\/?$/, '/');
@@ -174,13 +174,132 @@ async function isAdmin_(email, playerId) {
 async function role_(email, playerId) {
   const em = em_(email);
   if (!em) return { leader: false, teams: [] };
-  if (await isAdmin_(em, playerId)) return { leader: true, all: true, admin: true, owner: await isOwner_(em, playerId), super: await isSuper_(em), teams: [] };
+  const tr = trainerOf_(await data('Trænere'), em);
+  if (await isAdmin_(em, playerId)) return { leader: true, all: true, admin: true, owner: await isOwner_(em, playerId), super: await isSuper_(em), teams: [], trainer: { ungdom: true, senior: true, all: true, groups: tr.groups } };
   const teams = []; let all = false;
   (await data('Ledere')).forEach((r) => {
     if (em_(r[0]) !== em) return;
     String(r[2]).split(',').forEach((t) => { t = t.trim(); if (t === '*') all = true; else if (t) teams.push(t); });
   });
-  return { leader: all || teams.length > 0, all, teams };
+  return { leader: all || teams.length > 0, all, teams, trainer: tr.groups.length ? tr : undefined };
+}
+
+// ---------- Trænere ----------
+// En træner har en eller flere træningsgrupper/-hold ("Ungdom", "Ungdom/Bredde 1", "Senior" …).
+// Ungdom → ungdomstræner (rummet x:tr-ungdom), alle andre grupper → seniortræner (x:tr-senior).
+const TR_ROOMS = { 'x:tr-ungdom': 'Trænere · Ungdom', 'x:tr-senior': 'Trænere · Senior' };
+function trainerOf_(rows, email) {
+  const em = em_(email), groups = [];
+  if (em) rows.forEach((r) => {
+    if (em_(r[0]) !== em) return;
+    String(r[2]).split(',').forEach((g) => { g = g.trim(); if (g && groups.indexOf(g) < 0) groups.push(g); });
+  });
+  const main = groups.map((g) => g.split('/')[0]);
+  return { ungdom: main.indexOf('Ungdom') >= 0, senior: main.some((g) => g !== 'Ungdom'), groups };
+}
+function cleanTrGroups_(arr) {
+  const out = [];
+  (arr || []).slice(0, 20).forEach((g) => {
+    g = clean_(g, 60).replace(/[,]/g, ' ').trim();
+    if (TR_GROUPS.indexOf(g.split('/')[0]) >= 0 && out.indexOf(g) < 0) out.push(g);
+  });
+  return out;
+}
+async function trainers_(b) {
+  const ses = await session_(b.token);
+  if (!ses || !await isAdmin_(ses.email, ses.playerId)) return { ok: false, error: 'Kun administrator' };
+  const trainers = [];
+  for (const r of await data('Trænere')) {
+    if (!String(r[0]) || await isSuper_(r[0])) continue;
+    trainers.push({ email: String(r[0]), name: String(r[1]), groups: String(r[2]).split(',').map((g) => g.trim()).filter(String), by: String(r[3]) });
+  }
+  const emails = {};   // spiller-id → bekræftede e-mails (kun til administrator)
+  for (const r of await data('Spillere')) {
+    const id = String(r[0]), e = String(r[2]);
+    if (!e || await isSuper_(e)) continue;
+    (emails[id] = emails[id] || []); if (emails[id].indexOf(e) < 0) emails[id].push(e);
+  }
+  return { ok: true, trainers, emails };
+}
+async function setTrainer_(b) {
+  const ses = await session_(b.token);
+  if (!ses || !await isAdmin_(ses.email, ses.playerId)) return { ok: false, error: 'Kun administrator' };
+  const email = clean_(b.email, 120).toLowerCase();
+  if (!validEmail_(email)) return { ok: false, error: 'Ugyldig e-mail' };
+  const groups = cleanTrGroups_(b.groups), name = clean_(b.name, 80);
+  return await withLock(async () => {
+    const L = await load('Trænere'), gone = [];
+    L.rows.forEach((r, i) => { if (em_(r[0]) === email) gone.push(L.ids[i]); });
+    await del('Trænere', gone);
+    if (groups.length) await append('Trænere', [email, name, groups.join(', '), ses.playerName, new Date()]);
+    return { ok: true, groups };
+  });
+}
+
+// ---------- Øvelsesbanken (trænere) ----------
+const EX_LEVELS = ['Begynder børn', 'Øvede børn', 'Elite børn', 'Begynder senior', 'Øvede senior', 'Elite senior', 'Motion/voksen', 'Veteran'];
+const EX_FOCUS = ['Opvarmning', 'Fodarbejde', 'Slag og teknik', 'Single', 'Double', 'Mix', 'Taktik', 'Fysisk', 'Leg og spil'];
+async function exTrainer_(b) {   // {ses, admin} for trænere og administratorer — ellers {err}
+  const ses = await session_(b.token);
+  if (!ses) return { err: { ok: false, error: 'login', message: 'Log ind igen' } };
+  const admin = await isAdmin_(ses.email, ses.playerId);
+  if (!admin && !trainerOf_(await data('Trænere'), ses.email).groups.length) return { err: { ok: false, error: 'Kun for trænere' } };
+  return { ses, admin };
+}
+function pickList_(arr, allowed) { const out = []; (arr || []).forEach((x) => { x = String(x); if (allowed.indexOf(x) >= 0 && out.indexOf(x) < 0) out.push(x); }); return out; }
+const splitList_ = (v) => String(v).split(',').map((x) => x.trim()).filter(String);
+async function exList_(b) {
+  const a = await exTrainer_(b); if (a.err) return a.err;
+  const em = a.ses.email.toLowerCase();
+  const exercises = (await data('Øvelser')).filter((r) => r[0] && !bool_(r[13])).map((r) => {
+    const mine = String(r[12]).toLowerCase() === em;
+    return { id: String(r[0]), t: ts_(r[1]), title: String(r[2]), levels: splitList_(r[3]), focus: splitList_(r[4]), players: String(r[5]), minutes: String(r[6]),
+             setup: String(r[7]), text: String(r[8]), vary: String(r[9]), link: String(r[10]), by: String(r[11]), upd: ts_(r[14]), mine, canEdit: mine || a.admin };
+  }).sort((x, y) => x.title.localeCompare(y.title, 'da'));
+  return { ok: true, exercises, levels: EX_LEVELS, focus: EX_FOCUS };
+}
+async function exSave_(b) {
+  const a = await exTrainer_(b); if (a.err) return a.err;
+  const title = clean_(b.title, 100), text = text_(b.text, 3000), levels = pickList_(b.levels, EX_LEVELS), focus = pickList_(b.focus, EX_FOCUS);
+  if (!title) return { ok: false, error: 'Skriv en titel' };
+  if (!levels.length) return { ok: false, error: 'Vælg mindst ét niveau' };
+  if (!focus.length) return { ok: false, error: 'Vælg mindst ét fokus' };
+  if (!text) return { ok: false, error: 'Beskriv øvelsen' };
+  const link = clean_(b.link, 300);
+  if (link && !/^https:\/\/[^\s"'<>]+$/i.test(link)) return { ok: false, error: 'Linket skal starte med https://' };
+  const vals = [title, levels.join(', '), focus.join(', '), clean_(b.players, 40), clean_(b.minutes, 20), text_(b.setup, 1000), text, text_(b.vary, 1500), link];
+  let id = clean_(b.id, 40); const em = a.ses.email.toLowerCase();
+  return await withLock(async () => {
+    if (id) {
+      const L = await load('Øvelser');
+      for (let i = 0; i < L.rows.length; i++) {
+        const r = L.rows[i];
+        if (String(r[0]) !== id || bool_(r[13])) continue;
+        if (String(r[12]).toLowerCase() !== em && !a.admin) return { ok: false, error: 'Du kan kun rette dine egne øvelser' };
+        await set('Øvelser', L.ids[i], 2, vals);
+        await set('Øvelser', L.ids[i], 14, [new Date()]);
+        return { ok: true, id };
+      }
+      return { ok: false, error: 'Øvelsen findes ikke' };
+    }
+    id = newId_('o');
+    await append('Øvelser', [id, new Date()].concat(vals).concat([a.ses.playerName, em, false, '']));
+    return { ok: true, id };
+  });
+}
+async function exDel_(b) {
+  const a = await exTrainer_(b); if (a.err) return a.err;
+  const id = clean_(b.id, 40), em = a.ses.email.toLowerCase();
+  return await withLock(async () => {
+    const L = await load('Øvelser');
+    for (let i = 0; i < L.rows.length; i++) {
+      if (String(L.rows[i][0]) !== id) continue;
+      if (String(L.rows[i][12]).toLowerCase() !== em && !a.admin) return { ok: false, error: 'Du kan kun slette dine egne øvelser' };
+      await set('Øvelser', L.ids[i], 13, [true]);
+      return { ok: true };
+    }
+    return { ok: false, error: 'Øvelsen findes ikke' };
+  });
 }
 
 async function saveLineup_(b) {
@@ -326,7 +445,7 @@ async function users_(b) {
   for (const em of Object.keys(by)) {
     const u = by[em], p = u.profiles[u.profiles.length - 1], role = await roleIn_(cx, em, p.id);
     users.push({ email: em, name: p.name, id: p.id, profiles: u.profiles, parent: /^p:/.test(p.id) || u.kids.length > 0, kids: u.kids,
-      admin: role.admin, superAdmin: await isSuper_(em), leader: role.all || role.teams.length > 0, teams: role.teams, first: u.first, active: Math.max(u.active, u.seen), push: u.push });
+      admin: role.admin, superAdmin: await isSuper_(em), leader: role.all || role.teams.length > 0, teams: role.teams, trainer: trainerOf_(cx.trn, em).groups, first: u.first, active: Math.max(u.active, u.seen), push: u.push });
   }
   users.sort((a, b) => a.name.localeCompare(b.name, 'da'));
   return { ok: true, users };
@@ -583,7 +702,7 @@ async function teams_() {
   return map;
 }
 async function ctx_() {
-  return { teams: await teams_(), fol: await data('Følger'), led: await data('Ledere'), grp: await data('Grupper'), par: await data('Forældre'), admins: {}, gm: null };
+  return { teams: await teams_(), fol: await data('Følger'), led: await data('Ledere'), grp: await data('Grupper'), par: await data('Forældre'), trn: await data('Trænere'), admins: {}, gm: null };
 }
 async function roleIn_(cx, email, pid) {
   const em = em_(email), k = em + '|' + pid;
@@ -600,6 +719,9 @@ async function memberRooms_(cx, email, pid, strict?) {
   const em = em_(email), out = {};
   let role = await roleIn_(cx, em, pid);
   if (role.admin) out[ADMIN_ROOM] = 'Admin-chat';
+  const tr = trainerOf_(cx.trn || [], em);   // trænerchat: trænerne for den del; administratorer kan se og skrive i begge (men får ikke push)
+  if (tr.ungdom || (role.admin && !strict)) out['x:tr-ungdom'] = TR_ROOMS['x:tr-ungdom'];
+  if (tr.senior || (role.admin && !strict)) out['x:tr-senior'] = TR_ROOMS['x:tr-senior'];
   if (strict) role = { admin: false, all: false, teams: role.teams };
   const follows = {}; cx.fol.forEach((r) => { if (String(r[0]).toLowerCase() === em) follows[String(r[3])] = 1; });
   const kids = []; (cx.par || []).forEach((r) => { if (String(r[0]).toLowerCase() === em) kids.push(String(r[3])); });
@@ -613,12 +735,15 @@ async function memberRooms_(cx, email, pid, strict?) {
   const listed = (g) => gm && (gm['g:' + g] || []).length;
   if (gm) TR_GROUPS.forEach((g) => { if (listed(g) && (gm['g:' + g].indexOf(String(pid)) >= 0 || kids.some((k) => gm['g:' + g].indexOf(k) >= 0))) groups.push(g); });
   cx.grp.forEach((r) => { if (String(r[0]).toLowerCase() === em) groups = groups.concat(String(r[2]).split(',').filter((g) => !listed(g.trim()))); });
+  tr.groups.forEach((g) => { groups.push(g.split('/')[0]); });   // trænere er med i chatten for de grupper de træner
   groups.forEach((g) => { g = g.trim(); if (TR_GROUPS.indexOf(g) >= 0) out['g:' + g] = 'Træning · ' + g; });
   return out;
 }
 async function canWrite_(cx, email, pid, room) {
   const em = em_(email), role = await roleIn_(cx, em, pid);
   if (role.admin) return { ok: true };
+  if (room && TR_ROOMS[room]) return { ok: true };   // trænerchat: alle med i rummet må skrive (medlemskab tjekkes af post_)
+  if (room && /^g:/.test(room) && trainerOf_(cx.trn || [], em).groups.some((g) => 'g:' + g.split('/')[0] === room)) return { ok: true };   // træner for gruppen
   if (APPROVAL.enabled && await approvalOf_(em) !== 'godkendt') return { ok: false, why: 'afventer', msg: 'Din profil afventer godkendelse — du kan læse med, men ikke skrive endnu' };
   if (role.all || role.teams.length) return { ok: true };
   if (/^p:/.test(String(pid)) || (cx.par || []).some((r) => String(r[0]).toLowerCase() === em)) return { ok: true };
@@ -1462,6 +1587,11 @@ async function route_(b) {
     case 'newsSave': return newsSave_(b);
     case 'newsDel': return newsDel_(b);
     case 'newsList': return newsList_(b);
+    case 'trainers': return trainers_(b);
+    case 'setTrainer': return setTrainer_(b);
+    case 'exList': return exList_(b);
+    case 'exSave': return exSave_(b);
+    case 'exDel': return exDel_(b);
     case 'fbSend': return fbSend_(b);
     case 'fbMine': return fbMine_(b);
     case 'fbList': return fbList_(b);
