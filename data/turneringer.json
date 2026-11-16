@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16T05:02:28+00:00",
+ "updated": "2026-11-16T13:46:02+00:00",
  "season": "2026",
  "source": "badmintonplayer.dk sæsonplan",
  "levels": [
@@ -14111,9 +14111,11 @@
   {
    "id": "117388",
    "links": [
+    "invitation",
     "tilmelding"
    ],
    "urls": {
+    "invitation": "https://www.badmintonplayer.dk/DBF/Turnering/VisInvitation/#117388,",
     "tilmelding": "https://www.badmintonplayer.dk/DBF/Turnering/TilmeldTurnering/#117388"
    },
    "entryOpen": true,
@@ -16070,7 +16072,7 @@
    "start": "2027-01-09",
    "end": "2027-01-10",
    "week": "1",
-   "deadline": "2026-12-17",
+   "deadline": "2026-12-24",
    "organiser": "DGI Sønderjylland - Sønderjysk Nytårsstævne",
    "classes": [
     {
@@ -18185,9 +18187,15 @@
   {
    "id": "116677",
    "links": [
+    "invitation",
+    "program",
+    "resultater",
     "tilmelding"
    ],
    "urls": {
+    "invitation": "https://www.badmintonplayer.dk/DBF/Turnering/VisInvitation/#116677,",
+    "program": "https://www.badmintonplayer.dk/DBF/Turnering/VisResultater/#116677,-8",
+    "resultater": "https://www.badmintonplayer.dk/DBF/Turnering/VisResultater/#116677,-8",
     "tilmelding": "https://www.badmintonplayer.dk/DBF/Turnering/TilmeldTurnering/#116677"
    },
    "entryOpen": true,
