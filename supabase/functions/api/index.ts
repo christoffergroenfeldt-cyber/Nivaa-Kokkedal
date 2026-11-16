@@ -11,7 +11,7 @@ import {
 } from "./db.ts";
 import { mailLeft, sendMail } from "./mail.ts";
 
-const SCRIPT_VERSION = '2026-11-16.3';   // vises af ?action=version
+const SCRIPT_VERSION = '2026-11-16.4';   // vises af ?action=version
 const CLUB = env('CLUB_NAME', 'Nivå Kokkedal Badmintonklub');
 const SHORT = env('CLUB_SHORT', 'NKB');
 const APP_URL = env('APP_URL').replace(/\/?$/, '/');
@@ -1648,8 +1648,10 @@ async function importEnd_(b) {
 // ---------- Backup: hele klubbens data som JSON (hentes hver nat af klubbens Apps Script og gemmes i Google Drive) ----------
 // Kræver REG_KEY. Rækkerne har samme kolonner og rækkefølge som TABS (og fanerne i det gamle Google Sheet),
 // så en backup kan lægges tilbage med importTab (se docs/SUPABASE.md → Backup).
+// Nøgle: REG_KEY eller en separat backup-nøgle, hvis SHA-256 ligger i kv som backup_key_sha (kan kun hente backup).
 async function export_(b) {
-  if (!keyOk(b.key)) return { ok: false, error: 'Forkert nøgle' };
+  const bk = await prop('backup_key_sha');
+  if (!keyOk(b.key) && !(bk && b.key && (await sha256hex_(String(b.key))) === bk)) return { ok: false, error: 'Forkert nøgle' };
   const tabs = {}, counts = {};
   for (const t of Object.keys(TABS)) {
     try { tabs[t] = await data(t); counts[t] = tabs[t].length; } catch { /* tabellen findes ikke i denne klub */ }
