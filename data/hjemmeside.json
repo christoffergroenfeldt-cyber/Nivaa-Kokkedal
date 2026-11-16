@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16T00:31:32+00:00",
+ "updated": "2026-11-16T08:00:24+00:00",
  "season": "2026",
  "app": "https://christoffergroenfeldt-cyber.github.io/Nivaa-Kokkedal/",
  "teams": 13,
@@ -179,6 +179,20 @@
    "walkover": ""
   },
   {
+   "team": "U13 C-D",
+   "club": "Nivå-Kokkedal 1",
+   "date": "2026-11-14",
+   "time": "16:00",
+   "opponent": "Hørsholm 3",
+   "home": false,
+   "listedHome": true,
+   "venue": "Frederikssundhallen",
+   "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19105,4,10,,514462,1153,",
+   "result": "1-7",
+   "outcome": "T",
+   "walkover": ""
+  },
+  {
    "team": "Danmarksserien",
    "club": "Nivå-Kokkedal",
    "date": "2026-11-14",
@@ -190,20 +204,6 @@
    "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,18858,1,1,,507827,1153,",
    "result": "9-4",
    "outcome": "T",
-   "walkover": ""
-  },
-  {
-   "team": "Serie 1",
-   "club": "Nivå-Kokkedal 2",
-   "date": "2026-11-14",
-   "time": "13:30",
-   "opponent": "Måløv 2",
-   "home": false,
-   "listedHome": false,
-   "venue": "Gl. Måløv hal",
-   "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,18929,1,10,,509638,1153,",
-   "result": "4-9",
-   "outcome": "V",
    "walkover": ""
   }
  ]
