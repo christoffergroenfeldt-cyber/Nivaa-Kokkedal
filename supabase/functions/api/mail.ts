@@ -13,7 +13,7 @@ const RESEND = env('RESEND_API_KEY');
 const RELAY = env('MAIL_RELAY_URL');
 // Gmail med app-adgangskode går forud for relæet, når SMTP_USER + SMTP_PASS er sat (HØBK: secrets HOEBK_SMTP_USER / HOEBK_SMTP_PASS).
 // Fejler SMTP (fx forkert adgangskode), sendes mailen gennem relæet i stedet. Grænse med SMTP: SMTP_DAILY_LIMIT (standard 400),
-// ellers MAIL_DAILY_LIMIT som før — så HØBK's MAIL_DAILY_LIMIT=95 (relæet) ikke begrænser SMTP.
+// ellers MAIL_DAILY_LIMIT, ellers 400. HØBK har MAIL_DAILY_LIMIT=95 (til relæet) og derfor cfg:SMTP_DAILY_LIMIT=400 i hoebk.kv.
 const SMTP = !!(env('SMTP_USER') && env('SMTP_PASS'));
 export function smtpOn() { return SMTP; }
 const LIMIT = SMTP
