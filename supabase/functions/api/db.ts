@@ -8,10 +8,34 @@ import { AsyncLocalStorage } from "node:async_hooks";
 const DB_URL = Deno.env.get("SUPABASE_DB_URL") || Deno.env.get("DATABASE_URL") || "";
 export const sql = postgres(DB_URL, { max: 5, prepare: false, idle_timeout: 20, connect_timeout: 10 });
 
+// ---- flere klubber i samme Supabase-projekt ----
+// Funktionen "api" = NKB (tabellerne i schema public, indstillinger i secrets uden præfiks — som før).
+// Andre klubber har deres egen funktion (fx supabase/functions/hoebk/), der sætter globalThis.__CLUB før serveren indlæses:
+// tabellerne ligger i et schema med klubbens navn, og indstillingerne læses fra secrets med præfiks (HOEBK_APP_URL …)
+// eller fra klubbens kv-tabel (nøgler "cfg:APP_URL" …). Supabase-nøglerne (SUPABASE_*) er fælles.
+export const CLUB_ID = String((globalThis as any).__CLUB || '').toLowerCase().replace(/[^a-z0-9_]/g, '');
+export const SCHEMA = CLUB_ID || 'public';
+const Q = (t: string) => SCHEMA + '.' + t;
+const SHARED = /^SUPABASE_/;
+let CFG = {};
+export async function reloadCfg() {
+  if (!CLUB_ID) return;
+  try {
+    const r = await sql`select key, value from ${sql(Q('kv'))} where key like 'cfg:%'`;
+    const c = {}; r.forEach((x) => { c[String(x.key).slice(4)] = String(x.value); }); CFG = c;
+  } catch (e) { console.error('cfg', e); }
+}
+await reloadCfg();
+export function env(k: string, d = ''): string {
+  if (!CLUB_ID || SHARED.test(k)) return (Deno.env.get(k) || d).trim();
+  const v = Deno.env.get(CLUB_ID.toUpperCase() + '_' + k);
+  return (v != null && v !== '' ? v : (CFG[k] != null && CFG[k] !== '' ? CFG[k] : d)).trim();
+}
+
 type Col = [string, string];   // [kolonne, type] — type: '' (tekst) | 'ts' | 'bool' | 'int'
 const c = (s: string): Col[] => s.split(',').map((x) => { const [n, t] = x.trim().split(':'); return [n, t || '']; });
 
-export const TABS: Record<string, { t: string; cols: Col[] }> = {
+const TABS0: Record<string, { t: string; cols: Col[] }> = {
   Tilmeldinger: { t: 'tilmeldinger', cols: c('tidspunkt:ts,type,event_id,player_id,player_name,status,label') },
   Spillere: { t: 'spillere', cols: c('player_id,player_name,email,bekraeftet:ts,sidst_set:ts') },
   Koder: { t: 'koder', cols: c('tidspunkt:ts,email,kode_hash,player_id,player_name,forsoeg:int,brugt:bool,boern') },
@@ -38,7 +62,12 @@ export const TABS: Record<string, { t: string; cols: Col[] }> = {
   'PushKø': { t: 'push_koe', cols: c('tidspunkt:ts,endpoint,p256dh,auth,titel,tekst,url,tag') },
   'Kørsel': { t: 'koersel', cols: c('tidspunkt:ts,begivenhed,titel,player_id,navn,email,valg,pladser:int,opsamling,afgang,chauffoer,note') },
   Feedback: { t: 'feedback', cols: c('id,tidspunkt:ts,email,player_id,navn,type,tekst,side,enhed,status,svar,svaret_af,svaret:ts,admin_chat:ts') },
+  // Kun HØBK (Conventus-medlemskartoteket) — findes kun i klubber der har Conventus sat op
+  Conventus: { t: 'conventus', cols: c('conventus_id,navn,grupper,leder_af,hentet:ts') },
+  'Conventus grupper': { t: 'conventus_grupper', cols: c('gruppe_id,titel,type,aktivitet,aktiv,periode_fra,periode_til,pris,medlemmer:int,ledere:int,hentet:ts,afdeling,traeningshold') },
 };
+export const TABS: Record<string, { t: string; cols: Col[] }> = {};
+Object.keys(TABS0).forEach((k) => { TABS[k] = { t: Q(TABS0[k].t), cols: TABS0[k].cols }; });
 
 // ---- pr. forespørgsel: cache af læste faner + den åbne transaktion når låsen holdes ----
 const store = new AsyncLocalStorage();
@@ -123,12 +152,13 @@ export async function count(name: string) {
 
 // LockService.getScriptLock(): én skrivning ad gangen (advisory lock i en transaktion, venter højst 10 s).
 // Inde i låsen bruger alle kald samme forbindelse, og cachen tømmes, så man læser det nyeste.
+const LOCK_ID = CLUB_ID ? 7311 + [...CLUB_ID].reduce((a, ch) => (a * 31 + ch.charCodeAt(0)) % 100000, 7) + 1 : 7311;
 export async function withLock(fn) {
   const x = cx();
   if (x.tx) return fn();
   return await sql.begin(async (tx) => {
     await tx`select set_config('lock_timeout', '10s', true)`;
-    await tx`select pg_advisory_xact_lock(7311)`;
+    await tx`select pg_advisory_xact_lock(${LOCK_ID})`;
     x.tx = tx; x.cache.clear();
     try { return await fn(); } finally { x.tx = null; x.cache.clear(); }
   });
@@ -136,23 +166,23 @@ export async function withLock(fn) {
 
 // ---- PropertiesService / CacheService ----
 export async function prop(key: string) {
-  const r = await db()`select value from kv where key = ${key} and (expires is null or expires > now())`;
+  const r = await db()`select value from ${db()(Q('kv'))} where key = ${key} and (expires is null or expires > now())`;
   return r.length ? r[0].value : null;
 }
 export async function setProp(key: string, value: string, seconds?: number) {
   const exp = seconds ? new Date(Date.now() + seconds * 1000) : null;
-  await db()`insert into kv (key, value, expires) values (${key}, ${String(value)}, ${exp})
+  await db()`insert into ${db()(Q('kv'))} (key, value, expires) values (${key}, ${String(value)}, ${exp})
             on conflict (key) do update set value = excluded.value, expires = excluded.expires`;
 }
 
 // ---- driftstal ----
 export async function bump(k: string, by = 1) {
-  const r = await db()`insert into stats (k, n) values (${k}, ${by}) on conflict (k) do update set n = stats.n + ${by}, at = now() returning n`;
+  const r = await db()`insert into ${db()(Q('stats'))} as stats (k, n) values (${k}, ${by}) on conflict (k) do update set n = stats.n + ${by}, at = now() returning n`;
   return r[0].n;
 }
 export async function statGet(keys: string[]) {
   if (!keys.length) return 0;
-  const r = await db()`select coalesce(sum(n), 0)::int as n from stats where k in ${db()(keys)}`;
+  const r = await db()`select coalesce(sum(n), 0)::int as n from ${db()(Q('stats'))} where k in ${db()(keys)}`;
   return r[0].n;
 }
-export async function statCleanup() { await db()`delete from stats where at < now() - interval '3 days'`; await db()`delete from kv where expires < now()`; }
+export async function statCleanup() { await db()`delete from ${db()(Q('stats'))} where at < now() - interval '3 days'`; await db()`delete from ${db()(Q('kv'))} where expires < now()`; }

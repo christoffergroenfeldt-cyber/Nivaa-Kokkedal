@@ -3,3 +3,8 @@
 [functions.api]
 entrypoint = "./functions/api/main.ts"
 verify_jwt = false
+
+# HØBK kører på samme kode (supabase/functions/api/) med egne tabeller i schema "hoebk" — se supabase/functions/hoebk/
+[functions.hoebk]
+entrypoint = "./functions/hoebk/main.ts"
+verify_jwt = false

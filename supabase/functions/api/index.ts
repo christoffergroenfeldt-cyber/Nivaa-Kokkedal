@@ -7,16 +7,15 @@
  * Se docs/SUPABASE.md for opsætning og secrets.
  */
 import {
-  append, appendMany, bump, count, data, del, load, prop, runRequest, set, setProp, sql, statCleanup, statGet, tail, withLock,
+  append, appendMany, bump, CLUB_ID, reloadCfg, count, data, del, env, load, prop, runRequest, SCHEMA, set, setProp, sql, statCleanup, statGet, tail, TABS, withLock,
 } from "./db.ts";
 import { mailLeft, sendMail } from "./mail.ts";
 
-const env = (k: string, d = '') => (Deno.env.get(k) || d).trim();
-const SCRIPT_VERSION = '2026-11-16.1';   // vises af ?action=version
+const SCRIPT_VERSION = '2026-11-16.2';   // vises af ?action=version
 const CLUB = env('CLUB_NAME', 'Nivå Kokkedal Badmintonklub');
 const SHORT = env('CLUB_SHORT', 'NKB');
 const APP_URL = env('APP_URL').replace(/\/?$/, '/');
-const KEY = env('REG_KEY');   // samme nøgle som GitHub-secret REG_KEY — bruges også som salt til koder og sessioner
+let KEY = env('REG_KEY');   // samme nøgle som GitHub-secret REG_KEY — bruges også som salt til koder og sessioner
 const TYPES = { match: ['ja', 'nej', 'maaske', 'ryd'], training: ['ja', 'nej', 'ryd'] };
 const list = (s: string) => s.split(',').map((x) => x.trim()).filter(Boolean);
 // Faste administratorer: badmintonplayer-spiller-id'er (den FØRSTE e-mail der bekræfter navnet ejer rollen)
@@ -888,7 +887,7 @@ const SB_KEY = (() => {   // ny "secret key" hvis projektet har den, ellers den 
   try { const k = JSON.parse(env('SUPABASE_SECRET_KEYS') || '{}'); if (k.default) return k.default; } catch { /* brug den gamle */ }
   return env('SUPABASE_SERVICE_ROLE_KEY');
 })();
-const BUCKET = 'nyhedsbilleder';
+const BUCKET = env('IMG_BUCKET', CLUB_ID ? CLUB_ID + '-nyhedsbilleder' : 'nyhedsbilleder');
 async function newsImg_(dataUrl) {
   const m = /^data:image\/(jpeg|png|webp);base64,([A-Za-z0-9+\/=]+)$/.exec(String(dataUrl));
   if (!m) return { ok: false, error: 'Billedet kunne ikke læses' };
@@ -1521,11 +1520,13 @@ async function health_() {
 }
 
 // ---------- tidsplan: GitHub-kørslerne startes herfra (pg_cron kalder ?action=tick hvert kvarter) ----------
-const GH_REPO = env('GH_REPO'), GH_TOKEN = env('GH_TOKEN');
+const GH_REPO = env('GH_REPO');
+const ghToken = () => env('GH_TOKEN');   // læses ved hvert kald (HØBK: kommer med importen)
 async function ghDispatch_(workflow) {
+  const GH_TOKEN = ghToken();
   if (!GH_TOKEN || !GH_REPO) return 'ingen GH_TOKEN/GH_REPO';
   const r = await fetch('https://api.github.com/repos/' + GH_REPO + '/actions/workflows/' + workflow + '/dispatches', {
-    method: 'POST', headers: { Authorization: 'Bearer ' + GH_TOKEN, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json', 'User-Agent': 'nkb-app' },
+    method: 'POST', headers: { Authorization: 'Bearer ' + GH_TOKEN, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json', 'User-Agent': (CLUB_ID || 'nkb') + '-app' },
     body: JSON.stringify({ ref: 'main' }),
   });
   return workflow + ':' + r.status;   // 204 = startet
@@ -1538,11 +1539,110 @@ async function tick_() {
   if (h >= 6 && await prop('FULL_AM') !== day) { await setProp('FULL_AM', day); res.push(await ghDispatch_('holdkampe.yml')); }
   else if (h >= 21 && await prop('FULL_PM') !== day) { await setProp('FULL_PM', day); res.push(await ghDispatch_('holdkampe.yml')); }
   if (await prop('PUSH_PENDING') === '1') res.push(await ghDispatch_('push.yml'));
+  try { if (await convStale_()) res.push('conventus:' + await conventusSync_()); } catch (e) { console.error('conventus', e); res.push('conventus:fejl'); }
   try { await healthAlert_(); } catch (e) { console.error('healthAlert', e); }
   try { await statCleanup(); } catch { /* ok */ }
   await setProp('LAST_TICK', now.toISOString());
   await setProp('LAST_DISPATCH', res.join(' '));
   return { ok: true, dispatched: res };
+}
+
+// ---------- Conventus (klubbens medlemskartotek, kun HØBK) ----------
+// Conventus blokerer mange servere, så XML'en hentes gennem klubbens Apps Script (relayConventus) — samme nøgle som REG_KEY.
+// Kun læsning. Kun medlemmer på sæsonens træningshold (CONVENTUS_TRAENING_AFD) gemmes: navn + hold, ingen kontaktdata.
+import { DOMParser } from "npm:@xmldom/xmldom@0.8.10";
+const CONV_HOURS = 6;
+const convOn_ = () => !!env('CONVENTUS_RELAY_URL');
+async function convGet_(file, params?) {
+  const r = await fetch(env('CONVENTUS_RELAY_URL'), { method: 'POST', headers: { 'Content-Type': 'text/plain' }, redirect: 'follow',
+    body: JSON.stringify({ action: 'relayConventus', key: KEY, file, params: params || {} }) });
+  const j = await r.json().catch(() => null);
+  if (!j || !j.ok) throw new Error('Conventus: ' + ((j && j.error) || 'HTTP ' + r.status));
+  return new DOMParser().parseFromString(j.xml, 'text/xml').documentElement;
+}
+function convKids_(el, name) {   // alle under-elementer med et bestemt navn, uanset dybde og namespace
+  const out = [];
+  (function walk(e) { for (let c = e.firstChild; c; c = c.nextSibling) { if (c.nodeType !== 1) continue; if ((c.localName || c.nodeName) === name) out.push(c); else walk(c); } })(el);
+  return out;
+}
+function convChild_(el, name) { if (!el) return null; for (let c = el.firstChild; c; c = c.nextSibling) if (c.nodeType === 1 && (c.localName || c.nodeName) === name) return c; return null; }
+function convText_(el, name) { const c = convChild_(el, name); return c ? String(c.textContent || '').trim() : ''; }
+function convElems_(el, name) { const o = []; if (el) for (let c = el.firstChild; c; c = c.nextSibling) if (c.nodeType === 1 && (c.localName || c.nodeName) === name) o.push(c); return o; }
+async function convStale_() { return convOn_() && Date.now() - Number(await prop('CONV_SYNC') || 0) > CONV_HOURS * 3600000; }
+async function conventusSync_() {
+  const tafd = {}; list(env('CONVENTUS_TRAENING_AFD', '68381,68711')).forEach((x) => { tafd[x] = 1; });
+  const gnames = {}, gmeta = {}, training = {};
+  convKids_(await convGet_('get_grupper.php'), 'gruppe').forEach((g) => {
+    const id = convText_(g, 'id'), nm = convText_(g, 'titel') || convText_(g, 'navn'), afd = convText_(g, 'afdeling'); if (!id) return;
+    gnames[id] = nm || ('Gruppe ' + id);
+    if (tafd[afd] && convText_(g, 'aktiv') !== 'false') training[id] = 1;
+    gmeta[id] = { row: [id, gnames[id], convText_(g, 'type'), convText_(g, 'aktivitet_titel'), convText_(g, 'aktiv'), convText_(g, 'periode_fra'), convText_(g, 'periode_til'), convText_(g, 'pris')], m: 0, l: 0, afd };
+  });
+  const mx = convKids_(await convGet_('get_medlemmer.php', { relationer: 'true' }), 'medlem').filter((m) => convChild_(m, 'id'));
+  const rows = [], now = new Date();
+  mx.forEach((m) => {
+    const t = convText_(m, 'type') || '?';
+    if (convText_(m, 'slettet') === 'true' || t === 'virksomhed') return;
+    const rel = convChild_(m, 'relationer');
+    const part = (kind) => convElems_(convChild_(rel, kind), 'gruppe').map((g) => {
+      const id = String(g.textContent || '').trim(); if (gmeta[id]) gmeta[id][kind === 'leder' ? 'l' : 'm']++;
+      return training[id] ? gnames[id] : ''; }).filter(String);
+    const groups = part('medlem'), leads = part('leder');
+    if (!groups.length && !leads.length) return;
+    rows.push([convText_(m, 'id'), clean_(convText_(m, 'navn'), 120), groups.join('; '), leads.join('; '), now]);
+  });
+  if (!rows.length) throw new Error('Ingen medlemmer på træningshold — beholder den gamle liste');
+  const grows = Object.keys(gmeta).map((id) => { const g = gmeta[id]; return g.row.map(String).concat([g.m, g.l, now, g.afd, training[id] ? 'ja' : '']); })
+    .sort((x, y) => y[8] - x[8]);
+  await withLock(async () => {
+    await sql`delete from ${sql(TABS['Conventus'].t)}`; await appendMany('Conventus', rows);
+    await sql`delete from ${sql(TABS['Conventus grupper'].t)}`; await appendMany('Conventus grupper', grows);
+  });
+  await setProp('CONV_SYNC', String(now.getTime()));
+  return rows.length;
+}
+async function members_(b) {   // medlemslisten til appen — kun for indloggede. Administratorer får også appens brugere.
+  const ses = await session_(b.token);
+  if (!ses) return { ok: false, error: 'login' };
+  if (!convOn_()) return { ok: false, error: 'Conventus er ikke sat op' };
+  let rows = await data('Conventus');
+  if (!rows.length) { try { await conventusSync_(); rows = await data('Conventus'); } catch (e) { return { ok: false, error: String(e.message || e) }; } }
+  const split = (x) => String(x || '').split(';').map((t) => t.trim()).filter(String);
+  const out = { ok: true, updated: Number(await prop('CONV_SYNC') || 0),
+    members: rows.filter((r) => r[0] && r[1]).map((r) => ({ cid: String(r[0]), name: String(r[1]), groups: split(r[2]), leads: split(r[3]) })) };
+  if (await isAdmin_(ses.email, ses.playerId)) {
+    const seen = {}; out.users = [];
+    (await data('Spillere')).forEach((r) => { const id = String(r[0]); if (!id || /^p:/.test(id) || seen[id]) return; seen[id] = 1; out.users.push({ id, name: String(r[1]) }); });
+  }
+  return out;
+}
+
+// ---------- Engangsimport fra Google Sheet (flytning af en klub fra Apps Script) ----------
+// Apps Script-funktionen migrateToSupabase() sender fane for fane. Kræver engangsnøglen, hvis SHA-256 ligger i kv som import_token_sha.
+// importTab {token, tab, part, rows[][]} — part 0 tømmer tabellen først. importEnd {token, props{}} gemmer indstillinger og sletter nøglen.
+async function importOk_(b) {
+  const want = await prop('import_token_sha');
+  return !!CLUB_ID && !!want && !!b.token && (await sha256hex_(String(b.token))) === want;
+}
+async function importTab_(b) {
+  if (!await importOk_(b)) return { ok: false, error: 'Forkert importnøgle' };
+  const tab = String(b.tab || ''); if (!TABS[tab]) return { ok: false, error: 'Ukendt fane ' + tab };
+  const n = TABS[tab].cols.length;
+  const rows = (b.rows || []).map((r) => { const a = (r || []).slice(0, n); while (a.length < n) a.push(''); return a; });
+  await withLock(async () => {
+    if (!b.part) await sql`delete from ${sql(TABS[tab].t)}`;
+    for (let i = 0; i < rows.length; i += 500) await appendMany(tab, rows.slice(i, i + 500));
+  });
+  return { ok: true, tab, rows: rows.length };
+}
+async function importEnd_(b) {
+  if (!await importOk_(b)) return { ok: false, error: 'Forkert importnøgle' };
+  const p = b.props || {}, map = { KEY: 'cfg:REG_KEY', IDEAS_KEY: 'cfg:IDEAS_KEY', GH_TOKEN: 'cfg:GH_TOKEN', CONVENTUS_TRAENING_AFD: 'cfg:CONVENTUS_TRAENING_AFD',
+    LEADER_MAIL: 'LEADER_MAIL', CONV_SYNC: 'CONV_SYNC', FULL_AM: 'FULL_AM', FULL_PM: 'FULL_PM' };
+  const saved = [];
+  for (const k of Object.keys(map)) if (p[k] != null && p[k] !== '') { await setProp(map[k], String(p[k])); saved.push(k); }
+  await setProp('import_token_sha', '', 1);
+  return { ok: true, saved, counts: Object.fromEntries(await Promise.all(Object.keys(TABS).map(async (t) => [t, (await sql`select count(*)::int as n from ${sql(TABS[t].t)}`)[0].n]))) };
 }
 
 // ---------- router ----------
@@ -1592,6 +1692,9 @@ async function route_(b) {
     case 'exList': return exList_(b);
     case 'exSave': return exSave_(b);
     case 'exDel': return exDel_(b);
+    case 'members': return members_(b);
+    case 'importTab': return importTab_(b);
+    case 'importEnd': return importEnd_(b);
     case 'fbSend': return fbSend_(b);
     case 'fbMine': return fbMine_(b);
     case 'fbList': return fbList_(b);
@@ -1611,8 +1714,8 @@ async function doGet_(p: URLSearchParams) {
   const action = p.get('action') || 'status';
   if (action === 'version') {
     let triggers = 0;
-    try { const r = await sql`select count(*)::int as n from cron.job where command ilike '%action=tick%'`; triggers = r[0].n; } catch { triggers = -1; }
-    return { ok: true, version: SCRIPT_VERSION, backend: 'supabase', scheduler: { token: !!GH_TOKEN, repo: GH_REPO, triggers, lastTick: await prop('LAST_TICK') || '', last: await prop('LAST_DISPATCH') || '' } };
+    try { const r = await sql`select count(*)::int as n from cron.job where command ilike ${'%/functions/v1/' + (CLUB_ID || 'api') + '?action=tick%'}`; triggers = r[0].n; } catch { triggers = -1; }
+    return { ok: true, version: SCRIPT_VERSION, backend: 'supabase', scheduler: { token: !!ghToken(), repo: GH_REPO, triggers, lastTick: await prop('LAST_TICK') || '', last: await prop('LAST_DISPATCH') || '' } };
   }
   if (action === 'health') return health_();
   if (action === 'tick') return keyOk(p.get('key')) ? tick_() : { ok: false, error: 'Forkert nøgle' };
@@ -1651,14 +1754,17 @@ const json = (o, status = 200) => new Response(JSON.stringify(o), { status, head
 
 export async function handle(req: Request) {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: CORS });
-  if (!KEY) return json({ ok: false, error: 'Serveren mangler REG_KEY — se docs/SUPABASE.md' }, 500);
+  if (!KEY && CLUB_ID) { await reloadCfg(); KEY = env('REG_KEY'); }   // en flyttet klub får nøglen med importen
   return runRequest(async () => {
     const t0 = Date.now();
     try {
-      if (req.method === 'GET') return json(await doGet_(new URL(req.url).searchParams));
+      if (!KEY && req.method === 'GET' && new URL(req.url).searchParams.get('action') === 'version') return json({ ok: true, version: SCRIPT_VERSION, backend: 'supabase', waitingForImport: !!CLUB_ID });
+      if (!KEY && !CLUB_ID) return json({ ok: false, error: 'Serveren mangler REG_KEY — se docs/SUPABASE.md' }, 500);
+      if (req.method === 'GET') return KEY ? json(await doGet_(new URL(req.url).searchParams)) : json({ ok: false, error: 'Serveren venter på import' }, 503);
       let b;
       try { b = JSON.parse(await req.text()); } catch { return json({ ok: false, error: 'Ugyldig forespørgsel' }); }
       if (!b || typeof b !== 'object') return json({ ok: false, error: 'Ugyldig forespørgsel' });
+      if (!KEY && !/^import/.test(String(b.action))) return json({ ok: false, error: 'Serveren venter på import' }, 503);
       stat_('req');
       const out = await route_(b);
       if (Date.now() - t0 > 8000) stat_('slow');

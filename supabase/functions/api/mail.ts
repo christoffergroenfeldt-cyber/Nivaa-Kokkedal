@@ -5,17 +5,19 @@
 //  B) Resend (resend.com, kræver et domæne man kan sætte DNS på):  RESEND_API_KEY, MAIL_FROM
 // MAIL_DAILY_LIMIT = hvor mange mails appen højst sender pr. døgn (standard 400 med Gmail, 100 med Resend).
 import nodemailer from "npm:nodemailer@6.9.16";
-import { bump, statGet } from "./db.ts";
+import { bump, env, statGet } from "./db.ts";
 
-const env = (k: string, d = '') => Deno.env.get(k) || d;
 const RESEND = env('RESEND_API_KEY');
-const LIMIT = Number(env('MAIL_DAILY_LIMIT', RESEND ? '100' : '400')) || 100;
+// C) Relæ: klubbens eget Google Apps Script sender mailen fra klubbens Gmail (MailApp) — MAIL_RELAY_URL = scriptets /exec-adresse,
+//    nøglen er REG_KEY (samme som scriptets KEY). Bruges af HØBK, så mails stadig kommer fra klubbens adresse.
+const RELAY = env('MAIL_RELAY_URL');
+const LIMIT = Number(env('MAIL_DAILY_LIMIT', RESEND || RELAY ? '100' : '400')) || 100;
 let transport = null;
 
 function dayKey() { return 'mail:' + new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Copenhagen' }); }
 
 const DRYRUN = env('MAIL_DRYRUN') === '1';   // kun til test: mails skrives i loggen i stedet for at blive sendt
-export function mailConfigured() { return DRYRUN || !!(RESEND || (env('SMTP_USER') && env('SMTP_PASS'))); }
+export function mailConfigured() { return DRYRUN || !!(RELAY || RESEND || (env('SMTP_USER') && env('SMTP_PASS'))); }
 export async function mailLeft() {
   if (!mailConfigured()) return 0;
   return Math.max(0, LIMIT - await statGet([dayKey()]));
@@ -27,6 +29,11 @@ export async function sendMail(m: { to: string; subject: string; body: string; n
   const name = m.name || env('CLUB_NAME', 'Nivå Kokkedal Badmintonklub');
   if (DRYRUN) {
     console.log('MAIL(dryrun) til ' + m.to + ': ' + m.subject + '\n' + m.body);
+  } else if (RELAY) {
+    const r = await fetch(RELAY, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, redirect: 'follow',
+      body: JSON.stringify({ action: 'relayMail', key: env('REG_KEY'), to: m.to, subject: m.subject, body: m.body, name }) });
+    const j = await r.json().catch(() => null);
+    if (!j || !j.ok) throw new Error('Mail-relæ: ' + ((j && j.error) || 'HTTP ' + r.status));
   } else if (RESEND) {
     const from = env('MAIL_FROM') || ('NKB <onboarding@resend.dev>');
     const r = await fetch('https://api.resend.com/emails', {

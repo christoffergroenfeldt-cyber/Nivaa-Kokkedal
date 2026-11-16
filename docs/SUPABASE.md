@@ -76,7 +76,17 @@ Dashboard: **Edge Functions → Deploy a new function → Via editor**, name it 
 ## Updating the server
 Edit the files in `supabase/functions/api/` and push to `main`: the workflow **Udgiv Supabase-funktionen** (`.github/workflows/deploy-supabase.yml`) deploys `api` and checks that `?action=version` matches. It needs the repo secret `SUPABASE_ACCESS_TOKEN` (supabase.com → Account → Access Tokens). It can also be run by hand from Actions. (Without the workflow: dashboard editor or `supabase functions deploy api`.) Bump `SCRIPT_VERSION` in `index.ts`.
 
-Migrations so far (run each once, in order): `20261115000000_init.sql`, `20261116000000_traenere.sql` (trainers and exercise bank, server 2026-11-16.1).
+Migrations so far (run each once, in order): `20261115000000_init.sql`, `20261116000000_traenere.sql` (trainers and exercise bank, server 2026-11-16.1), `20261116100000_hoebk.sql` (HØBK in schema `hoebk`).
+
+## Several clubs in one project (HØBK)
+
+The free plan allows two active projects, so HØBK (Hørsholm Badminton Klub) runs in this project too, on the same server code:
+- Function **`hoebk`** (`supabase/functions/hoebk/main.ts`) sets `globalThis.__CLUB = 'hoebk'` before loading `../api/index.ts`.
+- Its tables live in schema **`hoebk`** (not exposed through the REST API). NKB keeps `public`.
+- Settings: secrets with the prefix `HOEBK_` (e.g. `HOEBK_APP_URL`), or rows `cfg:<NAME>` in `hoebk.kv` (used today: `APP_URL`, `CLUB_NAME`, `CLUB_SHORT`, `ADMIN_PLAYER_IDS`, `TR_GROUPS`, `GH_REPO`, `MAIL_RELAY_URL`, `CONVENTUS_RELAY_URL`, plus `REG_KEY`, `IDEAS_KEY`, `GH_TOKEN` that came with the import). `SUPABASE_*` secrets are shared.
+- Mail and Conventus go through HØBK's Google Apps Script (`relayMail`, `relayConventus`, key = REG_KEY), so mails still come from the club's Gmail.
+- Schedule: pg_cron job `hoebk-tick` calls `…/functions/v1/hoebk?action=tick&key=` with the key read from `hoebk.kv`.
+- The deploy workflow deploys both `api` and `hoebk`.
 New columns/tables: add a new file in `supabase/migrations/` and run it in the SQL Editor; add the column to `TABS` in `db.ts` (same order as in the table).
 
 ## Viewing data
