@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16T13:46:02+00:00",
+ "updated": "2026-11-16T20:02:54+00:00",
  "season": "2026",
  "source": "badmintonplayer.dk sæsonplan",
  "levels": [
@@ -6212,13 +6212,7 @@
     }
    ],
    "place": {
-    "name": "Odense",
-    "lat": 55.3997,
-    "lon": 10.3852,
-    "km": 145,
-    "region": "Syddanmark",
-    "min": null,
-    "roadKm": null
+    "unknown": true
    }
   },
   {
@@ -13572,6 +13566,39 @@
     "region": "Hovedstaden",
     "min": 26,
     "roadKm": 30
+   }
+  },
+  {
+   "id": "123654",
+   "links": [
+    "tilmelding"
+   ],
+   "urls": {
+    "tilmelding": "https://www.badmintonplayer.dk/DBF/Turnering/TilmeldTurnering/#123654"
+   },
+   "entryOpen": true,
+   "hasResults": false,
+   "start": "2026-12-12",
+   "end": "2026-12-13",
+   "week": "50",
+   "deadline": "2026-12-31",
+   "organiser": "Elitecenter Aarhus",
+   "classes": [
+    {
+     "raw": "Andet X",
+     "ages": [],
+     "levels": [],
+     "days": "lø 12-sø 13"
+    }
+   ],
+   "place": {
+    "name": "Aarhus",
+    "lat": 56.1496,
+    "lon": 10.2134,
+    "km": 144,
+    "region": "Midtjylland",
+    "min": 217,
+    "roadKm": 330
    }
   },
   {
