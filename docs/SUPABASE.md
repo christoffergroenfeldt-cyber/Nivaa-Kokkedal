@@ -94,3 +94,9 @@ New columns/tables: add a new file in `supabase/migrations/` and run it in the S
 
 ## Testing locally
 `MAIL_DRYRUN=1` writes mails to the log instead of sending them. Run with `deno run -A supabase/functions/api/index.ts` and the env vars `SUPABASE_DB_URL`, `REG_KEY`, `APP_URL`.
+
+## Backup (HØBK)
+
+The free plan has no daily backups. HØBK's Apps Script runs `backupSupabase()` every night at about 03:00: it calls `{action:"export", key: REG_KEY}` on the `hoebk` function and saves the whole club (every table + `hoebk.kv`) as a gzipped JSON file in the club's Google Drive folder **"HØBK backup (Supabase)"**. The last 30 days are kept.
+
+Restore (only if data is lost): put the SHA-256 of a one-time token in `hoebk.kv` as `import_token_sha`, then run `restoreFromBackup('<Drive file id>', '<token>')` in the Apps Script editor. It sends every table back with `importTab` (each table is emptied first) and settings with `importEnd`.

@@ -11,7 +11,7 @@ import {
 } from "./db.ts";
 import { mailLeft, sendMail } from "./mail.ts";
 
-const SCRIPT_VERSION = '2026-11-16.2';   // vises af ?action=version
+const SCRIPT_VERSION = '2026-11-16.3';   // vises af ?action=version
 const CLUB = env('CLUB_NAME', 'Nivå Kokkedal Badmintonklub');
 const SHORT = env('CLUB_SHORT', 'NKB');
 const APP_URL = env('APP_URL').replace(/\/?$/, '/');
@@ -1645,6 +1645,19 @@ async function importEnd_(b) {
   return { ok: true, saved, counts: Object.fromEntries(await Promise.all(Object.keys(TABS).map(async (t) => [t, (await sql`select count(*)::int as n from ${sql(TABS[t].t)}`)[0].n]))) };
 }
 
+// ---------- Backup: hele klubbens data som JSON (hentes hver nat af klubbens Apps Script og gemmes i Google Drive) ----------
+// Kræver REG_KEY. Rækkerne har samme kolonner og rækkefølge som TABS (og fanerne i det gamle Google Sheet),
+// så en backup kan lægges tilbage med importTab (se docs/SUPABASE.md → Backup).
+async function export_(b) {
+  if (!keyOk(b.key)) return { ok: false, error: 'Forkert nøgle' };
+  const tabs = {}, counts = {};
+  for (const t of Object.keys(TABS)) {
+    try { tabs[t] = await data(t); counts[t] = tabs[t].length; } catch { /* tabellen findes ikke i denne klub */ }
+  }
+  const kv = await sql`select key, value, expires from ${sql(SCHEMA + '.kv')} where expires is null and key not like 'cache:%'`;
+  return { ok: true, club: CLUB_ID || 'nkb', schema: SCHEMA, version: SCRIPT_VERSION, at: new Date().toISOString(), counts, tabs, kv };
+}
+
 // ---------- router ----------
 async function route_(b) {
   switch (b.action) {
@@ -1693,6 +1706,7 @@ async function route_(b) {
     case 'exSave': return exSave_(b);
     case 'exDel': return exDel_(b);
     case 'members': return members_(b);
+    case 'export': return export_(b);
     case 'importTab': return importTab_(b);
     case 'importEnd': return importEnd_(b);
     case 'fbSend': return fbSend_(b);
