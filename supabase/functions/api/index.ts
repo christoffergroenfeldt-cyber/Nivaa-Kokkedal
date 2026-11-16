@@ -11,7 +11,7 @@ import {
 } from "./db.ts";
 import { mailLeft, sendMail } from "./mail.ts";
 
-const SCRIPT_VERSION = '2026-11-17.1';   // vises af ?action=version
+const SCRIPT_VERSION = '2026-11-17.2';   // vises af ?action=version
 const CLUB = env('CLUB_NAME', 'Nivå Kokkedal Badmintonklub');
 const SHORT = env('CLUB_SHORT', 'NKB');
 const APP_URL = env('APP_URL').replace(/\/?$/, '/');
@@ -1545,6 +1545,7 @@ async function tick_() {
   else if (h >= 21 && await prop('FULL_PM') !== day) { await setProp('FULL_PM', day); res.push(await ghDispatch_('holdkampe.yml')); }
   if (await prop('PUSH_PENDING') === '1') res.push(await ghDispatch_('push.yml'));
   try { if (await convStale_()) res.push('conventus:' + await conventusSync_()); } catch (e) { console.error('conventus', e); res.push('conventus:fejl'); }
+  try { const iv = await inviteDrain_(); if (iv) res.push(iv); } catch (e) { console.error('invitationer', e); }
   try { await healthAlert_(); } catch (e) { console.error('healthAlert', e); }
   try { await statCleanup(); } catch { /* ok */ }
   await setProp('LAST_TICK', now.toISOString());
@@ -1554,7 +1555,8 @@ async function tick_() {
 
 // ---------- Conventus (klubbens medlemskartotek, kun HØBK) ----------
 // Conventus blokerer mange servere, så XML'en hentes gennem klubbens Apps Script (relayConventus) — samme nøgle som REG_KEY.
-// Kun læsning. Kun medlemmer på sæsonens træningshold (CONVENTUS_TRAENING_AFD) gemmes: navn + hold, ingen kontaktdata.
+// Kun læsning. Kun medlemmer på sæsonens træningshold (CONVENTUS_TRAENING_AFD) gemmes: navn, hold og e-mail. E-mailen bruges kun her på
+// serveren (kobling til appens brugere og invitationer) og sendes aldrig til appen.
 import { DOMParser } from "npm:@xmldom/xmldom@0.8.10";
 const CONV_HOURS = 6;
 const convOn_ = () => !!env('CONVENTUS_RELAY_URL');
@@ -1594,7 +1596,7 @@ async function conventusSync_() {
       return training[id] ? gnames[id] : ''; }).filter(String);
     const groups = part('medlem'), leads = part('leder');
     if (!groups.length && !leads.length) return;
-    rows.push([convText_(m, 'id'), clean_(convText_(m, 'navn'), 120), groups.join('; '), leads.join('; '), now]);
+    rows.push([convText_(m, 'id'), clean_(convText_(m, 'navn'), 120), groups.join('; '), leads.join('; '), now, em_(clean_(convText_(m, 'email'), 200))]);
   });
   if (!rows.length) throw new Error('Ingen medlemmer på træningshold — beholder den gamle liste');
   const grows = Object.keys(gmeta).map((id) => { const g = gmeta[id]; return g.row.map(String).concat([g.m, g.l, now, g.afd, training[id] ? 'ja' : '']); })
@@ -1615,7 +1617,7 @@ function nameKeys_(n) {
 }
 async function convIdx_(cx) {
   if (cx.conv) return cx.conv;
-  const cv = { groups: {}, full: {}, fl: {} };
+  const cv = { groups: {}, full: {}, fl: {}, em: {}, all: [] };
   cx.conv = cv;
   if (!convOn_()) return cv;
   try {
@@ -1629,8 +1631,10 @@ async function convIdx_(cx) {
       const gids = split(r[2]).concat(split(r[3])).map((t) => byTitle[t]).filter((g, i, a) => g && a.indexOf(g) === i);
       if (!gids.length) return;
       gids.forEach((g) => { cv.groups[g].n++; });
-      const m = { cid: String(r[0]), gids }, k = nameKeys_(r[1]);
+      const m = { cid: String(r[0]), name: String(r[1]), email: em_(r[5]), gids }, k = nameKeys_(r[1]);
       (cv.full[k[0]] = cv.full[k[0]] || []).push(m); (cv.fl[k[1]] = cv.fl[k[1]] || []).push(m);
+      if (m.email) (cv.em[m.email] = cv.em[m.email] || []).push(m);
+      cv.all.push(m);
     });
   } catch (e) { console.error('conv', e); }
   return cv;
@@ -1647,8 +1651,19 @@ async function convRooms_(cx, email, pid) {   // {'c:<gruppeId>': titel} for bru
   if (!cx.par) cx.par = await data('Forældre');
   const names = (cx.spl[em] || []).slice();
   cx.par.forEach((r) => { if (em_(r[0]) === em && r[4]) names.push(String(r[4])); });
-  names.forEach((n) => convFind_(cv, n).forEach((m) => m.gids.forEach((g) => { out['c:' + g] = cv.groups[g].title; })));
+  const hit = (m) => m.gids.forEach((g) => { out['c:' + g] = cv.groups[g].title; });
+  names.forEach((n) => convFind_(cv, n).forEach(hit));
+  (cv.em[em] || []).forEach(hit);   // samme e-mail i Conventus (medlemmet selv, eller barnet står med forælderens e-mail)
   return out;
+}
+// Hvem appen kan nå: {cid: 'selv' | 'forælder'} — selv: en bruger med samme navn eller e-mail; forælder: en forælder i appen med barnets navn,
+// eller hvis forælderens e-mail er den, der står på medlemmet i Conventus.
+async function convReach_(cx) {
+  const cv = await convIdx_(cx), reach = {};
+  const mark = (ms, how) => ms.forEach((m) => { if (reach[m.cid] !== 'selv') reach[m.cid] = how; });
+  (await data('Spillere')).forEach((r) => { if (!r[2]) return; if (r[1]) mark(convFind_(cv, String(r[1])), 'selv'); mark(cv.em[em_(r[2])] || [], 'selv'); });
+  (await data('Forældre')).forEach((r) => { if (r[4]) mark(convFind_(cv, String(r[4])), 'forælder'); if (r[0]) mark(cv.em[em_(r[0])] || [], 'forælder'); });
+  return { cv, reach };
 }
 async function members_(b) {   // medlemslisten til appen — kun for indloggede. Administratorer får også appens brugere.
   const ses = await session_(b.token);
@@ -1662,16 +1677,112 @@ async function members_(b) {   // medlemslisten til appen — kun for indloggede
   if (await isAdmin_(ses.email, ses.playerId)) {
     const seen = {}, spl = await data('Spillere'); out.users = [];
     spl.forEach((r) => { const id = String(r[0]); if (!id || /^p:/.test(id) || seen[id]) return; seen[id] = 1; out.users.push({ id, name: String(r[1]) }); });
-    // Conventus-hold til nyhedsformularen: antal medlemmer og hvor mange af dem appen kan nå (selv bruger eller har en forælder i appen)
-    const cx = {}, cv = await convIdx_(cx), reach = {};
-    const mark = (n) => convFind_(cv, n).forEach((m) => { reach[m.cid] = m.gids; });
-    spl.forEach((r) => { if (r[2] && r[1]) mark(String(r[1])); });
-    (await data('Forældre')).forEach((r) => { if (r[4]) mark(String(r[4])); });
-    const app = {}; Object.keys(reach).forEach((cid) => reach[cid].forEach((g) => { app[g] = (app[g] || 0) + 1; }));
-    out.cgroups = Object.keys(cv.groups).map((g) => ({ id: g, title: cv.groups[g].title, n: cv.groups[g].n, app: app[g] || 0 }))
-      .filter((g) => g.n > 0).sort((x, y) => x.title.localeCompare(y.title, 'da', { numeric: true }));
+    // Conventus-hold: antal medlemmer, hvor mange appen kan nå (selv / via forælder), og hvem der mangler (til invitationer).
+    // addr = numre på de e-mailadresser, der mangler og ikke allerede er inviteret — numrene gælder kun i dette svar (selve adresserne sendes ikke)
+    const { cv, reach } = await convReach_({}), inv = await invitedSet_(), aIdx = {}, gs = {};
+    Object.keys(cv.groups).forEach((g) => { gs[g] = { id: g, title: cv.groups[g].title, n: cv.groups[g].n, app: 0, self: 0, par: 0, nomail: 0, invited: 0, addr: [] }; });
+    cv.all.forEach((m) => m.gids.forEach((g) => {
+      const x = gs[g], how = reach[m.cid];
+      if (how) { x.app++; if (how === 'selv') x.self++; else x.par++; return; }
+      if (!m.email) { x.nomail++; return; }
+      if (inv[m.email]) { x.invited++; return; }
+      if (aIdx[m.email] === undefined) aIdx[m.email] = Object.keys(aIdx).length;
+      if (x.addr.indexOf(aIdx[m.email]) < 0) x.addr.push(aIdx[m.email]);
+    }));
+    out.cgroups = Object.keys(gs).map((g) => gs[g]).filter((g) => g.n > 0).sort((x, y) => x.title.localeCompare(y.title, 'da', { numeric: true }));
+    const uniq = {}; cv.all.forEach((m) => { uniq[m.cid] = reach[m.cid] || ''; });
+    const ids = Object.keys(uniq);
+    out.ctotal = { n: ids.length, self: ids.filter((c) => uniq[c] === 'selv').length, par: ids.filter((c) => uniq[c] === 'forælder').length };
+    out.invite = await inviteStatus_();
   }
   return out;
+}
+
+// ---------- Invitationer til appen (kun med Conventus) ----------
+// Administratoren vælger hold; serveren lægger én række pr. e-mailadresse i "Invitationer" (status 'kø') for medlemmer, appen ikke kan nå.
+// tick_ sender dem i dagtimerne, højst INVITE_PER_DAY pr. dag og kun så længe der er INVITE_RESERVE mails tilbage af dagens kvote
+// (login-koderne bruger samme Gmail-kvote — og dem, der bliver inviteret, skal selv have en kode).
+const INV_PER_DAY = () => Number(env('INVITE_PER_DAY', '30')) || 30;
+const INV_RESERVE = () => Number(env('INVITE_RESERVE', '45')) || 45;
+async function invitedSet_() {   // {email: status} for alle, der står i køen eller er inviteret
+  const out = {}; if (!convOn_()) return out;
+  (await data('Invitationer')).forEach((r) => { const e = em_(r[1]); if (e && (r[7] === 'kø' || r[7] === 'sendt')) out[e] = r[7]; });
+  return out;
+}
+async function inviteStatus_() {
+  const rows = await data('Invitationer'), today = cph(new Date(), false), last = rows[rows.length - 1];
+  const st = (s) => rows.filter((r) => r[7] === s).length;
+  return { queued: st('kø'), sent: st('sendt'), failed: st('fejl'), stopped: st('stoppet'),
+    sentToday: rows.filter((r) => r[7] === 'sendt' && r[8] && cph(new Date(r[8]), false) === today).length,
+    perDay: INV_PER_DAY(), reserve: INV_RESERVE(), mailLeft: await mailLeft(),
+    lastSubject: last ? String(last[5]) : '', lastText: last ? String(last[6]) : '' };
+}
+function inviteBody_(tpl, r) {
+  const names = String(r[3]).split(';').map((x) => x.trim()).filter(String);
+  const navn = names.length > 1 ? names.slice(0, -1).join(', ') + ' og ' + names[names.length - 1] : (names[0] || '');
+  const first = names.map((n) => n.split(' ')[0]);
+  const fornavn = first.length > 1 ? first.slice(0, -1).join(', ') + ' og ' + first[first.length - 1] : (first[0] || '');
+  return String(tpl).replace(/\{navn\}/g, navn).replace(/\{fornavn\}/g, fornavn).replace(/\{hold\}/g, String(r[4])).replace(/\{link\}/g, APP_URL) +
+    '\n\n—\nDu får denne mail, fordi ' + navn + ' er medlem af ' + CLUB + ' og endnu ikke bruger klubbens app. Spørgsmål? Svar blot på denne mail.';
+}
+async function inviteSave_(b) {
+  const ses = await session_(b.token);
+  if (!ses || !await isAdmin_(ses.email, ses.playerId)) return { ok: false, error: 'Kun administrator' };
+  if (!convOn_()) return { ok: false, error: 'Conventus er ikke sat op' };
+  const subject = clean_(b.subject, 120), txt = text_(b.text, 4000);
+  if (!subject) return { ok: false, error: 'Skriv et emne' };
+  if (!txt) return { ok: false, error: 'Skriv en tekst' };
+  if (b.test) {   // én prøvemail til administratoren selv, med et eksempelnavn
+    if (await mailLeft() < 1) return { ok: false, error: 'Klubbens e-mail-kvote er brugt lige nu — prøv igen om nogle timer' };
+    try { await sendMail({ to: ses.email, subject: '[TEST] ' + subject, body: inviteBody_(txt, ['', '', '', 'Emma Hansen;Oliver Hansen', '1.0 Ungdom Bredde 1']) }); }
+    catch (e) { return { ok: false, error: /kvote/.test(String(e)) ? 'Klubbens e-mail-kvote er brugt lige nu' : 'Mailen kunne ikke sendes' }; }
+    return { ok: true, test: true };
+  }
+  const want = {}; (b.groups || []).forEach((x) => { want[String(x).replace(/^c:/, '')] = 1; });
+  if (!Object.keys(want).length) return { ok: false, error: 'Vælg mindst ét hold' };
+  return await withLock(async () => {
+    const { cv, reach } = await convReach_({}), inv = await invitedSet_(), by = {};
+    cv.all.forEach((m) => {
+      const gs = m.gids.filter((g) => want[g]);
+      if (!gs.length || reach[m.cid] || !m.email || inv[m.email]) return;
+      const x = by[m.email] = by[m.email] || { cids: [], names: [], hold: [] };
+      if (x.cids.indexOf(m.cid) >= 0) return;
+      x.cids.push(m.cid); x.names.push(m.name);
+      gs.forEach((g) => { const t = String(cv.groups[g].title).split(', ')[0]; if (x.hold.indexOf(t) < 0) x.hold.push(t); });
+    });
+    const now = new Date(), who = clean_(ses.playerName || ses.email, 80);
+    const rows = Object.keys(by).map((e) => [now, e, by[e].cids.join(';'), by[e].names.join(';'), by[e].hold.join(', '), subject, txt, 'kø', '', '', who]);
+    if (rows.length) await appendMany('Invitationer', rows);
+    return { ok: true, queued: rows.length, status: await inviteStatus_() };
+  });
+}
+async function inviteStop_(b) {   // stopper køen: de ikke-sendte rækker markeres 'stoppet' (så de kan inviteres igen senere)
+  const ses = await session_(b.token);
+  if (!ses || !await isAdmin_(ses.email, ses.playerId)) return { ok: false, error: 'Kun administrator' };
+  if (!convOn_()) return { ok: false, error: 'Conventus er ikke sat op' };
+  return await withLock(async () => {
+    const L = await load('Invitationer'); let n = 0;
+    for (let i = 0; i < L.rows.length; i++) if (L.rows[i][7] === 'kø') { await set('Invitationer', L.ids[i], 7, ['stoppet']); n++; }
+    return { ok: true, stopped: n, status: await inviteStatus_() };
+  });
+}
+async function inviteDrain_() {   // fra tick_: send de næste invitationer
+  if (!convOn_()) return '';
+  const h = cphHour(new Date()); if (h < 8 || h >= 20) return '';
+  const L = await load('Invitationer'), today = cph(new Date(), false);
+  const sentToday = L.rows.filter((r) => r[7] === 'sendt' && r[8] && cph(new Date(r[8]), false) === today).length;
+  let n = Math.min(INV_PER_DAY() - sentToday, (await mailLeft()) - INV_RESERVE(), 8), sent = 0;
+  for (let i = 0; i < L.rows.length && n > 0; i++) {
+    const r = L.rows[i]; if (r[7] !== 'kø') continue;
+    try {
+      await sendMail({ to: String(r[1]), subject: String(r[5]), body: inviteBody_(r[6], r) });
+      await set('Invitationer', L.ids[i], 7, ['sendt', new Date(), '']); sent++; n--;
+    } catch (e) {
+      if (/kvote/.test(String(e))) break;
+      await set('Invitationer', L.ids[i], 7, ['fejl', new Date(), clean_(String(e && e.message || e), 200)]); n--;
+    }
+  }
+  return sent ? 'invitationer:' + sent : '';
 }
 
 // ---------- Engangsimport fra Google Sheet (flytning af en klub fra Apps Script) ----------
@@ -1765,6 +1876,8 @@ async function route_(b) {
     case 'exSave': return exSave_(b);
     case 'exDel': return exDel_(b);
     case 'members': return members_(b);
+    case 'inviteSave': return inviteSave_(b);
+    case 'inviteStop': return inviteStop_(b);
     case 'export': return export_(b);
     case 'importTab': return importTab_(b);
     case 'importEnd': return importEnd_(b);
