@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-17T14:50:11+00:00",
+  "updated": "2026-11-17T20:16:28+00:00",
   "season": "2026",
   "clubID": "1153",
   "source": "badmintonplayer.dk",
@@ -1506,10 +1506,21 @@
       "name": "Nivå-Kokkedal 2",
       "pulje": "U13 D, 4600 (4 spillere) Pulje 3",
       "label": "U13 D",
-      "position": "6",
+      "position": "5",
       "standing": [
         {
           "pos": "1",
+          "team": "Frem - Hellebæk 1",
+          "teamID": "124628",
+          "isUs": false,
+          "played": "2",
+          "won": "2",
+          "score": "14-2",
+          "sets": "29-6",
+          "points": "8"
+        },
+        {
+          "pos": "2",
           "team": "Farum 4",
           "teamID": "124624",
           "isUs": false,
@@ -1518,28 +1529,6 @@
           "score": "14-2",
           "sets": "29-11",
           "points": "8"
-        },
-        {
-          "pos": "2",
-          "team": "Frem - Hellebæk 1",
-          "teamID": "124628",
-          "isUs": false,
-          "played": "1",
-          "won": "1",
-          "score": "7-1",
-          "sets": "14-3",
-          "points": "4"
-        },
-        {
-          "pos": "3",
-          "team": "Græsted 1",
-          "teamID": "124631",
-          "isUs": false,
-          "played": "0",
-          "won": "0",
-          "score": "0-0",
-          "sets": "0-0",
-          "points": "0"
         },
         {
           "pos": "3",
@@ -1553,7 +1542,7 @@
           "points": "0"
         },
         {
-          "pos": "5",
+          "pos": "4",
           "team": "Hørsholm 4",
           "teamID": "124626",
           "isUs": false,
@@ -1564,7 +1553,7 @@
           "points": "0"
         },
         {
-          "pos": "6",
+          "pos": "5",
           "team": "Nivå-Kokkedal 2",
           "teamID": "124627",
           "isUs": true,
@@ -1575,7 +1564,7 @@
           "points": "0"
         },
         {
-          "pos": "7",
+          "pos": "6",
           "team": "Espergærde 1",
           "teamID": "124630",
           "isUs": false,
@@ -1583,6 +1572,17 @@
           "won": "0",
           "score": "1-7",
           "sets": "3-14",
+          "points": "0"
+        },
+        {
+          "pos": "7",
+          "team": "Græsted 1",
+          "teamID": "124631",
+          "isUs": false,
+          "played": "1",
+          "won": "0",
+          "score": "1-7",
+          "sets": "3-15",
           "points": "0"
         },
         {
@@ -15014,6 +15014,17 @@
         },
         {
           "pos": "2",
+          "team": "Slangerup 4",
+          "teamID": "122691",
+          "isUs": false,
+          "played": "4",
+          "won": "3",
+          "score": "19-5",
+          "sets": "42-17",
+          "points": "10"
+        },
+        {
+          "pos": "3",
           "team": "Humlebæk 4",
           "teamID": "122688",
           "isUs": false,
@@ -15022,17 +15033,6 @@
           "score": "14-4",
           "sets": "32-12",
           "points": "8"
-        },
-        {
-          "pos": "3",
-          "team": "Slangerup 4",
-          "teamID": "122691",
-          "isUs": false,
-          "played": "3",
-          "won": "2",
-          "score": "14-4",
-          "sets": "31-13",
-          "points": "7"
         },
         {
           "pos": "4",
@@ -15116,10 +15116,10 @@
           "team": "St. Lyngby 1",
           "teamID": "122694",
           "isUs": false,
-          "played": "2",
+          "played": "3",
           "won": "0",
-          "score": "3-9",
-          "sets": "8-19",
+          "score": "4-14",
+          "sets": "12-30",
           "points": "1"
         }
       ],
