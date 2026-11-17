@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-17T05:16:57+00:00",
+  "updated": "2026-11-17T14:50:11+00:00",
   "season": "2026",
   "clubID": "1153",
   "source": "badmintonplayer.dk",
@@ -4693,7 +4693,7 @@
           "played": "4",
           "won": "1",
           "score": "11-21",
-          "sets": "9-43",
+          "sets": "25-43",
           "points": "4"
         },
         {
@@ -4726,7 +4726,7 @@
           "played": "4",
           "won": "0",
           "score": "0-32",
-          "sets": "0-48",
+          "sets": "0-64",
           "points": "0"
         }
       ],
@@ -5962,11 +5962,11 @@
           "team": "Tune",
           "teamID": "122495",
           "isUs": false,
-          "played": "4",
+          "played": "5",
           "won": "3",
-          "score": "27-25",
-          "sets": "62-57",
-          "points": "8"
+          "score": "33-32",
+          "sets": "76-71",
+          "points": "9"
         },
         {
           "pos": "4",
@@ -5984,11 +5984,11 @@
           "team": "Køge 2",
           "teamID": "122498",
           "isUs": false,
-          "played": "3",
-          "won": "2",
-          "score": "19-20",
-          "sets": "45-41",
-          "points": "4"
+          "played": "4",
+          "won": "3",
+          "score": "26-26",
+          "sets": "59-55",
+          "points": "6"
         },
         {
           "pos": "6",
