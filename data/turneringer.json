@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16T20:02:54+00:00",
+ "updated": "2026-11-17T05:02:40+00:00",
  "season": "2026",
  "source": "badmintonplayer.dk sæsonplan",
  "levels": [
@@ -6212,7 +6212,13 @@
     }
    ],
    "place": {
-    "unknown": true
+    "name": "Odense",
+    "lat": 55.3997,
+    "lon": 10.3852,
+    "km": 145,
+    "region": "Syddanmark",
+    "min": null,
+    "roadKm": null
    }
   },
   {
