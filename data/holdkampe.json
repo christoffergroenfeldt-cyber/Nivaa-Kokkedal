@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-18T05:16:06+00:00",
+  "updated": "2026-11-18T14:23:17+00:00",
   "season": "2026",
   "clubID": "1153",
   "source": "badmintonplayer.dk",
@@ -1506,7 +1506,7 @@
       "name": "Nivå-Kokkedal 2",
       "pulje": "U13 D, 4600 (4 spillere) Pulje 3",
       "label": "U13 D",
-      "position": "5",
+      "position": "6",
       "standing": [
         {
           "pos": "1",
@@ -1532,17 +1532,28 @@
         },
         {
           "pos": "3",
-          "team": "Helsingør 1",
-          "teamID": "124629",
+          "team": "Espergærde 1",
+          "teamID": "124630",
           "isUs": false,
-          "played": "0",
-          "won": "0",
-          "score": "0-0",
-          "sets": "0-0",
-          "points": "0"
+          "played": "2",
+          "won": "1",
+          "score": "9-7",
+          "sets": "19-14",
+          "points": "4"
         },
         {
           "pos": "4",
+          "team": "Græsted 1",
+          "teamID": "124631",
+          "isUs": false,
+          "played": "2",
+          "won": "1",
+          "score": "9-7",
+          "sets": "19-15",
+          "points": "4"
+        },
+        {
+          "pos": "5",
           "team": "Hørsholm 4",
           "teamID": "124626",
           "isUs": false,
@@ -1553,7 +1564,7 @@
           "points": "0"
         },
         {
-          "pos": "5",
+          "pos": "6",
           "team": "Nivå-Kokkedal 2",
           "teamID": "124627",
           "isUs": true,
@@ -1564,25 +1575,14 @@
           "points": "0"
         },
         {
-          "pos": "6",
-          "team": "Espergærde 1",
-          "teamID": "124630",
-          "isUs": false,
-          "played": "1",
-          "won": "0",
-          "score": "1-7",
-          "sets": "3-14",
-          "points": "0"
-        },
-        {
           "pos": "7",
-          "team": "Græsted 1",
-          "teamID": "124631",
+          "team": "Helsingør 1",
+          "teamID": "124629",
           "isUs": false,
-          "played": "1",
+          "played": "2",
           "won": "0",
-          "score": "1-7",
-          "sets": "3-15",
+          "score": "0-16",
+          "sets": "0-32",
           "points": "0"
         },
         {

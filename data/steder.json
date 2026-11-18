@@ -111,6 +111,15 @@
   "min": 203,
   "roadKm": 312
  },
+ "Badminton Danmarks U15 decemberlejr 2026": {
+  "sted": "Danmarks",
+  "lat": 55.7105,
+  "lon": 12.5632,
+  "region": "Hovedstaden",
+  "via": "nominatim",
+  "min": 25,
+  "roadKm": 29
+ },
  "Badminton Esbjerg": {
   "sted": "Esbjerg",
   "lat": 55.4665,

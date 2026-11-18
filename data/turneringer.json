@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18T05:02:31+00:00",
+ "updated": "2026-11-18T14:10:41+00:00",
  "season": "2026",
  "source": "badmintonplayer.dk sæsonplan",
  "levels": [
@@ -13289,6 +13289,43 @@
    }
   },
   {
+   "id": "123655",
+   "links": [
+    "tilmelding"
+   ],
+   "urls": {
+    "tilmelding": "https://www.badmintonplayer.dk/DBF/Turnering/TilmeldTurnering/#123655"
+   },
+   "entryOpen": true,
+   "hasResults": false,
+   "start": "2026-12-11",
+   "end": "2026-12-13",
+   "week": "50",
+   "deadline": "2026-12-01",
+   "organiser": "Badminton Danmarks U15 decemberlejr 2026",
+   "classes": [
+    {
+     "raw": "U15 E",
+     "ages": [
+      "U15"
+     ],
+     "levels": [
+      "E"
+     ],
+     "days": "fr 11-sø 13"
+    }
+   ],
+   "place": {
+    "name": "Danmarks",
+    "lat": 55.7105,
+    "lon": 12.5632,
+    "km": 25,
+    "region": "Hovedstaden",
+    "min": 25,
+    "roadKm": 29
+   }
+  },
+  {
    "id": "119225",
    "links": [
     "invitation",
@@ -19634,9 +19671,11 @@
   {
    "id": "116160",
    "links": [
+    "invitation",
     "tilmelding"
    ],
    "urls": {
+    "invitation": "https://www.badmintonplayer.dk/DBF/Turnering/VisInvitation/#116160,",
     "tilmelding": "https://www.badmintonplayer.dk/DBF/Turnering/TilmeldTurnering/#116160"
    },
    "entryOpen": true,
