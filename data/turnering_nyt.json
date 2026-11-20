@@ -8,6 +8,10 @@
   ],
   "119994": [
    {
+    "d": "2026-11-20",
+    "t": "Deltagerlisten er offentliggjort"
+   },
+   {
     "d": "2026-11-16",
     "t": "Programmet er klar (lodtrækning og spilletider)"
    }
@@ -52,12 +56,6 @@
     "t": "Ny turnering i kalenderen"
    }
   ],
-  "x456c6b3ee4": [
-   {
-    "d": "2026-11-17",
-    "t": "Ny turnering i kalenderen"
-   }
-  ],
   "119982": [
    {
     "d": "2026-11-18",
@@ -84,6 +82,10 @@
   ],
   "116886": [
    {
+    "d": "2026-11-20",
+    "t": "Deltagerlisten er offentliggjort"
+   },
+   {
     "d": "2026-11-19",
     "t": "Tilmeldingsfristen er ændret til tor 12. nov (var søn 15. nov)"
    }
@@ -103,11 +105,130 @@
     "d": "2026-11-19",
     "t": "Invitationen er lagt ud"
    }
+  ],
+  "118959": [
+   {
+    "d": "2026-11-20",
+    "t": "Deltagerlisten er offentliggjort"
+   },
+   {
+    "d": "2026-11-17",
+    "t": "Ny turnering i kalenderen"
+   }
+  ],
+  "116666": [
+   {
+    "d": "2026-11-20",
+    "t": "Deltagerlisten er offentliggjort"
+   }
+  ],
+  "118851": [
+   {
+    "d": "2026-11-20",
+    "t": "Deltagerlisten er offentliggjort"
+   }
+  ],
+  "119065": [
+   {
+    "d": "2026-11-20",
+    "t": "Deltagerlisten er offentliggjort"
+   }
+  ],
+  "117163": [
+   {
+    "d": "2026-11-20",
+    "t": "Deltagerlisten er offentliggjort"
+   }
+  ],
+  "117945": [
+   {
+    "d": "2026-11-20",
+    "t": "Deltagerlisten er offentliggjort"
+   }
+  ],
+  "116842": [
+   {
+    "d": "2026-11-20",
+    "t": "Deltagerlisten er offentliggjort"
+   }
+  ],
+  "119657": [
+   {
+    "d": "2026-11-20",
+    "t": "Deltagerlisten er offentliggjort"
+   }
+  ],
+  "118837": [
+   {
+    "d": "2026-11-20",
+    "t": "Deltagerlisten er offentliggjort"
+   }
+  ],
+  "118985": [
+   {
+    "d": "2026-11-20",
+    "t": "Deltagerlisten er offentliggjort"
+   }
+  ],
+  "116212": [
+   {
+    "d": "2026-11-20",
+    "t": "Deltagerlisten er offentliggjort"
+   }
+  ],
+  "118967": [
+   {
+    "d": "2026-11-20",
+    "t": "Deltagerlisten er offentliggjort"
+   }
+  ],
+  "118976": [
+   {
+    "d": "2026-11-20",
+    "t": "Deltagerlisten er offentliggjort"
+   }
+  ],
+  "118980": [
+   {
+    "d": "2026-11-20",
+    "t": "Deltagerlisten er offentliggjort"
+   }
+  ],
+  "118970": [
+   {
+    "d": "2026-11-20",
+    "t": "Deltagerlisten er offentliggjort"
+   }
+  ],
+  "118984": [
+   {
+    "d": "2026-11-20",
+    "t": "Deltagerlisten er offentliggjort"
+   }
+  ],
+  "118971": [
+   {
+    "d": "2026-11-20",
+    "t": "Deltagerlisten er offentliggjort"
+   }
+  ],
+  "118947": [
+   {
+    "d": "2026-11-20",
+    "t": "Deltagerlisten er offentliggjort"
+   }
+  ],
+  "119858": [
+   {
+    "d": "2026-11-20",
+    "t": "Deltagerlisten er offentliggjort"
+   }
   ]
  },
  "alias": {
   "xb540de5e1a": "123645",
-  "xddfcf04009": "121353"
+  "xddfcf04009": "121353",
+  "x456c6b3ee4": "118959"
  },
- "updated": "2026-11-19T20:17:22+00:00"
+ "updated": "2026-11-20T05:16:12+00:00"
 }
