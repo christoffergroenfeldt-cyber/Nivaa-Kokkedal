@@ -11,7 +11,7 @@ import {
 } from "./db.ts";
 import { mailLeft, sendMail, smtpOn } from "./mail.ts";
 
-const SCRIPT_VERSION = '2026-11-17.3';   // vises af ?action=version
+const SCRIPT_VERSION = '2026-11-21.1';   // vises af ?action=version
 const CLUB = env('CLUB_NAME', 'Nivå Kokkedal Badmintonklub');
 const SHORT = env('CLUB_SHORT', 'NKB');
 const APP_URL = env('APP_URL').replace(/\/?$/, '/');
@@ -1665,6 +1665,21 @@ async function convReach_(cx) {
   (await data('Forældre')).forEach((r) => { if (r[4]) mark(convFind_(cv, String(r[4])), 'forælder'); if (r[0]) mark(cv.em[em_(r[0])] || [], 'forælder'); });
   return { cv, reach };
 }
+// Søg i medlemslisten uden login — så en forælder kan finde sit barn og registrere sig. Kun navne (ingen hold, e-mails eller id'er
+// ud over Conventus-nummeret), mindst 2 tegn, højst 12 svar — hele listen kan ikke hentes herfra.
+function fold_(s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9æøå]+/g, ' ').trim(); }
+async function memberSearch_(b) {
+  const q = fold_(clean_(b.q, 60));
+  if (q.length < 2) return { ok: true, members: [] };
+  if (!convOn_()) return { ok: true, members: [] };
+  const words = q.split(' ');
+  const hits = (await data('Conventus')).filter((r) => r[0] && r[1]).filter((r) => {
+    const n = ' ' + fold_(r[1]);
+    return words.every((w) => n.indexOf(' ' + w) >= 0);   // hvert søgeord skal matche starten af et navn (for- eller efternavn)
+  }).map((r) => ({ cid: String(r[0]), name: String(r[1]) }))
+    .sort((x, y) => x.name.localeCompare(y.name, 'da')).slice(0, 12);
+  return { ok: true, members: hits };
+}
 async function members_(b) {   // medlemslisten til appen — kun for indloggede. Administratorer får også appens brugere.
   const ses = await session_(b.token);
   if (!ses) return { ok: false, error: 'login' };
@@ -1672,9 +1687,10 @@ async function members_(b) {   // medlemslisten til appen — kun for indloggede
   let rows = await data('Conventus');
   if (!rows.length) { try { await conventusSync_(); rows = await data('Conventus'); } catch (e) { return { ok: false, error: String(e.message || e) }; } }
   const split = (x) => String(x || '').split(';').map((t) => t.trim()).filter(String);
+  const admin = await isAdmin_(ses.email, ses.playerId);   // kun administratorer får holdene med — andre ser kun navnene
   const out = { ok: true, updated: Number(await prop('CONV_SYNC') || 0),
-    members: rows.filter((r) => r[0] && r[1]).map((r) => ({ cid: String(r[0]), name: String(r[1]), groups: split(r[2]), leads: split(r[3]) })) };
-  if (await isAdmin_(ses.email, ses.playerId)) {
+    members: rows.filter((r) => r[0] && r[1]).map((r) => admin ? { cid: String(r[0]), name: String(r[1]), groups: split(r[2]), leads: split(r[3]) } : { cid: String(r[0]), name: String(r[1]) }) };
+  if (admin) {
     const seen = {}, spl = await data('Spillere'); out.users = [];
     spl.forEach((r) => { const id = String(r[0]); if (!id || /^p:/.test(id) || seen[id]) return; seen[id] = 1; out.users.push({ id, name: String(r[1]) }); });
     // Conventus-hold: antal medlemmer, hvor mange appen kan nå (selv / via forælder), og hvem der mangler (til invitationer).
@@ -1876,6 +1892,7 @@ async function route_(b) {
     case 'exSave': return exSave_(b);
     case 'exDel': return exDel_(b);
     case 'members': return members_(b);
+    case 'memberSearch': return memberSearch_(b);
     case 'inviteSave': return inviteSave_(b);
     case 'inviteStop': return inviteStop_(b);
     case 'export': return export_(b);
