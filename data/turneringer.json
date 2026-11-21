@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T05:02:24+00:00",
+ "updated": "2026-11-21T13:34:15+00:00",
  "season": "2026",
  "source": "badmintonplayer.dk sæsonplan",
  "levels": [
@@ -2143,7 +2143,13 @@
     }
    ],
    "place": {
-    "unknown": true
+    "name": "Aarhus",
+    "lat": 56.1496,
+    "lon": 10.2134,
+    "km": 144,
+    "region": "Midtjylland",
+    "min": null,
+    "roadKm": null
    }
   },
   {
@@ -6206,7 +6212,13 @@
     }
    ],
    "place": {
-    "unknown": true
+    "name": "Odense",
+    "lat": 55.3997,
+    "lon": 10.3852,
+    "km": 145,
+    "region": "Syddanmark",
+    "min": null,
+    "roadKm": null
    }
   },
   {
@@ -12647,10 +12659,14 @@
    "id": "118967",
    "links": [
     "deltagere",
-    "invitation"
+    "invitation",
+    "program",
+    "resultater"
    ],
    "urls": {
     "invitation": "https://www.badmintonplayer.dk/DBF/Turnering/VisInvitation/#118967,",
+    "program": "https://www.badmintonplayer.dk/DBF/Turnering/VisResultater/#118967,-8",
+    "resultater": "https://www.badmintonplayer.dk/DBF/Turnering/VisResultater/#118967,-8",
     "deltagere": "https://www.badmintonplayer.dk/DBF/Turnering/DeltagerListe/118967"
    },
    "entryOpen": false,

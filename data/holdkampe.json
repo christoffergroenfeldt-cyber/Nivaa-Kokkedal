@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-21T05:15:38+00:00",
+  "updated": "2026-11-21T13:48:30+00:00",
   "season": "2026",
   "clubID": "1153",
   "source": "badmintonplayer.dk",
@@ -15003,14 +15003,14 @@
       "standing": [
         {
           "pos": "1",
-          "team": "Vejby-Tisvilde Badminton 2",
-          "teamID": "122696",
+          "team": "Humlebæk 4",
+          "teamID": "122688",
           "isUs": false,
           "played": "4",
-          "won": "3",
-          "score": "19-5",
-          "sets": "40-13",
-          "points": "10"
+          "won": "4",
+          "score": "20-4",
+          "sets": "44-12",
+          "points": "11"
         },
         {
           "pos": "2",
@@ -15025,14 +15025,14 @@
         },
         {
           "pos": "3",
-          "team": "Humlebæk 4",
-          "teamID": "122688",
+          "team": "Vejby-Tisvilde Badminton 2",
+          "teamID": "122696",
           "isUs": false,
-          "played": "3",
+          "played": "5",
           "won": "3",
-          "score": "14-4",
-          "sets": "32-12",
-          "points": "8"
+          "score": "19-11",
+          "sets": "40-25",
+          "points": "10"
         },
         {
           "pos": "4",
