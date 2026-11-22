@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-22T13:40:38+00:00",
+  "updated": "2026-11-22T20:16:40+00:00",
   "season": "2026",
   "clubID": "1153",
   "source": "badmintonplayer.dk",
@@ -15003,6 +15003,17 @@
       "standing": [
         {
           "pos": "1",
+          "team": "Slangerup 4",
+          "teamID": "122691",
+          "isUs": false,
+          "played": "5",
+          "won": "4",
+          "score": "25-5",
+          "sets": "54-18",
+          "points": "13"
+        },
+        {
+          "pos": "2",
           "team": "Humlebæk 4",
           "teamID": "122688",
           "isUs": false,
@@ -15011,17 +15022,6 @@
           "score": "20-4",
           "sets": "44-12",
           "points": "11"
-        },
-        {
-          "pos": "2",
-          "team": "Slangerup 4",
-          "teamID": "122691",
-          "isUs": false,
-          "played": "4",
-          "won": "3",
-          "score": "19-5",
-          "sets": "42-17",
-          "points": "10"
         },
         {
           "pos": "3",
@@ -15105,10 +15105,10 @@
           "team": "Rudersdal 3",
           "teamID": "122695",
           "isUs": false,
-          "played": "4",
+          "played": "5",
           "won": "0",
-          "score": "7-17",
-          "sets": "18-37",
+          "score": "7-23",
+          "sets": "19-49",
           "points": "2"
         },
         {

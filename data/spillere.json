@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T13:40:38+00:00",
+ "updated": "2026-11-22T20:16:40+00:00",
  "season": "2026",
  "clubRanking": [
   {
@@ -12946,6 +12946,31 @@
       "placement": ""
      }
     ],
+    "license": "Ingen"
+   }
+  },
+  {
+   "id": "368787",
+   "name": "Jakob Westergaard",
+   "teams": [],
+   "adult": false,
+   "games": [],
+   "played": 0,
+   "won": 0,
+   "lost": 0,
+   "winPct": 0,
+   "pointsFor": 0,
+   "pointsAgainst": 0,
+   "avgPoints": 0,
+   "avgDiff": 0,
+   "setsWon": 0,
+   "setsLost": 0,
+   "byDiscipline": {},
+   "clubMember": true,
+   "gender": "M",
+   "profile": {
+    "level": "",
+    "rankings": [],
     "license": "Ingen"
    }
   },
