@@ -108,6 +108,10 @@
   ],
   "118959": [
    {
+    "d": "2026-11-22",
+    "t": "Programmet er klar (lodtrækning og spilletider)"
+   },
+   {
     "d": "2026-11-20",
     "t": "Deltagerlisten er offentliggjort"
    },
@@ -187,6 +191,10 @@
    }
   ],
   "118976": [
+   {
+    "d": "2026-11-22",
+    "t": "Programmet er klar (lodtrækning og spilletider)"
+   },
    {
     "d": "2026-11-20",
     "t": "Deltagerlisten er offentliggjort"
@@ -290,6 +298,10 @@
   ],
   "118395": [
    {
+    "d": "2026-11-22",
+    "t": "Programmet er klar (lodtrækning og spilletider)"
+   },
+   {
     "d": "2026-11-21",
     "t": "Resultaterne er klar"
    }
@@ -306,5 +318,5 @@
   "xddfcf04009": "121353",
   "x456c6b3ee4": "118959"
  },
- "updated": "2026-11-22T05:16:02+00:00"
+ "updated": "2026-11-22T13:40:42+00:00"
 }
