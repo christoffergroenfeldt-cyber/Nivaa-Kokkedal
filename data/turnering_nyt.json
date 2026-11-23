@@ -272,6 +272,10 @@
   ],
   "119842": [
    {
+    "d": "2026-11-23",
+    "t": "Deltagerlisten er offentliggjort"
+   },
+   {
     "d": "2026-11-21",
     "t": "Resultaterne er klar"
    }
@@ -315,6 +319,22 @@
     "d": "2026-11-22",
     "t": "Resultaterne er klar"
    }
+  ],
+  "116800": [
+   {
+    "d": "2026-11-23",
+    "t": "Deltagerlisten er offentliggjort"
+   }
+  ],
+  "119113": [
+   {
+    "d": "2026-11-23",
+    "t": "Invitationen er lagt ud"
+   },
+   {
+    "d": "2026-11-23",
+    "t": "Programmet er klar (lodtrækning og spilletider)"
+   }
   ]
  },
  "alias": {
@@ -322,5 +342,5 @@
   "xddfcf04009": "121353",
   "x456c6b3ee4": "118959"
  },
- "updated": "2026-11-22T20:16:46+00:00"
+ "updated": "2026-11-23T01:22:41+00:00"
 }
