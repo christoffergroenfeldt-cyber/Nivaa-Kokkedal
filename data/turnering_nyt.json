@@ -401,7 +401,47 @@
   "118528": [
    {
     "d": "2026-11-25",
+    "t": "Nye rækker: U13 D, U13 B,C"
+   },
+   {
+    "d": "2026-11-25",
+    "t": "Rækker fjernet: U13 B,C,D"
+   },
+   {
+    "d": "2026-11-25",
     "t": "Invitationen er lagt ud"
+   }
+  ],
+  "116458": [
+   {
+    "d": "2026-11-25",
+    "t": "Invitationen er lagt ud"
+   }
+  ],
+  "118787": [
+   {
+    "d": "2026-11-25",
+    "t": "Invitationen er lagt ud"
+   },
+   {
+    "d": "2026-11-25",
+    "t": "Programmet er klar (lodtrækning og spilletider)"
+   }
+  ],
+  "116424": [
+   {
+    "d": "2026-11-25",
+    "t": "Nye rækker: U09 C"
+   }
+  ],
+  "118041": [
+   {
+    "d": "2026-11-25",
+    "t": "Nye rækker: U09 C,D, U11 B,C"
+   },
+   {
+    "d": "2026-11-25",
+    "t": "Rækker fjernet: U09 D, U11 B, U11 C"
    }
   ]
  },
@@ -410,5 +450,5 @@
   "xddfcf04009": "121353",
   "x456c6b3ee4": "118959"
  },
- "updated": "2026-11-25T15:30:21+00:00"
+ "updated": "2026-11-25T15:57:20+00:00"
 }

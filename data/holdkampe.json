@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-25T15:30:15+00:00",
+  "updated": "2026-11-25T15:57:13+00:00",
   "season": "2026",
   "clubID": "1153",
   "source": "badmintonplayer.dk",
@@ -4617,10 +4617,32 @@
       "name": "Nivå-Kokkedal 4",
       "pulje": "U15 D, 4500 (4 piger) Pulje 1",
       "label": "U15 D",
-      "position": "1",
+      "position": "3",
       "standing": [
         {
           "pos": "1",
+          "team": "Slangerup 2",
+          "teamID": "124494",
+          "isUs": false,
+          "played": "4",
+          "won": "4",
+          "score": "26-6",
+          "sets": "56-17",
+          "points": "16"
+        },
+        {
+          "pos": "2",
+          "team": "Lundtofte 3",
+          "teamID": "124496",
+          "isUs": false,
+          "played": "4",
+          "won": "4",
+          "score": "21-11",
+          "sets": "45-28",
+          "points": "13"
+        },
+        {
+          "pos": "3",
           "team": "Nivå-Kokkedal 4",
           "teamID": "124492",
           "isUs": true,
@@ -4629,28 +4651,6 @@
           "score": "23-1",
           "sets": "47-4",
           "points": "12"
-        },
-        {
-          "pos": "2",
-          "team": "Slangerup 2",
-          "teamID": "124494",
-          "isUs": false,
-          "played": "3",
-          "won": "3",
-          "score": "20-4",
-          "sets": "42-13",
-          "points": "12"
-        },
-        {
-          "pos": "3",
-          "team": "Lundtofte 3",
-          "teamID": "124496",
-          "isUs": false,
-          "played": "3",
-          "won": "3",
-          "score": "16-8",
-          "sets": "33-19",
-          "points": "10"
         },
         {
           "pos": "4",
@@ -4668,11 +4668,11 @@
           "team": "Vallensbæk 2",
           "teamID": "124493",
           "isUs": false,
-          "played": "3",
+          "played": "4",
           "won": "1",
-          "score": "10-14",
-          "sets": "23-32",
-          "points": "4"
+          "score": "13-19",
+          "sets": "32-44",
+          "points": "5"
         },
         {
           "pos": "6",
@@ -4690,10 +4690,10 @@
           "team": "Gentofte 3",
           "teamID": "124490",
           "isUs": false,
-          "played": "2",
+          "played": "3",
           "won": "0",
-          "score": "7-9",
-          "sets": "15-13",
+          "score": "9-15",
+          "sets": "19-27",
           "points": "3"
         },
         {
