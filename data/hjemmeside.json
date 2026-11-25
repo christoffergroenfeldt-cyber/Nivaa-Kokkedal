@@ -1,20 +1,9 @@
 {
- "updated": "2026-11-16T08:00:24+00:00",
+ "updated": "2026-11-25T03:08:28+00:00",
  "season": "2026",
  "app": "https://christoffergroenfeldt-cyber.github.io/Nivaa-Kokkedal/",
  "teams": 13,
  "upcoming": [
-  {
-   "team": "MOT 4 spillere Serie 6",
-   "club": "Nivå-Kokkedal 1",
-   "date": "2026-11-24",
-   "time": "19:00",
-   "opponent": "Karlebo Idrætsforening 1",
-   "home": true,
-   "listedHome": false,
-   "venue": "Niverødgårdshallen - Nivå Skole",
-   "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,18966,16,19,,510274,1153,"
-  },
   {
    "team": "Danmarksserien",
    "club": "Nivå-Kokkedal",
@@ -91,6 +80,17 @@
    "listedHome": true,
    "venue": "NKK-Hallen",
    "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19064,9,10,,513060,1153,"
+  },
+  {
+   "team": "U15 C-D",
+   "club": "Nivå-Kokkedal 2",
+   "date": "2026-12-06",
+   "time": "10:30",
+   "opponent": "Hillerød 2",
+   "home": false,
+   "listedHome": true,
+   "venue": "Hillerød Badmintonklub 1-3",
+   "url": "https://badmintonplayer.dk/DBF/HoldTurnering/Stilling/#5,2026,19095,5,9,,514094,1153,"
   }
  ],
  "results": [
