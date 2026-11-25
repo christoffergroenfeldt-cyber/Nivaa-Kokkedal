@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T15:57:13+00:00",
+ "updated": "2026-11-25T16:30:20+00:00",
  "season": "2026",
  "clubRanking": [
   {
@@ -360,12 +360,12 @@
    "teams": [
     "MOT 4 spillere Serie 6"
    ],
-   "played": 6,
-   "won": 4,
+   "played": 9,
+   "won": 6,
    "winPct": 67,
-   "pointsFor": 187,
-   "avgPoints": 31.2,
-   "avgDiff": 3.0
+   "pointsFor": 284,
+   "avgPoints": 31.6,
+   "avgDiff": 1.9
   },
   {
    "rank": 27,
@@ -439,6 +439,20 @@
   },
   {
    "rank": 32,
+   "id": "366053",
+   "name": "Christoph Nørgaard-Højen",
+   "teams": [
+    "MOT 4 spillere Serie 6"
+   ],
+   "played": 10,
+   "won": 6,
+   "winPct": 60,
+   "pointsFor": 309,
+   "avgPoints": 30.9,
+   "avgDiff": -1.3
+  },
+  {
+   "rank": 33,
    "id": "363619",
    "name": "Gopi Jegatheesan",
    "teams": [
@@ -452,7 +466,7 @@
    "avgDiff": -0.8
   },
   {
-   "rank": 33,
+   "rank": 34,
    "id": "352851",
    "name": "Vitus Roug",
    "teams": [
@@ -466,7 +480,7 @@
    "avgDiff": 1.5
   },
   {
-   "rank": 34,
+   "rank": 35,
    "id": "304386",
    "name": "Simone Brejl",
    "teams": [
@@ -480,7 +494,7 @@
    "avgDiff": 1.5
   },
   {
-   "rank": 35,
+   "rank": 36,
    "id": "233719",
    "name": "Mads Christensen",
    "teams": [
@@ -494,7 +508,7 @@
    "avgDiff": 2.5
   },
   {
-   "rank": 36,
+   "rank": 37,
    "id": "9805",
    "name": "Nicolai Jonas Maltesen",
    "teams": [
@@ -509,7 +523,7 @@
    "avgDiff": 1.0
   },
   {
-   "rank": 37,
+   "rank": 38,
    "id": "88685",
    "name": "Emil Kronmann Nielsen",
    "teams": [
@@ -523,7 +537,7 @@
    "avgDiff": 1.9
   },
   {
-   "rank": 38,
+   "rank": 39,
    "id": "247550",
    "name": "Gustav Kronmann Nielsen",
    "teams": [
@@ -537,7 +551,7 @@
    "avgDiff": 1.5
   },
   {
-   "rank": 39,
+   "rank": 40,
    "id": "3805",
    "name": "Lars Lau Jensen",
    "teams": [
@@ -552,7 +566,7 @@
    "avgDiff": 1.3
   },
   {
-   "rank": 40,
+   "rank": 41,
    "id": "169315",
    "name": "Patrick Eriksson",
    "teams": [
@@ -566,7 +580,7 @@
    "avgDiff": 0.0
   },
   {
-   "rank": 41,
+   "rank": 42,
    "id": "77427",
    "name": "Jonathan Friis",
    "teams": [
@@ -580,7 +594,21 @@
    "avgDiff": -0.5
   },
   {
-   "rank": 42,
+   "rank": 43,
+   "id": "368787",
+   "name": "Jakob Westergaard",
+   "teams": [
+    "MOT 4 spillere Serie 6"
+   ],
+   "played": 2,
+   "won": 1,
+   "winPct": 50,
+   "pointsFor": 47,
+   "avgPoints": 23.5,
+   "avgDiff": -0.5
+  },
+  {
+   "rank": 44,
    "id": "303427",
    "name": "Christoffer Norman Rose Søndergaard",
    "teams": [
@@ -594,7 +622,7 @@
    "avgDiff": -0.7
   },
   {
-   "rank": 43,
+   "rank": 45,
    "id": "158875",
    "name": "Klaus Bom Werge",
    "teams": [
@@ -608,7 +636,7 @@
    "avgDiff": -1.2
   },
   {
-   "rank": 44,
+   "rank": 46,
    "id": "286845",
    "name": "Jesper Fischer-Møller",
    "teams": [
@@ -622,21 +650,7 @@
    "avgDiff": -1.5
   },
   {
-   "rank": 45,
-   "id": "366053",
-   "name": "Christoph Nørgaard-Højen",
-   "teams": [
-    "MOT 4 spillere Serie 6"
-   ],
-   "played": 8,
-   "won": 4,
-   "winPct": 50,
-   "pointsFor": 233,
-   "avgPoints": 29.1,
-   "avgDiff": -2.1
-  },
-  {
-   "rank": 46,
+   "rank": 47,
    "id": "63174",
    "name": "Alberthe Victoria Flagstad",
    "teams": [
@@ -650,7 +664,7 @@
    "avgDiff": -2.0
   },
   {
-   "rank": 47,
+   "rank": 48,
    "id": "366216",
    "name": "Elias Søgaard Ørum",
    "teams": [
@@ -664,7 +678,7 @@
    "avgDiff": -2.5
   },
   {
-   "rank": 48,
+   "rank": 49,
    "id": "352852",
    "name": "Theodor Rahman Fink",
    "teams": [
@@ -678,7 +692,7 @@
    "avgDiff": -1.8
   },
   {
-   "rank": 49,
+   "rank": 50,
    "id": "335693",
    "name": "Willads Hye Nørgaard-Højen",
    "teams": [
@@ -693,7 +707,7 @@
    "avgDiff": -2.5
   },
   {
-   "rank": 50,
+   "rank": 51,
    "id": "276370",
    "name": "Esther Sander-Thomsen",
    "teams": [
@@ -707,7 +721,7 @@
    "avgDiff": -3.1
   },
   {
-   "rank": 51,
+   "rank": 52,
    "id": "254761",
    "name": "Emma Kronmann Nielsen",
    "teams": [
@@ -721,7 +735,21 @@
    "avgDiff": 0.5
   },
   {
-   "rank": 52,
+   "rank": 53,
+   "id": "361719",
+   "name": "Martin Ullerup",
+   "teams": [
+    "MOT 4 spillere Serie 6"
+   ],
+   "played": 12,
+   "won": 5,
+   "winPct": 42,
+   "pointsFor": 379,
+   "avgPoints": 31.6,
+   "avgDiff": -1.3
+  },
+  {
+   "rank": 54,
    "id": "250888",
    "name": "Christian Lindvik",
    "teams": [
@@ -736,7 +764,7 @@
    "avgDiff": 1.3
   },
   {
-   "rank": 53,
+   "rank": 55,
    "id": "62438",
    "name": "Camilla Toft Overgaard",
    "teams": [
@@ -750,7 +778,21 @@
    "avgDiff": 0.6
   },
   {
-   "rank": 54,
+   "rank": 56,
+   "id": "361721",
+   "name": "Nicolas Feer",
+   "teams": [
+    "MOT 4 spillere Serie 6"
+   ],
+   "played": 5,
+   "won": 2,
+   "winPct": 40,
+   "pointsFor": 139,
+   "avgPoints": 27.8,
+   "avgDiff": -0.6
+  },
+  {
+   "rank": 57,
    "id": "285231",
    "name": "Margrethe Lauesen",
    "teams": [
@@ -764,7 +806,7 @@
    "avgDiff": -4.0
   },
   {
-   "rank": 55,
+   "rank": 58,
    "id": "63202",
    "name": "Jacob Møller",
    "teams": [
@@ -778,7 +820,7 @@
    "avgDiff": 1.0
   },
   {
-   "rank": 56,
+   "rank": 59,
    "id": "356472",
    "name": "Nikoline Hoffmann Severin",
    "teams": [
@@ -793,7 +835,7 @@
    "avgDiff": -3.2
   },
   {
-   "rank": 57,
+   "rank": 60,
    "id": "93884",
    "name": "Josefine Friis",
    "teams": [
@@ -807,35 +849,7 @@
    "avgDiff": -2.4
   },
   {
-   "rank": 58,
-   "id": "361719",
-   "name": "Martin Ullerup",
-   "teams": [
-    "MOT 4 spillere Serie 6"
-   ],
-   "played": 9,
-   "won": 3,
-   "winPct": 33,
-   "pointsFor": 281,
-   "avgPoints": 31.2,
-   "avgDiff": -1.3
-  },
-  {
-   "rank": 59,
-   "id": "361721",
-   "name": "Nicolas Feer",
-   "teams": [
-    "MOT 4 spillere Serie 6"
-   ],
-   "played": 3,
-   "won": 1,
-   "winPct": 33,
-   "pointsFor": 87,
-   "avgPoints": 29.0,
-   "avgDiff": -2.3
-  },
-  {
-   "rank": 60,
+   "rank": 61,
    "id": "366219",
    "name": "Jaladhi Jani",
    "teams": [
@@ -849,7 +863,7 @@
    "avgDiff": -6.3
   },
   {
-   "rank": 61,
+   "rank": 62,
    "id": "360098",
    "name": "Mathias Mønsted Nybroe",
    "teams": [
@@ -863,7 +877,7 @@
    "avgDiff": -5.0
   },
   {
-   "rank": 62,
+   "rank": 63,
    "id": "363067",
    "name": "Adam Vindal Grønbech",
    "teams": [
@@ -877,7 +891,7 @@
    "avgDiff": -7.0
   },
   {
-   "rank": 63,
+   "rank": 64,
    "id": "94218",
    "name": "Christina Sloth",
    "teams": [
@@ -891,7 +905,7 @@
    "avgDiff": -7.5
   },
   {
-   "rank": 64,
+   "rank": 65,
    "id": "276371",
    "name": "Isabel Sander-Thomsen",
    "teams": [
@@ -906,7 +920,7 @@
    "avgDiff": -7.4
   },
   {
-   "rank": 65,
+   "rank": 66,
    "id": "366220",
    "name": "Ishita Yadav",
    "teams": [
@@ -920,7 +934,7 @@
    "avgDiff": -7.3
   },
   {
-   "rank": 66,
+   "rank": 67,
    "id": "197296",
    "name": "Mille Fynboe",
    "teams": [
@@ -934,7 +948,7 @@
    "avgDiff": -3.9
   },
   {
-   "rank": 67,
+   "rank": 68,
    "id": "250289",
    "name": "Natascha Lindborg",
    "teams": [
@@ -948,7 +962,7 @@
    "avgDiff": -7.2
   },
   {
-   "rank": 68,
+   "rank": 69,
    "id": "76688",
    "name": "Stine Brehmer",
    "teams": [
@@ -962,7 +976,7 @@
    "avgDiff": -6.5
   },
   {
-   "rank": 69,
+   "rank": 70,
    "id": "336218",
    "name": "Alma Forchhammer Ali",
    "teams": [
@@ -976,7 +990,7 @@
    "avgDiff": -7.8
   },
   {
-   "rank": 70,
+   "rank": 71,
    "id": "335677",
    "name": "Frederik Visby Sandbæk",
    "teams": [
@@ -990,7 +1004,7 @@
    "avgDiff": -8.2
   },
   {
-   "rank": 71,
+   "rank": 72,
    "id": "329201",
    "name": "Emma Gaudesen",
    "teams": [
@@ -1004,7 +1018,7 @@
    "avgDiff": -9.2
   },
   {
-   "rank": 72,
+   "rank": 73,
    "id": "303521",
    "name": "Louise Byrn",
    "teams": [
@@ -1018,7 +1032,7 @@
    "avgDiff": -8.7
   },
   {
-   "rank": 73,
+   "rank": 74,
    "id": "336219",
    "name": "Arthur Asser Kaldahl",
    "teams": [
@@ -1032,7 +1046,7 @@
    "avgDiff": -12.8
   },
   {
-   "rank": 74,
+   "rank": 75,
    "id": "366215",
    "name": "Julie Westergaard",
    "teams": [
@@ -1046,7 +1060,7 @@
    "avgDiff": -11.0
   },
   {
-   "rank": 75,
+   "rank": 76,
    "id": "366218",
    "name": "Inez Hardy",
    "teams": [
@@ -1060,7 +1074,7 @@
    "avgDiff": -10.0
   },
   {
-   "rank": 76,
+   "rank": 77,
    "id": "352850",
    "name": "Valdemar Skotte Mikkelsen",
    "teams": [
@@ -1074,7 +1088,7 @@
    "avgDiff": -10.0
   },
   {
-   "rank": 77,
+   "rank": 78,
    "id": "323622",
    "name": "Advika Nair",
    "teams": [
@@ -1088,7 +1102,7 @@
    "avgDiff": -11.3
   },
   {
-   "rank": 78,
+   "rank": 79,
    "id": "305182",
    "name": "Oscar Bom Werge",
    "teams": [
@@ -1102,7 +1116,7 @@
    "avgDiff": -6.0
   },
   {
-   "rank": 79,
+   "rank": 80,
    "id": "25428",
    "name": "Jesper Kryger Petersen",
    "teams": [
@@ -1116,7 +1130,7 @@
    "avgDiff": -7.5
   },
   {
-   "rank": 80,
+   "rank": 81,
    "id": "245501",
    "name": "Colin Brun Lillholm",
    "teams": [
@@ -1130,7 +1144,7 @@
    "avgDiff": -7.8
   },
   {
-   "rank": 81,
+   "rank": 82,
    "id": "317575",
    "name": "Filip Skånstrøm Stjerneby",
    "teams": [
@@ -1144,7 +1158,7 @@
    "avgDiff": -8.0
   },
   {
-   "rank": 82,
+   "rank": 83,
    "id": "10136",
    "name": "Vibeke Lindborg",
    "teams": [
@@ -1158,7 +1172,7 @@
    "avgDiff": -9.5
   },
   {
-   "rank": 83,
+   "rank": 84,
    "id": "209695",
    "name": "Kasper Udholm",
    "teams": [
@@ -1172,7 +1186,7 @@
    "avgDiff": -10.0
   },
   {
-   "rank": 84,
+   "rank": 85,
    "id": "94429",
    "name": "Lone Dueholm",
    "teams": [
@@ -1186,7 +1200,7 @@
    "avgDiff": -11.0
   },
   {
-   "rank": 85,
+   "rank": 86,
    "id": "305031",
    "name": "August Conrad",
    "teams": [
@@ -1200,7 +1214,7 @@
    "avgDiff": -12.5
   },
   {
-   "rank": 86,
+   "rank": 87,
    "id": "352764",
    "name": "Asbjørn Kay",
    "teams": [
@@ -1214,7 +1228,7 @@
    "avgDiff": -15.0
   },
   {
-   "rank": 87,
+   "rank": 88,
    "id": "72765",
    "name": "Andrea Emilie Rasmussen",
    "teams": [
@@ -2700,6 +2714,95 @@
    "adult": true,
    "games": [
     {
+     "date": "2026-11-24",
+     "team": "MOT 4 spillere Serie 6",
+     "teamName": "Nivå-Kokkedal 1",
+     "opponentTeam": "Karlebo Idrætsforening 1",
+     "matchID": "510274",
+     "discipline": "2. D",
+     "partner": [
+      "Christoph Nørgaard-Højen"
+     ],
+     "opponents": [
+      "Torben Hawlik",
+      "Henrik Bredmose Holm"
+     ],
+     "sets": [
+      [
+       15,
+       10
+      ],
+      [
+       5,
+       15
+      ],
+      [
+       15,
+       9
+      ]
+     ],
+     "won": true,
+     "walkover": ""
+    },
+    {
+     "date": "2026-11-24",
+     "team": "MOT 4 spillere Serie 6",
+     "teamName": "Nivå-Kokkedal 1",
+     "opponentTeam": "Karlebo Idrætsforening 1",
+     "matchID": "510274",
+     "discipline": "4. D",
+     "partner": [
+      "Nicolas Feer"
+     ],
+     "opponents": [
+      "Bruno Baunsgård",
+      "Henrik Bredmose Holm"
+     ],
+     "sets": [
+      [
+       13,
+       15
+      ],
+      [
+       9,
+       15
+      ]
+     ],
+     "won": false,
+     "walkover": ""
+    },
+    {
+     "date": "2026-11-24",
+     "team": "MOT 4 spillere Serie 6",
+     "teamName": "Nivå-Kokkedal 1",
+     "opponentTeam": "Karlebo Idrætsforening 1",
+     "matchID": "510274",
+     "discipline": "5. D",
+     "partner": [
+      "Martin Ullerup"
+     ],
+     "opponents": [
+      "Per Gratløv",
+      "Henrik Bredmose Holm"
+     ],
+     "sets": [
+      [
+       10,
+       15
+      ],
+      [
+       15,
+       8
+      ],
+      [
+       15,
+       11
+      ]
+     ],
+     "won": true,
+     "walkover": ""
+    },
+    {
      "date": "2026-10-25",
      "team": "MOT 4 spillere Serie 6",
      "teamName": "Nivå-Kokkedal 1",
@@ -2866,20 +2969,20 @@
      "walkover": ""
     }
    ],
-   "played": 6,
-   "won": 4,
-   "lost": 2,
+   "played": 9,
+   "won": 6,
+   "lost": 3,
    "winPct": 67,
-   "pointsFor": 187,
-   "pointsAgainst": 169,
-   "avgPoints": 31.2,
-   "avgDiff": 3.0,
-   "setsWon": 8,
-   "setsLost": 5,
+   "pointsFor": 284,
+   "pointsAgainst": 267,
+   "avgPoints": 31.6,
+   "avgDiff": 1.9,
+   "setsWon": 12,
+   "setsLost": 9,
    "byDiscipline": {
     "D": {
-     "played": 6,
-     "won": 4
+     "played": 9,
+     "won": 6
     }
    },
    "clubMember": true,
@@ -7193,6 +7296,68 @@
    "adult": true,
    "games": [
     {
+     "date": "2026-11-24",
+     "team": "MOT 4 spillere Serie 6",
+     "teamName": "Nivå-Kokkedal 1",
+     "opponentTeam": "Karlebo Idrætsforening 1",
+     "matchID": "510274",
+     "discipline": "2. D",
+     "partner": [
+      "Amanda Bjerrum Feer"
+     ],
+     "opponents": [
+      "Torben Hawlik",
+      "Henrik Bredmose Holm"
+     ],
+     "sets": [
+      [
+       15,
+       10
+      ],
+      [
+       5,
+       15
+      ],
+      [
+       15,
+       9
+      ]
+     ],
+     "won": true,
+     "walkover": ""
+    },
+    {
+     "date": "2026-11-24",
+     "team": "MOT 4 spillere Serie 6",
+     "teamName": "Nivå-Kokkedal 1",
+     "opponentTeam": "Karlebo Idrætsforening 1",
+     "matchID": "510274",
+     "discipline": "3. D",
+     "partner": [
+      "Martin Ullerup"
+     ],
+     "opponents": [
+      "Per Gratløv",
+      "Torben Hawlik"
+     ],
+     "sets": [
+      [
+       15,
+       10
+      ],
+      [
+       11,
+       15
+      ],
+      [
+       15,
+       13
+      ]
+     ],
+     "won": true,
+     "walkover": ""
+    },
+    {
      "date": "2026-10-25",
      "team": "MOT 4 spillere Serie 6",
      "teamName": "Nivå-Kokkedal 1",
@@ -7417,20 +7582,20 @@
      "walkover": ""
     }
    ],
-   "played": 8,
-   "won": 4,
+   "played": 10,
+   "won": 6,
    "lost": 4,
-   "winPct": 50,
-   "pointsFor": 233,
-   "pointsAgainst": 250,
-   "avgPoints": 29.1,
-   "avgDiff": -2.1,
-   "setsWon": 9,
-   "setsLost": 9,
+   "winPct": 60,
+   "pointsFor": 309,
+   "pointsAgainst": 322,
+   "avgPoints": 30.9,
+   "avgDiff": -1.3,
+   "setsWon": 13,
+   "setsLost": 11,
    "byDiscipline": {
     "D": {
-     "played": 8,
-     "won": 4
+     "played": 10,
+     "won": 6
     }
    },
    "clubMember": true,
@@ -12952,20 +13117,82 @@
   {
    "id": "368787",
    "name": "Jakob Westergaard",
-   "teams": [],
-   "adult": false,
-   "games": [],
-   "played": 0,
-   "won": 0,
-   "lost": 0,
-   "winPct": 0,
-   "pointsFor": 0,
-   "pointsAgainst": 0,
-   "avgPoints": 0,
-   "avgDiff": 0,
-   "setsWon": 0,
-   "setsLost": 0,
-   "byDiscipline": {},
+   "teams": [
+    "MOT 4 spillere Serie 6"
+   ],
+   "adult": true,
+   "games": [
+    {
+     "date": "2026-11-24",
+     "team": "MOT 4 spillere Serie 6",
+     "teamName": "Nivå-Kokkedal 1",
+     "opponentTeam": "Karlebo Idrætsforening 1",
+     "matchID": "510274",
+     "discipline": "1. D",
+     "partner": [
+      "Martin Ullerup"
+     ],
+     "opponents": [
+      "Per Gratløv",
+      "Bruno Baunsgård"
+     ],
+     "sets": [
+      [
+       7,
+       15
+      ],
+      [
+       10,
+       15
+      ]
+     ],
+     "won": false,
+     "walkover": ""
+    },
+    {
+     "date": "2026-11-24",
+     "team": "MOT 4 spillere Serie 6",
+     "teamName": "Nivå-Kokkedal 1",
+     "opponentTeam": "Karlebo Idrætsforening 1",
+     "matchID": "510274",
+     "discipline": "6. D",
+     "partner": [
+      "Nicolas Feer"
+     ],
+     "opponents": [
+      "Bruno Baunsgård",
+      "Torben Hawlik"
+     ],
+     "sets": [
+      [
+       15,
+       9
+      ],
+      [
+       15,
+       9
+      ]
+     ],
+     "won": true,
+     "walkover": ""
+    }
+   ],
+   "played": 2,
+   "won": 1,
+   "lost": 1,
+   "winPct": 50,
+   "pointsFor": 47,
+   "pointsAgainst": 48,
+   "avgPoints": 23.5,
+   "avgDiff": -0.5,
+   "setsWon": 2,
+   "setsLost": 2,
+   "byDiscipline": {
+    "D": {
+     "played": 2,
+     "won": 1
+    }
+   },
    "clubMember": true,
    "gender": "M",
    "profile": {
@@ -19432,6 +19659,95 @@
    "adult": true,
    "games": [
     {
+     "date": "2026-11-24",
+     "team": "MOT 4 spillere Serie 6",
+     "teamName": "Nivå-Kokkedal 1",
+     "opponentTeam": "Karlebo Idrætsforening 1",
+     "matchID": "510274",
+     "discipline": "1. D",
+     "partner": [
+      "Jakob Westergaard"
+     ],
+     "opponents": [
+      "Per Gratløv",
+      "Bruno Baunsgård"
+     ],
+     "sets": [
+      [
+       7,
+       15
+      ],
+      [
+       10,
+       15
+      ]
+     ],
+     "won": false,
+     "walkover": ""
+    },
+    {
+     "date": "2026-11-24",
+     "team": "MOT 4 spillere Serie 6",
+     "teamName": "Nivå-Kokkedal 1",
+     "opponentTeam": "Karlebo Idrætsforening 1",
+     "matchID": "510274",
+     "discipline": "3. D",
+     "partner": [
+      "Christoph Nørgaard-Højen"
+     ],
+     "opponents": [
+      "Per Gratløv",
+      "Torben Hawlik"
+     ],
+     "sets": [
+      [
+       15,
+       10
+      ],
+      [
+       11,
+       15
+      ],
+      [
+       15,
+       13
+      ]
+     ],
+     "won": true,
+     "walkover": ""
+    },
+    {
+     "date": "2026-11-24",
+     "team": "MOT 4 spillere Serie 6",
+     "teamName": "Nivå-Kokkedal 1",
+     "opponentTeam": "Karlebo Idrætsforening 1",
+     "matchID": "510274",
+     "discipline": "5. D",
+     "partner": [
+      "Amanda Bjerrum Feer"
+     ],
+     "opponents": [
+      "Per Gratløv",
+      "Henrik Bredmose Holm"
+     ],
+     "sets": [
+      [
+       10,
+       15
+      ],
+      [
+       15,
+       8
+      ],
+      [
+       15,
+       11
+      ]
+     ],
+     "won": true,
+     "walkover": ""
+    },
+    {
      "date": "2026-10-25",
      "team": "MOT 4 spillere Serie 6",
      "teamName": "Nivå-Kokkedal 1",
@@ -19691,20 +20007,20 @@
      "walkover": ""
     }
    ],
-   "played": 9,
-   "won": 3,
-   "lost": 6,
-   "winPct": 33,
-   "pointsFor": 281,
-   "pointsAgainst": 293,
-   "avgPoints": 31.2,
+   "played": 12,
+   "won": 5,
+   "lost": 7,
+   "winPct": 42,
+   "pointsFor": 379,
+   "pointsAgainst": 395,
+   "avgPoints": 31.6,
    "avgDiff": -1.3,
-   "setsWon": 10,
-   "setsLost": 12,
+   "setsWon": 14,
+   "setsLost": 16,
    "byDiscipline": {
     "D": {
-     "played": 9,
-     "won": 3
+     "played": 12,
+     "won": 5
     }
    },
    "clubMember": true,
@@ -22325,6 +22641,60 @@
    "adult": true,
    "games": [
     {
+     "date": "2026-11-24",
+     "team": "MOT 4 spillere Serie 6",
+     "teamName": "Nivå-Kokkedal 1",
+     "opponentTeam": "Karlebo Idrætsforening 1",
+     "matchID": "510274",
+     "discipline": "4. D",
+     "partner": [
+      "Amanda Bjerrum Feer"
+     ],
+     "opponents": [
+      "Bruno Baunsgård",
+      "Henrik Bredmose Holm"
+     ],
+     "sets": [
+      [
+       13,
+       15
+      ],
+      [
+       9,
+       15
+      ]
+     ],
+     "won": false,
+     "walkover": ""
+    },
+    {
+     "date": "2026-11-24",
+     "team": "MOT 4 spillere Serie 6",
+     "teamName": "Nivå-Kokkedal 1",
+     "opponentTeam": "Karlebo Idrætsforening 1",
+     "matchID": "510274",
+     "discipline": "6. D",
+     "partner": [
+      "Jakob Westergaard"
+     ],
+     "opponents": [
+      "Bruno Baunsgård",
+      "Torben Hawlik"
+     ],
+     "sets": [
+      [
+       15,
+       9
+      ],
+      [
+       15,
+       9
+      ]
+     ],
+     "won": true,
+     "walkover": ""
+    },
+    {
      "date": "2026-10-07",
      "team": "MOT 4 spillere Serie 6",
      "teamName": "Nivå-Kokkedal 1",
@@ -22410,20 +22780,20 @@
      "walkover": ""
     }
    ],
-   "played": 3,
-   "won": 1,
-   "lost": 2,
-   "winPct": 33,
-   "pointsFor": 87,
-   "pointsAgainst": 94,
-   "avgPoints": 29.0,
-   "avgDiff": -2.3,
-   "setsWon": 3,
-   "setsLost": 4,
+   "played": 5,
+   "won": 2,
+   "lost": 3,
+   "winPct": 40,
+   "pointsFor": 139,
+   "pointsAgainst": 142,
+   "avgPoints": 27.8,
+   "avgDiff": -0.6,
+   "setsWon": 5,
+   "setsLost": 6,
    "byDiscipline": {
     "D": {
-     "played": 3,
-     "won": 1
+     "played": 5,
+     "won": 2
     }
    },
    "clubMember": true,
