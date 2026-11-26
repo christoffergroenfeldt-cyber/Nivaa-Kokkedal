@@ -65,7 +65,7 @@ const TABS0: Record<string, { t: string; cols: Col[] }> = {
   // Kun HØBK (Conventus-medlemskartoteket) — findes kun i klubber der har Conventus sat op
   Conventus: { t: 'conventus', cols: c('conventus_id,navn,grupper,leder_af,hentet:ts,email') },
   Invitationer: { t: 'invitationer', cols: c('oprettet:ts,email,conventus_ids,navne,hold,emne,tekst,status,sendt:ts,fejl,af') },
-  'Conventus grupper': { t: 'conventus_grupper', cols: c('gruppe_id,titel,type,aktivitet,aktiv,periode_fra,periode_til,pris,medlemmer:int,ledere:int,hentet:ts,afdeling,traeningshold') },
+  'Conventus grupper': { t: 'conventus_grupper', cols: c('gruppe_id,titel,type,aktivitet,aktiv,periode_fra,periode_til,pris,medlemmer:int,ledere:int,hentet:ts,afdeling,traeningshold,online,tilmeld_fra,tilmeld_til') },
 };
 export const TABS: Record<string, { t: string; cols: Col[] }> = {};
 Object.keys(TABS0).forEach((k) => { TABS[k] = { t: Q(TABS0[k].t), cols: TABS0[k].cols }; });

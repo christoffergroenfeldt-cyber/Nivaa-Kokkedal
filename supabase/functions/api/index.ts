@@ -11,7 +11,7 @@ import {
 } from "./db.ts";
 import { mailLeft, sendMail, smtpOn } from "./mail.ts";
 
-const SCRIPT_VERSION = '2026-11-21.1';   // vises af ?action=version
+const SCRIPT_VERSION = '2026-11-26.1';   // vises af ?action=version
 const CLUB = env('CLUB_NAME', 'Nivå Kokkedal Badmintonklub');
 const SHORT = env('CLUB_SHORT', 'NKB');
 const APP_URL = env('APP_URL').replace(/\/?$/, '/');
@@ -1583,7 +1583,8 @@ async function conventusSync_() {
     const id = convText_(g, 'id'), nm = convText_(g, 'titel') || convText_(g, 'navn'), afd = convText_(g, 'afdeling'); if (!id) return;
     gnames[id] = nm || ('Gruppe ' + id);
     if (tafd[afd] && convText_(g, 'aktiv') !== 'false') training[id] = 1;
-    gmeta[id] = { row: [id, gnames[id], convText_(g, 'type'), convText_(g, 'aktivitet_titel'), convText_(g, 'aktiv'), convText_(g, 'periode_fra'), convText_(g, 'periode_til'), convText_(g, 'pris')], m: 0, l: 0, afd };
+    gmeta[id] = { row: [id, gnames[id], convText_(g, 'type'), convText_(g, 'aktivitet_titel'), convText_(g, 'aktiv'), convText_(g, 'periode_fra'), convText_(g, 'periode_til'), convText_(g, 'pris')], m: 0, l: 0, afd,
+      on: [convText_(g, 'online_tilmelding'), convText_(g, 'online_tilmeld_fra'), convText_(g, 'online_tilmeld_til')] };
   });
   const mx = convKids_(await convGet_('get_medlemmer.php', { relationer: 'true' }), 'medlem').filter((m) => convChild_(m, 'id'));
   const rows = [], now = new Date();
@@ -1599,13 +1600,14 @@ async function conventusSync_() {
     rows.push([convText_(m, 'id'), clean_(convText_(m, 'navn'), 120), groups.join('; '), leads.join('; '), now, em_(clean_(convText_(m, 'email'), 200))]);
   });
   if (!rows.length) throw new Error('Ingen medlemmer på træningshold — beholder den gamle liste');
-  const grows = Object.keys(gmeta).map((id) => { const g = gmeta[id]; return g.row.map(String).concat([g.m, g.l, now, g.afd, training[id] ? 'ja' : '']); })
+  const grows = Object.keys(gmeta).map((id) => { const g = gmeta[id]; return g.row.map(String).concat([g.m, g.l, now, g.afd, training[id] ? 'ja' : '']).concat(g.on); })
     .sort((x, y) => y[8] - x[8]);
   await withLock(async () => {
     await sql`delete from ${sql(TABS['Conventus'].t)}`; await appendMany('Conventus', rows);
     await sql`delete from ${sql(TABS['Conventus grupper'].t)}`; await appendMany('Conventus grupper', grows);
   });
   await setProp('CONV_SYNC', String(now.getTime()));
+  await setProp('cache:convSignup', '', 1);   // tilmeldingsgrupperne bygges igen
   return rows.length;
 }
 // ---------- Conventus-hold som modtagere af nyheder ----------
@@ -1668,6 +1670,22 @@ async function convReach_(cx) {
 // Søg i medlemslisten uden login — så en forælder kan finde sit barn og registrere sig. Kun navne (ingen hold, e-mails eller id'er
 // ud over Conventus-nummeret), mindst 2 tegn, højst 12 svar — hele listen kan ikke hentes herfra.
 function fold_(s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9æøå]+/g, ' ').trim(); }
+// Grupper i Conventus med online-tilmelding slået til — uden login (titler og datoer er offentlige på Conventus' tilmeldingsside).
+// Appen kobler klubbens aktiviteter på hoebk.dk til en gruppe og viser "Tilmeld i Conventus".
+const CONV_DATE = (x) => { const v = String(x || '').slice(0, 10); return /^\d{4}-\d{2}-\d{2}$/.test(v) && v > '1900' ? v : ''; };
+async function convSignup_() {
+  if (!convOn_()) return { ok: true, groups: [] };
+  const v = await prop('cache:convSignup');
+  if (v) { try { return JSON.parse(v); } catch { /* byg igen */ } }
+  const today = new Date().toISOString().slice(0, 10);
+  const groups = (await data('Conventus grupper')).filter((r) => r[0] && String(r[13]) === 'true' && String(r[4]) !== 'false')
+    .map((r) => ({ id: String(r[0]), title: String(r[1]), from: CONV_DATE(r[5]), to: CONV_DATE(r[6]), team: String(r[12]) === 'ja',
+                   open: CONV_DATE(r[14]), close: CONV_DATE(r[15]) }))
+    .filter((g) => (!g.close || g.close >= today) && (!g.to || g.to >= today) && (!g.from || g.to || g.from >= today));   // ikke afsluttede
+  const out = { ok: true, groups };
+  await setProp('cache:convSignup', JSON.stringify(out), 3600);
+  return out;
+}
 async function memberSearch_(b) {
   const q = fold_(clean_(b.q, 60));
   if (q.length < 2) return { ok: true, members: [] };
@@ -1893,6 +1911,7 @@ async function route_(b) {
     case 'exDel': return exDel_(b);
     case 'members': return members_(b);
     case 'memberSearch': return memberSearch_(b);
+    case 'convSignup': return convSignup_();
     case 'inviteSave': return inviteSave_(b);
     case 'inviteStop': return inviteStop_(b);
     case 'export': return export_(b);
