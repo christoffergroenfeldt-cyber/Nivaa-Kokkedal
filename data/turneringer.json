@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T05:02:35+00:00",
+ "updated": "2026-11-26T15:26:13+00:00",
  "season": "2026",
  "source": "badmintonplayer.dk sæsonplan",
  "levels": [
@@ -18046,9 +18046,11 @@
   {
    "id": "118073",
    "links": [
+    "invitation",
     "tilmelding"
    ],
    "urls": {
+    "invitation": "https://www.badmintonplayer.dk/DBF/Turnering/VisInvitation/#118073,",
     "tilmelding": "https://www.badmintonplayer.dk/DBF/Turnering/TilmeldTurnering/#118073"
    },
    "entryOpen": true,
@@ -22371,9 +22373,11 @@
   {
    "id": "117894",
    "links": [
+    "invitation",
     "tilmelding"
    ],
    "urls": {
+    "invitation": "https://www.badmintonplayer.dk/DBF/Turnering/VisInvitation/#117894,",
     "tilmelding": "https://www.badmintonplayer.dk/DBF/Turnering/TilmeldTurnering/#117894"
    },
    "entryOpen": true,
