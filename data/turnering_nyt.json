@@ -443,6 +443,28 @@
     "d": "2026-11-25",
     "t": "Rækker fjernet: U09 D, U11 B, U11 C"
    }
+  ],
+  "119984": [
+   {
+    "d": "2026-11-26",
+    "t": "Resultaterne er klar"
+   }
+  ],
+  "116441": [
+   {
+    "d": "2026-11-26",
+    "t": "Invitationen er lagt ud"
+   },
+   {
+    "d": "2026-11-26",
+    "t": "Programmet er klar (lodtrækning og spilletider)"
+   }
+  ],
+  "119088": [
+   {
+    "d": "2026-11-26",
+    "t": "Invitationen er lagt ud"
+   }
   ]
  },
  "alias": {
@@ -450,5 +472,5 @@
   "xddfcf04009": "121353",
   "x456c6b3ee4": "118959"
  },
- "updated": "2026-11-25T20:16:08+00:00"
+ "updated": "2026-11-26T05:16:31+00:00"
 }
