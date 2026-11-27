@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T05:02:37+00:00",
+ "updated": "2026-11-27T15:13:55+00:00",
  "season": "2026",
  "source": "badmintonplayer.dk sæsonplan",
  "levels": [
@@ -13243,17 +13243,19 @@
   {
    "id": "123705",
    "links": [
-    "invitation"
+    "invitation",
+    "tilmelding"
    ],
    "urls": {
-    "invitation": "https://www.badmintonplayer.dk/DBF/Turnering/VisInvitation/#123705,"
+    "invitation": "https://www.badmintonplayer.dk/DBF/Turnering/VisInvitation/#123705,",
+    "tilmelding": "https://www.badmintonplayer.dk/DBF/Turnering/TilmeldTurnering/#123705"
    },
-   "entryOpen": false,
+   "entryOpen": true,
    "hasResults": false,
    "start": "2026-12-10",
    "end": "2026-12-10",
    "week": "50",
-   "deadline": "2026-11-26",
+   "deadline": "2026-11-30",
    "organiser": "Aftensmad EFTERSKOLEMESTERSKABER",
    "classes": [
     {
@@ -13335,17 +13337,19 @@
   {
    "id": "122061",
    "links": [
-    "invitation"
+    "invitation",
+    "tilmelding"
    ],
    "urls": {
-    "invitation": "https://www.badmintonplayer.dk/DBF/Turnering/VisInvitation/#122061,"
+    "invitation": "https://www.badmintonplayer.dk/DBF/Turnering/VisInvitation/#122061,",
+    "tilmelding": "https://www.badmintonplayer.dk/DBF/Turnering/TilmeldTurnering/#122061"
    },
-   "entryOpen": false,
+   "entryOpen": true,
    "hasResults": false,
    "start": "2026-12-10",
    "end": "2026-12-10",
    "week": "50",
-   "deadline": "2026-11-26",
+   "deadline": "2026-11-27",
    "organiser": "VICTOR Efterskolemesterskaber - specielle tilmeldingsbetingelser",
    "classes": [
     {
@@ -16498,9 +16502,15 @@
   {
    "id": "115871",
    "links": [
+    "invitation",
+    "program",
+    "resultater",
     "tilmelding"
    ],
    "urls": {
+    "invitation": "https://www.badmintonplayer.dk/DBF/Turnering/VisInvitation/#115871,",
+    "program": "https://www.badmintonplayer.dk/DBF/Turnering/VisResultater/#115871,-8",
+    "resultater": "https://www.badmintonplayer.dk/DBF/Turnering/VisResultater/#115871,-8",
     "tilmelding": "https://www.badmintonplayer.dk/DBF/Turnering/TilmeldTurnering/#115871"
    },
    "entryOpen": true,
@@ -17754,9 +17764,11 @@
   {
    "id": "116282",
    "links": [
+    "invitation",
     "tilmelding"
    ],
    "urls": {
+    "invitation": "https://www.badmintonplayer.dk/DBF/Turnering/VisInvitation/#116282,",
     "tilmelding": "https://www.badmintonplayer.dk/DBF/Turnering/TilmeldTurnering/#116282"
    },
    "entryOpen": true,
